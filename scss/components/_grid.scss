@@ -1,0 +1,19 @@
+@at-root .grid {
+  display: grid;
+  width: 100%;
+
+  &-two,
+  &-three {
+    grid-gap: 1.25em;
+  }
+
+  @include breakpoint(tablet) {
+    &-two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &-three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

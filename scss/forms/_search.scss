@@ -1,0 +1,40 @@
+.search-form {
+  .search-wrap {
+    position: relative;
+  }
+
+  .search-input {
+    border: 0;
+    color: $dark-grey;
+    height: 1.888em;
+    line-height: 1.888;
+    padding-left: 1.888em;
+    font-size: 1.888em;
+    letter-spacing: 0;
+    text-transform: uppercase;
+
+    @include placeholder() {
+      color: $dark-grey;
+    }
+  }
+
+  .search-submit {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 1em;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url('../images/search.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    height: 2em;
+    width: 2em;
+    margin: auto;
+    padding: 0;
+    border: 0;
+    outline: 0;
+  }
+}

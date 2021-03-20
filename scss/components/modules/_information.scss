@@ -1,0 +1,24 @@
+.information {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+
+  .information-address,
+  .information-phone {
+    @include fluid-font(0.875rem, 1.563rem);
+
+    line-height: 1.45;
+  }
+
+  .information-address {
+    font-style: normal;
+  }
+
+  .information-phone {
+    text-decoration: underline;
+  }
+
+  @include breakpoint(laptop) {
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
+  }
+}

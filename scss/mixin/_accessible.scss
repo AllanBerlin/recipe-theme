@@ -1,0 +1,19 @@
+@mixin accessible($visible-class: visible) {
+    &:not(.#{$visible-class}) {
+        margin: -1px;
+        padding: 0;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip: rect(0, 0, 0, 0);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+@mixin accessible-text {
+    text-indent: -1000px;
+    overflow: hidden;
+}

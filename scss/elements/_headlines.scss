@@ -1,0 +1,28 @@
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 1.875rem;
+}
+
+h1 {
+  @include fluid-font(2.5rem, 5.875rem);
+
+  line-height: 1.2;
+}
+
+h2, h3 {
+  @include fluid-font(1.75rem, 3.75rem);
+
+  color: $primary;
+  font-family: 'Metropolis Medium', sans-serif;
+  -webkit-font-smoothing: initial;
+}
+
+h4, h5, h6 {
+  @include fluid-font(1rem, 2.188rem);
+
+  color: $second;
+  font-family: 'Metropolis Medium', sans-serif;
+  -webkit-font-smoothing: initial;
+  margin-bottom: 0.75rem;
+}

@@ -1,0 +1,7 @@
+.pull-quote {
+  @include fluid-font(1.5rem, 2.5rem);
+
+  position: relative;
+  padding: 0 1em;
+  text-align: center;
+}

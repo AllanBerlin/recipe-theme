@@ -1,0 +1,13 @@
+.service-posts {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+
+  .title + .grid {
+    margin-top: 1.875rem;
+  }
+
+  @include breakpoint(laptop) {
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
+  }
+}

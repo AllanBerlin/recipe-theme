@@ -1,0 +1,63 @@
+.contact {
+  background-color: $primary;
+
+  .contact-form {
+    position: relative;
+    padding: 2.5rem 0.75rem;
+
+    p,
+    input,
+    textarea {
+      margin: 0;
+    }
+
+    p {
+      &:nth-of-type(-n + 2) {
+        margin-bottom: 1rem;
+      }
+
+      &:last-of-type {
+        text-align: center;
+
+        .wpcf7-submit {
+          min-width: 8rem;
+        }
+      }
+    }
+
+    .wpcf7 .ajax-loader {
+      display: none;
+    }
+  }
+
+  .title {
+    color: $white;
+    position: relative;
+  }
+
+  .contact-title {
+    @include fluid-font(1rem, 1.875rem);
+
+    color: $fourth;
+    margin-bottom: 1rem;
+  }
+
+  @include breakpoint(tablet) {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+
+    .contact-form {
+      padding: 3.75em 0;
+      flex: 0 0 40%;
+
+      p:last-of-type {
+        text-align: right;
+
+        .wpcf7-submit {
+          min-width: auto;
+        }
+      }
+    }
+  }
+}

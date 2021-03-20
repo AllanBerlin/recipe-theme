@@ -1,0 +1,29 @@
+@function link-state-color($state) {
+    @if not(map-has-key($link-state-colors, $state)) {
+        @error "Unknown link state '#{$state}'.";
+    }
+
+    @return map-get($link-state-colors, $state);
+}
+
+@mixin link-state($state: none) {
+    @include ease-color();
+
+    color: link-state-color($state);
+    cursor: pointer;
+}
+
+@mixin link-states($underline: false) {
+    @if $underline {
+        text-decoration: underline;
+    }
+
+    &:hover,
+    &:focus {
+        @include link-state(focus);
+    }
+
+    &:active {
+        @include link-state(active);
+    }
+}

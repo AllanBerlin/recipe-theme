@@ -1,0 +1,263 @@
+html {
+	@include box-sizing(border-box);
+
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust:     100%;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+	@include box-sizing(border-box);
+
+  font-family: 'Metropolis Regular', sans-serif;
+	height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+	color: $font-color;
+  background: none;
+  background-color: $white;
+	overflow: hidden auto;
+
+	-moz-font-feature-settings: normal;
+	-ms-font-feature-settings: normal;
+	-o-font-feature-settings: normal;
+	-webkit-font-feature-settings: normal;
+	font-feature-settings: normal;
+	-webkit-font-smoothing: antialiased;
+	-khtml-font-smoothing: antialiased;
+	-apple-font-smoothing: antialiased;
+	font-smooth: always;
+	text-rendering: optimizelegibility;
+	image-rendering: optimizeQuality;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-text-size-adjust: 100%;
+
+  #wpadminbar {
+    display: none;
+  }
+
+  @include breakpoint(laptop) {
+    &.admin-bar {
+      .layout-header {
+        top: 2rem;
+      }
+
+      .page-wrapper {
+        margin-top: 8rem;
+      }
+    }
+
+    #wpadminbar {
+      display: block;
+    }
+  }
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+[hidden],
+template {
+	display: none;
+}
+
+a {
+	background-color: transparent;
+}
+
+a:active,
+a:hover,
+a:visited {
+	outline: 0;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-family: 'Metropolis Medium', sans-serif;
+	-webkit-font-smoothing: initial;
+}
+
+main, div, p, ul, ol, li, blockquote, dl, dt, 
+pre, address, fieldset, form, section, figure,
+aside, canvas, hr, table, footer, header, article,
+nav, video, h1, h2, h3, h4, h5, h6 {
+	@include box-sizing(border-box);
+}
+
+dfn {
+	font-style: italic;
+}
+
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+img {
+  max-width: 100%;
+	border: 0;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+figure {
+	margin: 1em 40px;
+}
+
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+pre {
+	overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+}
+
+button {
+	overflow: visible;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input {
+	line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+	border: 0;
+	padding: 0;
+}
+
+textarea {
+	overflow: auto;
+}
+
+optgroup {
+	font-weight: bold;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0;
+}

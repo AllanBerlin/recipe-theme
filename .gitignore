@@ -1,0 +1,17 @@
+# Sass cache
+.sass-cache
+
+# Node / Grunt
+node_modules
+js
+css
+
+# System files
+*.DS_Store
+*[Tt]humbs.db
+*.Trashes
+*.log
+.idea/
+
+# Package Lock
+package-lock.json

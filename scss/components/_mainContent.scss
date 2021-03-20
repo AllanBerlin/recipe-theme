@@ -1,0 +1,16 @@
+.main-content {
+  .full-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .error-404 {
+    margin-top: 4rem;
+  }
+
+  @include breakpoint(laptop) {
+    .error-404 {
+      margin-top: 8rem;
+    }
+  }
+}

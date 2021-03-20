@@ -1,0 +1,33 @@
+.hero-image {
+  position: relative;
+
+  .image-container .image {
+    @include transition(opacity 400ms ease-in-out);
+
+    background-position: 50% 15%;
+  }
+
+  .entry-title {
+    @include translate3d(-50%, -50%, 0);
+
+    position: absolute;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    text-align: center;
+    color: $white;
+  }
+
+  @include breakpoint(tablet) {
+    .image-container .image {
+      padding-bottom: 56.25%;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    .image-container .image {
+      padding-bottom: 46.25%;
+    }
+  }
+}

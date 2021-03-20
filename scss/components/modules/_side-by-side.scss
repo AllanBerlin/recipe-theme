@@ -1,0 +1,21 @@
+.side-by-side {
+  .left-wrapper {
+    margin-bottom: 5em;
+  }
+
+  @include breakpoint(tablet) {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+
+    .left-wrapper {
+      flex: 0 0 50%;
+      margin-right: 6em;
+      margin-bottom: 0;
+    }
+
+    .right-wrapper {
+      flex: 0 0 33.333%;
+    }
+  }
+}

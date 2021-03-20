@@ -1,0 +1,11 @@
+.large-image {
+
+  @include breakpoint(tablet) {
+    max-width: 78.25vw;
+    margin-left: auto;
+
+    + .side-by-side {
+      margin-top: -2.5em;
+    }
+  }
+}

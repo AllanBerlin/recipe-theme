@@ -1,0 +1,16 @@
+.gallery {
+
+  .title {
+    //@include fluid-font(24px, 40px);
+
+    color: $black;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+
+  @include breakpoint(laptop) {
+    max-width: 80vw;
+    margin: 4em auto;
+  }
+}

@@ -1,0 +1,24 @@
+p {
+  @include fluid-font(0.875rem, 1.5rem);
+
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+  margin-top: 0;
+
+  &:empty {
+    display: none;
+  }
+
+  * {
+    font-size: inherit;
+    line-height: inherit;
+    margin: inherit;
+  }
+}
+
+p > i,
+p > em,
+p > span > i,
+p > span > em {
+  font-style: italic;
+}

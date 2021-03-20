@@ -1,0 +1,27 @@
+ul, ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+li {
+	@include fluid-font(0.875rem, 1.5rem);
+
+	line-height: 1.45;
+	margin-bottom: 1.25rem;
+  margin-top: 0;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 0.75rem;
+}
+
+dt {
+	font-weight: 500;
+}
+
+dd {
+	margin: 0 0.75rem 0.75rem;
+}

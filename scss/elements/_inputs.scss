@@ -1,0 +1,79 @@
+input {
+  @include box-sizing(border-box);
+
+  @include placeholder {
+    color: $light-grey;
+  }
+
+  font-family: 'Metropolis Medium', sans-serif;
+  -webkit-font-smoothing: initial;
+  appearance: none;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding: 0.063rem 0.625rem 0 0.625rem;
+  border: 1px solid $white;
+  border-radius: 0;
+  color: $black;
+  background-color: $white;
+  font-size: 1rem;
+  letter-spacing: 0.025rem;
+  width: 100%;
+
+  &:focus {
+    box-shadow: none;
+    border-color: $black;
+    outline: 0;
+  }
+
+  &.error {
+    border-color: $red;
+  }
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+
+  + label {
+    color: $font-color;
+    letter-spacing: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+
+  + label span {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    position: relative;
+    margin: 0 0.5625rem -0.175rem 0;
+    background-color: $white;
+    border: 1px solid $grey;
+  }
+
+  &:checked + label span {
+    border-color: $black;
+
+    &:before {
+      content: '';
+      font-size: 0.9rem;
+      position: absolute;
+      top: 0.063rem;
+      bottom: 0;
+      right: 0;
+      left: 0.063rem;
+      margin: auto;
+    }
+  }
+
+  &:not(:checked) + label span:before {
+    content: '';
+  }
+
+  + label span,
+  &:checked + label span {
+    @include transition(all 0.4s linear);
+  }
+}

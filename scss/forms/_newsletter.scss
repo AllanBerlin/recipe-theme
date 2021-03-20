@@ -1,0 +1,78 @@
+.newsletter-form {
+  @include clear();
+
+  background-color: $pink;
+  padding-top: 4em;
+  padding-bottom: 4em;
+
+  p {
+    //@include fluid-font(14px, 21px);
+
+    line-height: 1.5;
+    margin-top: 0;
+  }
+
+  .sign-up {
+    margin-bottom: 2em;
+  }
+
+  #mc_embed_signup {
+    div.mce_inline_error {
+      background-color: $red;
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .response {
+      font-size: 14px;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    input.mce_inline_error {
+      border-color: $red;
+
+      @include placeholder() {
+        color: $red;
+      }
+    }
+  }
+
+  .button {
+    margin-top: 1em;
+  }
+
+  @include breakpoint(laptop) {
+    padding-top: 6em;
+    padding-bottom: 6em;
+
+    .layout-module {
+      max-width: 96em;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .sign-up,
+    .submit-container {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .sign-up {
+      width: 48%;
+      float: left;
+      margin-bottom: 0;
+    }
+
+    .submit-container {
+      width: 48%;
+      float: right;
+    }
+
+    .button {
+      margin-top: 0;
+    }
+  }
+}

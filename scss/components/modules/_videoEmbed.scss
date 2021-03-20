@@ -1,0 +1,51 @@
+.video-embed {
+  position: relative;
+  padding: 7em 2.857em;
+  background-color: $black;
+
+  .video {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .video-description {
+    @include translate3d(-2.857em, 16.5em, 0);
+
+    position: relative;
+    background-color: $primary;
+    padding: 3.3em 2.857em 4.5em 2.857em;
+    margin-top: -8.25em;
+
+    p {
+      //@include fluid-font(18px, 40px);
+
+      font-family: 'Metropolis Medium', sans-serif;
+      -webkit-font-smoothing: initial;
+      color: $white;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include breakpoint(laptop) {
+    padding: 13.5em;
+
+    .video-description {
+      @include translate3d(-13.5em, 26.5em, 0);
+
+      padding: 4.3% 3.75% 6.65% 3.75%;
+      margin-top: -13.25em;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+textarea {
+  @extend input;
+
+  resize: vertical;
+  min-height: 10rem;
+  padding-top: 0.5rem;
+}

@@ -1,0 +1,107 @@
+.slider {
+  height: 100%;
+  position: relative;
+
+  .slides {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+  }
+
+  .slide-item {
+    @include transition(opacity 400ms ease-in-out);
+
+    flex: 1 0 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    opacity: 0;
+
+    &.showing {
+      opacity: 1;
+    }
+
+    .image-container {
+      height: 100%;
+    }
+
+    .slide-image {
+      padding-bottom: 0;
+      height: 100%;
+    }
+  }
+
+  .slide-title {
+    @include translate3d(-50%, -50%, 0);
+
+    position: absolute;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    text-align: center;
+    color: $white;
+  }
+
+  .slider-nav {
+    @include translateY(-50%);
+
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: block;
+    height: 2.5em;
+  }
+
+  .prev,
+  .next {
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: inline-block;
+    height: 100%;
+    width: 2.5rem;
+    background-image: url('../images/arrow.svg');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 100% auto;
+    outline: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+  }
+
+  .prev {
+    left: 1rem;
+  }
+
+  .next {
+    @include rotate(180deg);
+
+    right: 1rem;
+  }
+
+  @include breakpoint(tablet) {
+    .slides {
+      padding-bottom: 56.25%;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    .slides {
+      padding-bottom: 46.25%;
+    }
+
+    .prev,
+    .next {
+      border-radius: 0;
+    }
+  }
+}

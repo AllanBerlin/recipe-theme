@@ -1,0 +1,7 @@
+.portrait-image {
+  position: relative;
+
+  @include breakpoint(laptop) {
+    max-width: 50vw;
+  }
+}

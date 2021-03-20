@@ -1,0 +1,19 @@
+$black: #000000;
+$white: #ffffff;
+$red: #DE0709;
+$blue-klein: #002fa7;
+
+$light-blue: #8ac6d1;
+$orange: #f0744e;
+$yellow: #ecc52d;
+$green: #0e5b3b;
+$pink: #fc9f96;
+$grey: #757575;
+$light-grey: #cccccc;
+$dark-grey: #343434;
+
+$primary: var(--primary-colour, $light-blue);
+$second: var(--second-colour, $white);
+$third: var(--third-colour, $white);
+$fourth: var(--fourth-colour, $white);
+$font-color: $black;

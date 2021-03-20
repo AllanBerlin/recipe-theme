@@ -90,7 +90,7 @@ function herbst_theme_init() {
   // Turn off ability to edit theme in admin
   define('DISALLOW_FILE_EDIT', TRUE);
 
-  //Removes 'the_content' area (editor) from the Wordpress backend, since Herbst uses ACF.
+  //Removes 'the_content' area (editor) from the Wordpress backend, since Recipe uses ACF.
   remove_post_type_support('page', 'editor');
   remove_post_type_support('post', 'editor');
 }

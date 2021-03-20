@@ -6,13 +6,13 @@
  * @param $mimes
  * @return mixed
  */
-function herbst_custom_mtypes( $mimes ){
+function recipe_custom_mtypes( $mimes ){
   $mimes['svg'] = 'image/svg+xml';
   $mimes['svgz'] = 'image/svg+xml';
 
   return $mimes;
 }
-add_filter( 'upload_mimes', 'herbst_custom_mtypes' );
+add_filter( 'upload_mimes', 'recipe_custom_mtypes' );
 
 
 /**
@@ -21,7 +21,7 @@ add_filter( 'upload_mimes', 'herbst_custom_mtypes' );
  * @param $sizes
  * @return mixed
  */
-function herbst_remove_default_images( $sizes ) {
+function recipe_remove_default_images( $sizes ) {
   unset( $sizes['small']); // 150px
   unset( $sizes['medium']); // 300px
   unset( $sizes['medium_large']); // 768px
@@ -30,7 +30,7 @@ function herbst_remove_default_images( $sizes ) {
   return $sizes;
 
 }
-add_filter( 'intermediate_image_sizes_advanced', 'herbst_remove_default_images' );
+add_filter( 'intermediate_image_sizes_advanced', 'recipe_remove_default_images' );
 
 
 /**
@@ -39,14 +39,14 @@ add_filter( 'intermediate_image_sizes_advanced', 'herbst_remove_default_images' 
  * @param $classes
  * @return mixed
  */
-function herbst_play_body_class( $classes ) {
+function recipe_play_body_class( $classes ) {
   if ( is_page_template( 'page-play.php' ) ) {
     $classes[] = 'page-play';
   }
 
   return $classes;
 }
-add_filter( 'body_class','herbst_play_body_class' );
+add_filter( 'body_class','recipe_play_body_class' );
 
 
 /**
@@ -55,14 +55,14 @@ add_filter( 'body_class','herbst_play_body_class' );
  * @param $classes
  * @return mixed
  */
-function herbst_work_body_class( $classes ) {
+function recipe_work_body_class( $classes ) {
   if ( is_front_page() ) {
     $classes[] = 'page-work';
   }
 
   return $classes;
 }
-add_filter( 'body_class','herbst_work_body_class' );
+add_filter( 'body_class','recipe_work_body_class' );
 
 
 /**
@@ -71,13 +71,13 @@ add_filter( 'body_class','herbst_work_body_class' );
  * @param $classes
  * @return array
  */
-function herbst_remove_postclasses( $classes ) {
+function recipe_remove_postclasses( $classes ) {
   $classes = array_diff( $classes, array(
     'post',
   ) );
   return $classes;
 }
-add_filter( 'post_class', 'herbst_remove_postclasses', 10, 3 );
+add_filter( 'post_class', 'recipe_remove_postclasses', 10, 3 );
 
 
 /**
@@ -86,12 +86,12 @@ add_filter( 'post_class', 'herbst_remove_postclasses', 10, 3 );
  * @param $tags
  * @return mixed
  */
-function herbst_format_TinyMCE( $tags ) {
+function recipe_format_TinyMCE( $tags ) {
   $tags[ 'block_formats' ] = "Paragraph=p; Heading 3=h3; Heading 4=h4; Heading 5=h5; Heading 6=h6";
 
   return $tags;
 }
-add_filter( 'tiny_mce_before_init', 'herbst_format_TinyMCE' );
+add_filter( 'tiny_mce_before_init', 'recipe_format_TinyMCE' );
 
 
 /**
@@ -100,7 +100,7 @@ add_filter( 'tiny_mce_before_init', 'herbst_format_TinyMCE' );
  * @param $text
  * @return string|string[]|null
  */
-function herbst_clean_text( $text ) {
+function recipe_clean_text( $text ) {
   $text = preg_replace( '/<([a-z][a-z0-9]*)[^>]*?(\/?)>/i','<$1$2>', $text );
 
   return $text;
@@ -113,7 +113,7 @@ function herbst_clean_text( $text ) {
  * @param $string
  * @return string|string[]|null
  */
-function herbst_remove_special_chars( $string ) {
+function recipe_remove_special_chars( $string ) {
   $string = str_replace( ' ', '-', $string );
   $string = preg_replace( '/[^A-Za-z0-9\-]/', '', $string );
   $string = strtolower( $string );

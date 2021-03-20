@@ -14,7 +14,7 @@
 
  *
 
- * @package herbst
+ * @package recipe
 
  */
 
@@ -48,11 +48,11 @@
 
   <?php wp_head(); ?>
 
-  <?php if( get_theme_mod('herbst_main_google_font_list') ): ?>
+  <?php if( get_theme_mod('recipe_main_google_font_list') ): ?>
 
     <!--Customizer CSS-->
     <style type="text/css">
-      body {--body-font:<?php echo '"' . get_theme_mod('herbst_main_google_font_list') . '"'; ?>, sans-serif;}
+      body {--body-font:<?php echo '"' . get_theme_mod('recipe_main_google_font_list') . '"'; ?>, sans-serif;}
     </style>
     <!--/Customizer CSS-->
 
@@ -72,9 +72,9 @@
 
           <a href='<?php echo esc_url(home_url('/')); ?>' title='<?php echo esc_attr(get_bloginfo('name', 'display')); ?>' rel='home'>
 
-            <?php if (get_theme_mod('herbst_logo')) : ?>
+            <?php if (get_theme_mod('recipe_logo')) : ?>
 
-              <img class="logo" src='<?php echo esc_url(get_theme_mod('herbst_logo')); ?>' alt='<?php echo esc_attr(get_bloginfo('name', 'display')); ?>'>
+              <img class="logo" src='<?php echo esc_url(get_theme_mod('recipe_logo')); ?>' alt='<?php echo esc_attr(get_bloginfo('name', 'display')); ?>'>
 
             <?php else: ?>
 
@@ -126,7 +126,7 @@
 
             <?php foreach ( $primaryNav as $primaryNavItem ):
               $navItemTitle = $primaryNavItem->title;
-              $navLink = herbst_remove_special_chars( $navItemTitle );
+              $navLink = recipe_remove_special_chars( $navItemTitle );
 
               ?>
 
@@ -140,7 +140,7 @@
 
                     <?php foreach ( $subNav as $subNavNavItem ):
                       $subNavItemTitle = $subNavNavItem->title;
-                      $subNavLink = herbst_remove_special_chars( $subNavItemTitle );
+                      $subNavLink = recipe_remove_special_chars( $subNavItemTitle );
 
                       ?>
 
@@ -166,9 +166,9 @@
 
             <a href='<?php echo esc_url(home_url('/')); ?>' title='<?php echo esc_attr(get_bloginfo('name', 'display')); ?>' rel='home'>
 
-              <?php if (get_theme_mod('herbst_logo')) : ?>
+              <?php if (get_theme_mod('recipe_logo')) : ?>
 
-                <img class="logo" src='<?php echo esc_url(get_theme_mod('herbst_logo')); ?>' alt='<?php echo esc_attr(get_bloginfo('name', 'display')); ?>'>
+                <img class="logo" src='<?php echo esc_url(get_theme_mod('recipe_logo')); ?>' alt='<?php echo esc_attr(get_bloginfo('name', 'display')); ?>'>
 
               <?php else: ?>
 
@@ -183,7 +183,7 @@
 
             <?php foreach ( $secondaryNav as $secondNavItem ):
               $secondNavItemTitle = $secondNavItem->title;
-              $secondNavLink = herbst_remove_special_chars( $secondNavItemTitle );
+              $secondNavLink = recipe_remove_special_chars( $secondNavItemTitle );
 
               ?>
 

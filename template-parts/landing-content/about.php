@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package herbst
+ * @package recipe
  */
 
 $about = get_field('about');
@@ -31,7 +31,7 @@ $about = get_field('about');
 
   ?>
 
-  <div class="about full-container" id="<?php echo herbst_remove_special_chars( $aboutSectionTitle ); ?>">
+  <div class="about full-container" id="<?php echo recipe_remove_special_chars( $aboutSectionTitle ); ?>">
 
     <?php if( $aboutImage ): ?>
 

@@ -5,7 +5,7 @@
  */
 
 // Disable support for comments and trackbacks in post types
-function herbst_disable_comments_post_types_support() {
+function recipe_disable_comments_post_types_support() {
   $post_types = get_post_types();
 
   foreach ($post_types as $post_type) {
@@ -15,35 +15,35 @@ function herbst_disable_comments_post_types_support() {
     }
   }
 }
-add_action('admin_init', 'herbst_disable_comments_post_types_support');
+add_action('admin_init', 'recipe_disable_comments_post_types_support');
 
 
 // Close comments on the front-end
-function herbst_disable_comments_status() {
+function recipe_disable_comments_status() {
   return false;
 }
-add_filter('comments_open', 'herbst_disable_comments_status', 20, 2);
-add_filter('pings_open', 'herbst_disable_comments_status', 20, 2);
+add_filter('comments_open', 'recipe_disable_comments_status', 20, 2);
+add_filter('pings_open', 'recipe_disable_comments_status', 20, 2);
 
 
 // Hide existing comments
-function herbst_disable_comments_hide_existing_comments($comments) {
+function recipe_disable_comments_hide_existing_comments($comments) {
   $comments = array();
 
   return $comments;
 }
-add_filter('comments_array', 'herbst_disable_comments_hide_existing_comments', 10, 2);
+add_filter('comments_array', 'recipe_disable_comments_hide_existing_comments', 10, 2);
 
 
 // Remove comments page in menu
-function herbst_disable_comments_admin_menu() {
+function recipe_disable_comments_admin_menu() {
   remove_menu_page('edit-comments.php');
 }
-add_action('admin_menu', 'herbst_disable_comments_admin_menu');
+add_action('admin_menu', 'recipe_disable_comments_admin_menu');
 
 
 // Redirect any user trying to access comments page
-function herbst_disable_comments_admin_menu_redirect() {
+function recipe_disable_comments_admin_menu_redirect() {
   global $pagenow;
 
   if ($pagenow === 'edit-comments.php') {
@@ -51,20 +51,20 @@ function herbst_disable_comments_admin_menu_redirect() {
   }
 }
 
-add_action('admin_init', 'herbst_disable_comments_admin_menu_redirect');
+add_action('admin_init', 'recipe_disable_comments_admin_menu_redirect');
 
 
 // Remove comments metabox from dashboard
-function herbst_disable_comments_dashboard() {
+function recipe_disable_comments_dashboard() {
   remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
 }
-add_action('admin_init', 'herbst_disable_comments_dashboard');
+add_action('admin_init', 'recipe_disable_comments_dashboard');
 
 
 // Remove comments links from admin bar
-function herbst_disable_comments_admin_bar() {
+function recipe_disable_comments_admin_bar() {
   if (is_admin_bar_showing()) {
     remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
   }
 }
-add_action('init', 'herbst_disable_comments_admin_bar');
+add_action('init', 'recipe_disable_comments_admin_bar');

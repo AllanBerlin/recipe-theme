@@ -3,7 +3,7 @@
 /**
  * Function to add Meta Tags in Header without Plugin
  */
-function herbst_add_meta_tags() {
+function recipe_add_meta_tags() {
   $url = esc_url( get_permalink() );
 
   if ( is_front_page() ) {
@@ -43,4 +43,4 @@ function herbst_add_meta_tags() {
   echo "<meta name='twitter:title' content='$title' />";
   echo "<meta name='twitter:image' content='$image' />";
 }
-add_action( 'wp_head', 'herbst_add_meta_tags' );
+add_action( 'wp_head', 'recipe_add_meta_tags' );

@@ -1,18 +1,18 @@
 <?php
 /**
- * herbst Theme Customizer.
+ * recipe Theme Customizer.
  *
- * @package herbst
+ * @package recipe
  */
 
 
 /**
- * herbst Customizer Theme Options
+ * recipe Customizer Theme Options
  *
- * @package herbst
+ * @package recipe
  * @param $wp_customize
  */
-function herbst_customizer( $wp_customize ) {
+function recipe_customizer( $wp_customize ) {
 
   // Remove header image, background styles and custom css from theme customizer
 	$wp_customize->remove_control('header_image');
@@ -31,7 +31,7 @@ function herbst_customizer( $wp_customize ) {
 	// Main Colour
 	$wp_customize->add_setting( 'primary_colour' , array(
 		'default'     			=> '#8ac6d1',
-		'sanitize_callback' => 'herbst_sanitize_hexcolor',
+		'sanitize_callback' => 'recipe_sanitize_hexcolor',
 		'transport'   			=> 'refresh',
 	) );
 
@@ -44,7 +44,7 @@ function herbst_customizer( $wp_customize ) {
 	// Second Colour
 	$wp_customize->add_setting( 'second_colour' , array(
 		'default'     			=> '#bbded6',
-		'sanitize_callback' => 'herbst_sanitize_hexcolor',
+		'sanitize_callback' => 'recipe_sanitize_hexcolor',
 		'transport'   			=> 'refresh',
 	) );
 
@@ -57,7 +57,7 @@ function herbst_customizer( $wp_customize ) {
 	// Third Colour
 	$wp_customize->add_setting( 'third_colour' , array(
 		'default'     			=> '#fae3d9',
-		'sanitize_callback' => 'herbst_sanitize_hexcolor',
+		'sanitize_callback' => 'recipe_sanitize_hexcolor',
 		'transport'   			=> 'refresh',
 	) );
 
@@ -70,7 +70,7 @@ function herbst_customizer( $wp_customize ) {
 	// Fourth Colour
 	$wp_customize->add_setting( 'fourth_colour' , array(
 		'default'     			=> '#ffb6b9',
-		'sanitize_callback' => 'herbst_sanitize_hexcolor',
+		'sanitize_callback' => 'recipe_sanitize_hexcolor',
 		'transport'   			=> 'refresh',
 	) );
 
@@ -81,7 +81,7 @@ function herbst_customizer( $wp_customize ) {
 	) ) );
 
 }
-add_action( 'customize_register', 'herbst_customizer' );
+add_action( 'customize_register', 'recipe_customizer' );
 
 
 /**
@@ -90,7 +90,7 @@ add_action( 'customize_register', 'herbst_customizer' );
  * @param $url
  * @return string
  */
-function herbst_sanitize_url( $url ) {
+function recipe_sanitize_url( $url ) {
   return esc_url_raw( $url );
 }
 
@@ -100,7 +100,7 @@ function herbst_sanitize_url( $url ) {
  * @param $input
  * @return string
  */
-function herbst_sanitize_strip_slashes( $input ) {
+function recipe_sanitize_strip_slashes( $input ) {
   return wp_kses_stripslashes( $input );
 }
 
@@ -110,7 +110,7 @@ function herbst_sanitize_strip_slashes( $input ) {
  * @param $input
  * @return int|string
  */
-function herbst_sanitize_checkbox( $input ) {
+function recipe_sanitize_checkbox( $input ) {
   if ( $input == 1 ) {
     return 1;
   } else {
@@ -124,7 +124,7 @@ function herbst_sanitize_checkbox( $input ) {
  * @param $color
  * @return string
  */
-function herbst_sanitize_hexcolor( $color ) {
+function recipe_sanitize_hexcolor( $color ) {
   if( $unhashed = sanitize_hex_color_no_hash( $color ) ) return '#' . $unhashed;
   return $color;
 }
@@ -135,7 +135,7 @@ function herbst_sanitize_hexcolor( $color ) {
  * @param $input
  * @return string
  */
-function herbst_sanitize_radio_header( $input ) {
+function recipe_sanitize_radio_header( $input ) {
   global $header_show;
   if ( array_key_exists( $input, $header_show ) ) {
     return $input;
@@ -151,7 +151,7 @@ function herbst_sanitize_radio_header( $input ) {
  * @param $input
  * @return int|string
  */
-function herbst_sanitize_number( $input ) {
+function recipe_sanitize_number( $input ) {
   if ( isset( $input ) && is_numeric( $input ) ) {
     return $input;
   } else {

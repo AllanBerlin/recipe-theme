@@ -1,15 +1,15 @@
 <?php
 
 /**
- * herbst functions and definitions.
+ * recipe functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions
  *
- * @package herbst
+ * @package recipe
  */
 
 
-if ( ! function_exists( 'herbst_setup' ) ) :
+if ( ! function_exists( 'recipe_setup' ) ) :
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -19,7 +19,7 @@ if ( ! function_exists( 'herbst_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 
-function herbst_setup() {
+function recipe_setup() {
 
 	/*
 	 * Let WordPress manage the document title.
@@ -47,8 +47,8 @@ function herbst_setup() {
    * This theme uses wp_nav_menu() in one location.
    */
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'herbst' ),
-    'secondary' => esc_html__( 'Secondary', 'herbst' )
+		'primary' => esc_html__( 'Primary', 'recipe' ),
+    'secondary' => esc_html__( 'Secondary', 'recipe' )
 	) );
 
   /*
@@ -76,13 +76,13 @@ function herbst_setup() {
 }
 
 endif;
-add_action( 'after_setup_theme', 'herbst_setup' );
+add_action( 'after_setup_theme', 'recipe_setup' );
 
 
 /**
  * Function to be called when theme is initialised
  */
-function herbst_theme_init() {
+function recipe_theme_init() {
   // Disable Gutenberg for posts and pages
   add_filter('use_block_editor_for_post', '__return_false', 10);
   add_filter('use_block_editor_for_post_type', '__return_false', 10);
@@ -94,15 +94,15 @@ function herbst_theme_init() {
   remove_post_type_support('page', 'editor');
   remove_post_type_support('post', 'editor');
 }
-add_action('init', 'herbst_theme_init');
+add_action('init', 'recipe_theme_init');
 
 
 /**
  * Enqueue scripts and styles.
  */
-function herbst_scripts() {
+function recipe_scripts() {
 
-  wp_enqueue_style( 'herbst-style', get_template_directory_uri() . '/css/main.min.css' );
+  wp_enqueue_style( 'recipe-style', get_template_directory_uri() . '/css/main.min.css' );
 
   // Remove gutenberg block styles
   wp_dequeue_style( 'wp-block-library' );
@@ -115,10 +115,10 @@ function herbst_scripts() {
   wp_register_script( 'smoothscroll-polyfill', 'https://cdnjs.cloudflare.com/ajax/libs/iamdustan-smoothscroll/0.4.0/smoothscroll.min.js', array(), '', true );
   wp_enqueue_script( 'smoothscroll-polyfill' );
 
-	wp_enqueue_script( 'herbst-scripts', get_template_directory_uri() . '/js/scripts.min.js', array(), '', true );
+	wp_enqueue_script( 'recipe-scripts', get_template_directory_uri() . '/js/scripts.min.js', array(), '', true );
 
 }
-add_action( 'wp_enqueue_scripts', 'herbst_scripts' );
+add_action( 'wp_enqueue_scripts', 'recipe_scripts' );
 
 
 /**

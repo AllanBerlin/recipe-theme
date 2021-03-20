@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package herbst
+ * @package recipe
  */
 
 ?>
@@ -19,7 +19,7 @@
 
       <div class="footer-container layout-module">
 
-        <div class="social-links"><?php herbst_social_icons_output(); ?></div>
+        <div class="social-links"><?php recipe_social_icons_output(); ?></div>
 
         <div class="copyright">&copy; Lucas Bodywork <?php echo date('Y'); ?></div>
 

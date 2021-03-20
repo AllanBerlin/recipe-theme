@@ -1,6 +1,6 @@
 <?php
 
-function herbst_related_posts() {
+function recipe_related_posts() {
   ?>
 
   <?php

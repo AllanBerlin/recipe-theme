@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package herbst
+ * @package recipe
  */
 
 ?>
@@ -24,11 +24,11 @@
   </div><!-- .entry-content -->
 
   <!-- Related Posts -->
-<!--  --><?php //herbst_related_posts(); ?>
+<!--  --><?php //recipe_related_posts(); ?>
 
   <footer class="entry-footer">
 
-    <?php herbst_entry_footer(); ?>
+    <?php recipe_entry_footer(); ?>
 
   </footer><!-- .entry-footer -->
 

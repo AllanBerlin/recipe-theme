@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package herbst
+ * @package recipe
  */
 
 $room = get_field('room');
@@ -31,7 +31,7 @@ $room = get_field('room');
 
   ?>
 
-  <div class="room full-container" id="<?php echo herbst_remove_special_chars( $roomSectionTitle ); ?>">
+  <div class="room full-container" id="<?php echo recipe_remove_special_chars( $roomSectionTitle ); ?>">
 
     <?php if( $roomDescription ): ?>
 

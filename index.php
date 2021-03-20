@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package herbst
+ * @package recipe
  */
 
 get_header(); ?>

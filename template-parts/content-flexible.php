@@ -19,7 +19,7 @@
 
 
     <?php if( $agencyDetails ):
-      $sectionTitle = herbst_remove_special_chars( get_sub_field('section_title') );
+      $sectionTitle = recipe_remove_special_chars( get_sub_field('section_title') );
       $headline = get_sub_field('details_headline');
 
       ?>
@@ -43,7 +43,7 @@
                   <div class="image" data-src="<?php echo $defaultIllustration['url']; ?>" style="background-image: url('')" title="<?php echo $defaultIllustration['alt']; ?>"></div>
 
                   <?php foreach( $imageLinkItems as $imageLinkItem ):
-                    $linkTitle = herbst_remove_special_chars( $imageLinkItem['link']['title'] );
+                    $linkTitle = recipe_remove_special_chars( $imageLinkItem['link']['title'] );
 
                     ?>
 
@@ -70,7 +70,7 @@
 
                   <?php if( $imageLink ):
                     $linkUrl = $imageLink['url'];
-                    $linkTitle = herbst_remove_special_chars( $imageLink['title'] );
+                    $linkTitle = recipe_remove_special_chars( $imageLink['title'] );
                     $linkTarget = $imageLink['target'] ? $imageLink['target'] : '_self';
 
                     ?>
@@ -104,7 +104,7 @@
 
             <?php while( have_rows('team_member') ) : the_row();
               $memberImage = get_sub_field('image');
-              $memberDescription = herbst_clean_text( get_sub_field('description') );
+              $memberDescription = recipe_clean_text( get_sub_field('description') );
 
               ?>
 

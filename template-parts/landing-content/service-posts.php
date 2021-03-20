@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package herbst
+ * @package recipe
  */
 
 $servicePosts = get_field('service_posts');
@@ -18,7 +18,7 @@ $servicePosts = get_field('service_posts');
 
   ?>
 
-  <div class="service-posts layout-module" id="<?php echo herbst_remove_special_chars( $servicePostSectionTitle ); ?>">
+  <div class="service-posts layout-module" id="<?php echo recipe_remove_special_chars( $servicePostSectionTitle ); ?>">
 
     <?php if( $servicePostsTitle ): ?>
 

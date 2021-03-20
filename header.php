@@ -14,7 +14,7 @@
 
  *
 
- * @package herbst
+ * @package recipe
 
  */
 

@@ -8,7 +8,7 @@ if( $contactContent):
 
   ?>
 
-  <div class="contact full-container" id="<?php echo herbst_remove_special_chars( $contactSectionTitle ); ?>">
+  <div class="contact full-container" id="<?php echo recipe_remove_special_chars( $contactSectionTitle ); ?>">
 
     <?php if( $contactForm ): ?>
 

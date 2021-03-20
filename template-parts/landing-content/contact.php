@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package herbst
+ * @package recipe
  */
 
 $contactContent = get_field('contact_content');
@@ -15,7 +15,7 @@ if( $contactContent):
 
   ?>
 
-  <div class="contact full-container" id="<?php echo herbst_remove_special_chars( $contactSectionTitle ); ?>">
+  <div class="contact full-container" id="<?php echo recipe_remove_special_chars( $contactSectionTitle ); ?>">
 
     <?php if( $contactForm ): ?>
 

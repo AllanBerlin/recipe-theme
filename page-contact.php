@@ -4,7 +4,7 @@
  *
  * This is the template that displays a contact page
  *
- * @package herbst
+ * @package recipe
  */
 
 get_header(); ?>

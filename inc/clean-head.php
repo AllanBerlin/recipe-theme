@@ -60,7 +60,7 @@ add_action('init', function () {
  * @param $input
  * @return string
  */
-function herbst_restyle_loader_tag( $input ) {
+function recipe_restyle_loader_tag( $input ) {
   preg_match_all( "!<link rel='stylesheet'\s?(id='[^']+')?\s+href='(.*)' type='text/css' media='(.*)' />!", $input, $matches );
 
   if( empty( $matches[ 2 ] ) ) {
@@ -72,7 +72,7 @@ function herbst_restyle_loader_tag( $input ) {
 
   return '<link rel="stylesheet" href="' . $matches[ 2 ][ 0 ] . '"' . $media . '>' . "\n";
 }
-add_filter('style_loader_tag', 'herbst_restyle_loader_tag');
+add_filter('style_loader_tag', 'recipe_restyle_loader_tag');
 
 
 /**
@@ -81,12 +81,12 @@ add_filter('style_loader_tag', 'herbst_restyle_loader_tag');
  * @param $src
  * @return bool|mixed|string
  */
-function herbst_remove_version_scripts_styles( $src ) {
+function recipe_remove_version_scripts_styles( $src ) {
   if( strpos( $src, 'ver=' )) {
     $src = remove_query_arg( 'ver', $src );
   }
 
   return $src;
 }
-add_filter( 'style_loader_src', 'herbst_remove_version_scripts_styles', 9999 );
-add_filter( 'script_loader_src', 'herbst_remove_version_scripts_styles', 9999 );
+add_filter( 'style_loader_src', 'recipe_remove_version_scripts_styles', 9999 );
+add_filter( 'script_loader_src', 'recipe_remove_version_scripts_styles', 9999 );

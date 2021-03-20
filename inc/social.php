@@ -20,7 +20,7 @@ if( function_exists('acf_add_options_page') ) {
 /**
  * Output the social media icons
  */
-function herbst_social_icons_output() {
+function recipe_social_icons_output() {
 
   if( have_rows('social_network', 'option') ): ?>
 

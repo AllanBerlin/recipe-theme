@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package herbst
+ * @package recipe
  */
 
 ?>
@@ -28,7 +28,7 @@
 
         <div class="image-container lazy">
 
-          <div class="image" data-src="<?php echo $image['url']; ?>" style="background-image: url('/wp-content/themes/herbst/images/loading.png')" title="<?php echo $image['alt']; ?>"></div>
+          <div class="image" data-src="<?php echo $image['url']; ?>" style="background-image: url('/wp-content/themes/recipe/images/loading.png')" title="<?php echo $image['alt']; ?>"></div>
 
         </div>
 
@@ -53,7 +53,7 @@
     </div><!-- .entry-summary -->
 
     <footer class="entry-footer">
-      <?php herbst_entry_footer(); ?>
+      <?php recipe_entry_footer(); ?>
     </footer><!-- .entry-footer -->
 
   </a>

@@ -4,7 +4,7 @@
  *
  * This is the template that displays the journal and director posts
  *
- * @package herbst
+ * @package recipe
  */
 
 get_header(); ?>

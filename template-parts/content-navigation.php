@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package herbst
+ * @package recipe
  */
 
 ?>
@@ -42,7 +42,7 @@
 
           <li class="submenu-filter">
 
-            <button type="button" data-filter="<?php echo '.category-'.herbst_remove_special_chars( $category->name ); ?>" class="filter-button"><?php echo strtolower( $category->name ); ?></button>
+            <button type="button" data-filter="<?php echo '.category-'.recipe_remove_special_chars( $category->name ); ?>" class="filter-button"><?php echo strtolower( $category->name ); ?></button>
 
           </li>
 

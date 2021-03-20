@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package herbst
+ * @package recipe
  */
 
 $information = get_field('information');
@@ -19,7 +19,7 @@ $information = get_field('information');
 
   ?>
 
-  <div class="information layout-module" id="<?php echo herbst_remove_special_chars( $informationSectionTitle ); ?>">
+  <div class="information layout-module" id="<?php echo recipe_remove_special_chars( $informationSectionTitle ); ?>">
 
     <div class="information-details">
 

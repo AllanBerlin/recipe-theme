@@ -4,14 +4,14 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package herbst
+ * @package recipe
  */
 
-if ( ! function_exists( 'herbst_posted_on' ) ) :
+if ( ! function_exists( 'recipe_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function herbst_posted_on() {
+function recipe_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -25,12 +25,12 @@ function herbst_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( '%s', 'post date', 'herbst' ),
+		esc_html_x( '%s', 'post date', 'recipe' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		esc_html_x( 'BY %s', 'post author', 'herbst' ),
+		esc_html_x( 'BY %s', 'post author', 'recipe' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -39,13 +39,13 @@ function herbst_posted_on() {
 }
 endif;
 
-if ( ! function_exists( 'herbst_posted_by' ) ) :
+if ( ! function_exists( 'recipe_posted_by' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-	function herbst_posted_by() {
+	function recipe_posted_by() {
 		$byline = sprintf(
-			esc_html_x( 'BY %s', 'post author', 'herbst' ),
+			esc_html_x( 'BY %s', 'post author', 'recipe' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -54,11 +54,11 @@ if ( ! function_exists( 'herbst_posted_by' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'herbst_get_excerpt' ) ) :
+if ( ! function_exists( 'recipe_get_excerpt' ) ) :
 	/**
 	 * Prints out word limit for post excerpt on blog listing page.
 	 */
-	function herbst_get_excerpt() {
+	function recipe_get_excerpt() {
 
     $textarr = array();
 
@@ -87,11 +87,11 @@ if ( ! function_exists( 'herbst_get_excerpt' ) ) :
 endif;
 
 
-if ( ! function_exists( 'herbst_get_small_excerpt' ) ) :
+if ( ! function_exists( 'recipe_get_small_excerpt' ) ) :
 	/**
 	 * Prints out word limit for post excerpt on related posts.
 	 */
-	function herbst_get_small_excerpt() {
+	function recipe_get_small_excerpt() {
 
     $textarr = array();
 
@@ -119,37 +119,37 @@ if ( ! function_exists( 'herbst_get_small_excerpt' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'herbst_entry_footer' ) ) :
+if ( ! function_exists( 'recipe_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function herbst_entry_footer() {
+function recipe_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'herbst' ) );
-		if ( $categories_list && herbst_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'herbst' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+		$categories_list = get_the_category_list( esc_html__( ', ', 'recipe' ) );
+		if ( $categories_list && recipe_categorized_blog() ) {
+			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'recipe' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'herbst' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'recipe' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'herbst' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'recipe' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
 		/* translators: %s: post title */
-		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'herbst' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
+		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'recipe' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
 		echo '</span>';
 	}
 
 	edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'herbst' ),
+			esc_html__( 'Edit %s', 'recipe' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
 		'<span class="edit-link">',
@@ -158,33 +158,33 @@ function herbst_entry_footer() {
 }
 endif;
 
-if ( ! function_exists( 'herbst_home_entry_footer' ) ) :
+if ( ! function_exists( 'recipe_home_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function herbst_home_entry_footer() {
+	function recipe_home_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'herbst' ) );
-			if ( $categories_list && herbst_categorized_blog() ) {
-				printf( '<span class="cat-links"><span class="cat-container"> ' . esc_html__( 'IN %1$s', 'herbst' ) . '</span></span>', $categories_list ); // WPCS: XSS OK.
+			$categories_list = get_the_category_list( esc_html__( ', ', 'recipe' ) );
+			if ( $categories_list && recipe_categorized_blog() ) {
+				printf( '<span class="cat-links"><span class="cat-container"> ' . esc_html__( 'IN %1$s', 'recipe' ) . '</span></span>', $categories_list ); // WPCS: XSS OK.
 			}
 		}
 	}
 endif;
 
-if ( ! function_exists( 'herbst_entry_tags' ) ) :
+if ( ! function_exists( 'recipe_entry_tags' ) ) :
 	/**
 	 * Prints HTML with meta information for tags.
 	 */
-	function herbst_entry_tags() {
+	function recipe_entry_tags() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html__( ',&nbsp;&nbsp;&nbsp;', 'herbst' ));
+			$tags_list = get_the_tag_list( '', esc_html__( ',&nbsp;&nbsp;&nbsp;', 'recipe' ));
 			if ( $tags_list ) {
-				printf( '<p class="tags">' . esc_html__( 'Tags:' ) . '</p><span class="tags-links">' . esc_html__( '%1$s', 'herbst' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<p class="tags">' . esc_html__( 'Tags:' ) . '</p><span class="tags-links">' . esc_html__( '%1$s', 'recipe' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 	}
@@ -195,8 +195,8 @@ endif;
  *
  * @return bool
  */
-function herbst_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'herbst_categories' ) ) ) {
+function recipe_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'recipe_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -208,27 +208,27 @@ function herbst_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'herbst_categories', $all_the_cool_cats );
+		set_transient( 'recipe_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so herbst_categorized_blog should return true.
+		// This blog has more than 1 category so recipe_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so herbst_categorized_blog should return false.
+		// This blog has only 1 category so recipe_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in herbst_categorized_blog.
+ * Flush out the transients used in recipe_categorized_blog.
  */
-function herbst_category_transient_flusher() {
+function recipe_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'herbst_categories' );
+	delete_transient( 'recipe_categories' );
 }
-add_action( 'edit_category', 'herbst_category_transient_flusher' );
-add_action( 'save_post',     'herbst_category_transient_flusher' );
+add_action( 'edit_category', 'recipe_category_transient_flusher' );
+add_action( 'save_post',     'recipe_category_transient_flusher' );

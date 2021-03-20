@@ -3,7 +3,7 @@
 /**
  * This function adds the About Me Content to admin menu.
  */
-function herbst_acf_add_about_me_edit_page() {
+function recipe_acf_add_about_me_edit_page() {
   // Check function exists.
   if( function_exists('acf_add_options_page') ) {
 
@@ -20,13 +20,13 @@ function herbst_acf_add_about_me_edit_page() {
     ));
   }
 }
-//add_action('acf/init', 'herbst_acf_add_about_me_edit_page');
+//add_action('acf/init', 'recipe_acf_add_about_me_edit_page');
 
 
 /**
  * Add custom styles for the acf backend
  */
-function herbst_acf_backend_styles() {
+function recipe_acf_backend_styles() {
   ?>
   <style type="text/css">
     .acf-flexible-content .layout[data-layout="content_grid"] .acf-fields {
@@ -46,4 +46,4 @@ function herbst_acf_backend_styles() {
   </style>
   <?php
 }
-add_action('acf/input/admin_head', 'herbst_acf_backend_styles');
+add_action('acf/input/admin_head', 'recipe_acf_backend_styles');

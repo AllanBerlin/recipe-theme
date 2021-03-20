@@ -53,21 +53,40 @@ add_action('init', function () {
   add_filter('emoji_svg_url', '__return_false');
 });
 
+
 /**
- * cleanStyleTag
- *
  * Clean up output of stylesheet <link> tags
+ *
+ * @param $input
+ * @return string
  */
-add_filter('style_loader_tag', function ($input) {
-  preg_match_all(
-    "!<link rel='stylesheet'\s?(id='[^']+')?\s+href='(.*)' type='text/css' media='(.*)' />!",
-    $input,
-    $matches
-  );
-  if (empty($matches[2])) {
+function herbst_restyle_loader_tag( $input ) {
+  preg_match_all( "!<link rel='stylesheet'\s?(id='[^']+')?\s+href='(.*)' type='text/css' media='(.*)' />!", $input, $matches );
+
+  if( empty( $matches[ 2 ] ) ) {
     return $input;
   }
+
   // Only display media if it is meaningful
-  $media = $matches[3][0] !== '' && $matches[3][0] !== 'all' ? ' media="' . $matches[3][0] . '"' : '';
-  return '<link rel="stylesheet" href="' . $matches[2][0] . '"' . $media . '>' . "\n";
-});
+  $media = $matches[ 3 ][ 0 ] !== '' && $matches[ 3 ][ 0 ] !== 'all' ? ' media="' . $matches[ 3 ][ 0 ] . '"' : '';
+
+  return '<link rel="stylesheet" href="' . $matches[ 2 ][ 0 ] . '"' . $media . '>' . "\n";
+}
+add_filter('style_loader_tag', 'herbst_restyle_loader_tag');
+
+
+/**
+ * Remove version from scripts and styles
+ *
+ * @param $src
+ * @return bool|mixed|string
+ */
+function herbst_remove_version_scripts_styles( $src ) {
+  if( strpos( $src, 'ver=' )) {
+    $src = remove_query_arg( 'ver', $src );
+  }
+
+  return $src;
+}
+add_filter( 'style_loader_src', 'herbst_remove_version_scripts_styles', 9999 );
+add_filter( 'script_loader_src', 'herbst_remove_version_scripts_styles', 9999 );

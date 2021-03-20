@@ -106,7 +106,7 @@ function herbst_service_post_type_link( $link, $post ) {
 function herbst_remove_posts_from_menu() {
   remove_menu_page('edit.php');
 }
-add_action( 'admin_menu', 'herbst_remove_posts_from_menu' );
+//add_action( 'admin_menu', 'herbst_remove_posts_from_menu' );
 
 
 /**
@@ -116,4 +116,4 @@ function herbst_remove_wp_node_new_post() {
   global $wp_admin_bar;
   $wp_admin_bar->remove_node( 'new-post' );
 }
-add_action( 'admin_bar_menu', 'herbst_remove_wp_node_new_post', 999 );
+//add_action( 'admin_bar_menu', 'herbst_remove_wp_node_new_post', 999 );

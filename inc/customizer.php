@@ -5,27 +5,16 @@
  * @package herbst
  */
 
+
 /**
- * Add postMessage support for site title and description for the Theme Customizer.
+ * herbst Customizer Theme Options
  *
- * @param WP_Customize_Manager $wp_customize Theme Customizer object.
- */
-function herbst_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-}
-add_action( 'customize_register', 'herbst_customize_register' );
-
-
-/**
- * Options for WordPress Theme Customizer.
+ * @package herbst
+ * @param $wp_customize
  */
 function herbst_customizer( $wp_customize ) {
 
-	//=============================================================
-	// Remove header image, background styles and custom css from theme customizer
-	//=============================================================
+  // Remove header image, background styles and custom css from theme customizer
 	$wp_customize->remove_control('header_image');
 	$wp_customize->remove_section('background_image');
   $wp_customize->remove_section('custom_css');
@@ -97,6 +86,9 @@ add_action( 'customize_register', 'herbst_customizer' );
 
 /**
  * Sanitize url for WordPress customizer
+ *
+ * @param $url
+ * @return string
  */
 function herbst_sanitize_url( $url ) {
   return esc_url_raw( $url );
@@ -104,68 +96,65 @@ function herbst_sanitize_url( $url ) {
 
 /**
  * Adds sanitization callback function: Strip Slashes
+ *
+ * @param $input
+ * @return string
  */
-function herbst_sanitize_strip_slashes($input) {
-	return wp_kses_stripslashes($input);
+function herbst_sanitize_strip_slashes( $input ) {
+  return wp_kses_stripslashes( $input );
 }
 
 /**
  * Sanitize checkbox for WordPress customizer
+ *
+ * @param $input
+ * @return int|string
  */
 function herbst_sanitize_checkbox( $input ) {
-	if ( $input == 1 ) {
-		return 1;
-	} else {
-		return '';
-	}
+  if ( $input == 1 ) {
+    return 1;
+  } else {
+    return '';
+  }
 }
 
 /**
  * Adds sanitization callback function: colors
+ *
+ * @param $color
+ * @return string
  */
-function herbst_sanitize_hexcolor($color) {
-	if ($unhashed = sanitize_hex_color_no_hash($color))
-		return '#' . $unhashed;
-	return $color;
-}
-
-/**
- * Adds sanitization callback function: Slider Category
- */
-function herbst_sanitize_slidecat( $input ) {
-
-	if ( array_key_exists( $input, herbst_cats()) ) {
-		return $input;
-	} else {
-		return '';
-	}
+function herbst_sanitize_hexcolor( $color ) {
+  if( $unhashed = sanitize_hex_color_no_hash( $color ) ) return '#' . $unhashed;
+  return $color;
 }
 
 /**
  * Adds sanitization callback function: Radio Header
+ *
+ * @param $input
+ * @return string
  */
 function herbst_sanitize_radio_header( $input ) {
-	global $header_show;
-	if ( array_key_exists( $input, $header_show ) ) {
-		return $input;
-	} else {
-		return '';
-	}
+  global $header_show;
+  if ( array_key_exists( $input, $header_show ) ) {
+    return $input;
+  } else {
+    return '';
+  }
 }
+
 
 /**
  * Adds sanitization callback function: Number
+ *
+ * @param $input
+ * @return int|string
  */
-function herbst_sanitize_number($input) {
-	if ( isset( $input ) && is_numeric( $input ) ) {
-		return $input;
-	}
+function herbst_sanitize_number( $input ) {
+  if ( isset( $input ) && is_numeric( $input ) ) {
+    return $input;
+  } else {
+    return 0;
+  }
 }
-
-/**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
- */
-function herbst_customize_preview_js() {
-	wp_enqueue_script( 'herbst_customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'customize-preview' ), '20170809', true );
-}
-add_action( 'customize_preview_init', 'herbst_customize_preview_js' );

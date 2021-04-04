@@ -1,49 +1,31 @@
 <?php
 
 /**
- * This function adds the About Me Content to admin menu.
+ * This function adds the Newsletter Content to admin menu.
  */
-function recipe_acf_add_about_me_edit_page() {
+function recipe_acf_add_newsletter_edit_page() {
   // Check function exists.
   if( function_exists('acf_add_options_page') ) {
 
     // Register options page.
     $option_page = acf_add_options_page(array(
-      'page_title'    => __('About Me Content'),
-      'menu_title'    => __('Me'),
-      'menu_slug'     => 'about-me-content',
+      'page_title'    => __('Newsletter Content'),
+      'menu_title'    => __('Newsletter'),
+      'menu_slug'     => 'newsletter-content',
       'capability'    => 'edit_posts',
-      'position'      => 9,
+      'position'      => 8,
       'parent_slug'   => '',
-      'icon_url'      => 'dashicons-universal-access',
+      'icon_url'      => 'dashicons-email-alt',
       'redirect'      => false
     ));
   }
 }
-//add_action('acf/init', 'recipe_acf_add_about_me_edit_page');
-
+add_action('acf/init', 'recipe_acf_add_newsletter_edit_page');
 
 /**
  * Add custom styles for the acf backend
  */
-function recipe_acf_backend_styles() {
-  ?>
-  <style type="text/css">
-    .acf-flexible-content .layout[data-layout="content_grid"] .acf-fields {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: flex-start;
-    }
-
-    .acf-flexible-content .layout[data-layout="content_grid"] .acf-field[data-name="grid_type"],
-    .acf-flexible-content .layout[data-layout="content_grid"] .acf-field[data-name="grid_alignment"] {
-      flex: 0 0 100%;
-    }
-
-    .acf-flexible-content .layout[data-layout="content_grid"] .acf-field.column {
-      flex: 0 0 50%;
-    }
-  </style>
-  <?php
+function recipe_load_admin_styles() {
+  wp_enqueue_style( 'admin-styles', get_template_directory_uri() . '/admin-css/main.min.css' );
 }
-add_action('acf/input/admin_head', 'recipe_acf_backend_styles');
+add_action( 'admin_enqueue_scripts', 'recipe_load_admin_styles' );

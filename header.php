@@ -32,11 +32,11 @@
 
   <meta http-equiv="x-dns-prefetch-control" content="on">
 
-  <meta name="description" content="Lola & The Bean - a Berlin-based creative agency. We specialise in all aspects of media production." />
+  <meta name="description" content="<?php echo get_bloginfo('Description'); ?>" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="robots" content="index, follow" />
+<!--  <meta name="robots" content="index, follow" />-->
 
   <meta name="referrer" content="always" />
 

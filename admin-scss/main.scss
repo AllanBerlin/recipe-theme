@@ -1,0 +1,101 @@
+$purple: #B4A4E1;
+$red: #FB504B;
+$mint: #A0F1E2;
+$blue: #74ABEA;
+$light-pink: #F4DCDC;
+$yellow: #F8E15B;
+$light-red: #F88986;
+
+$white: #ffffff;
+$black: #20232D;
+
+$colors: ( recipe-purple, $purple ),
+  ( recipe-red, $red ),
+  ( recipe-mint, $mint ),
+  ( recipe-blue, $blue ),
+  ( recipe-pink, $light-pink ),
+  ( recipe-yellow, $yellow ),
+  ( recipe-light-red, $light-red );
+
+.wp-admin .acf-fields {
+  .acf-field[data-name^="recipe_"] ul.acf-radio-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-left: 0;
+
+    li {
+      margin-right: 0;
+      display: flex;
+    }
+
+    label {
+      width: 28px;
+      height: 28px;
+      position: relative;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      color: $white;
+      visibility: hidden;
+    }
+
+    input[type="radio"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 28px;
+      height: 28px;
+      visibility: visible;
+      background-color: $white;
+
+      &:checked:before {
+        content: "\f15e";
+        font-family: dashicons;
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        font-size: 20px;
+        margin: 2px;
+        color: $black;
+      }
+
+      @each $name, $color in $colors {
+        &[value="#{$name}"] {
+          background-color: $color;
+        }
+      }
+    }
+  }
+
+  .acf-field[data-name="recipe_font_colour"] ul.acf-radio-list input[type="radio"] {
+    // override dark colors with a white checkmark when checked (default is black)
+    &[value="recipe-black"] {
+      background-color: $black;
+
+      &:checked:before {
+        color: $white;
+      }
+    }
+  }
+
+  .acf-field[data-name="recipe_tag_colour"] ul.acf-radio-list input[type="radio"] {
+
+  }
+}
+
+.wp-admin .acf-flexible-content .layout[data-layout="content_grid"] {
+  .acf-fields {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  .acf-field[data-name="grid_type"],
+  .acf-field[data-name="grid_alignment"] {
+    flex: 0 0 100%;
+  }
+
+  .acf-field.column {
+    flex: 0 0 50%;
+  }
+}

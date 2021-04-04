@@ -6,7 +6,12 @@ module.exports = function(grunt) {
 
     watch: {
       css: {
-        files: ['scss/*.scss', 'scss/**/*.scss'],
+        files: [
+          'scss/*.scss',
+          'scss/**/*.scss', 
+          'admin-scss/*.scss',
+          'admin-scss/**/*.scss'
+        ],
         tasks: ['css'],
         options: {
           interrupt: true
@@ -28,8 +33,11 @@ module.exports = function(grunt) {
           require('autoprefixer')({browsers: 'last 10 versions'})
         ]
       },
-      dist: {
+      frontend: {
         src: 'css/*.css'
+      },
+      backend: {
+        src: 'admin-css/*.css'
       }
     },
 
@@ -39,9 +47,14 @@ module.exports = function(grunt) {
         outputStyle: 'compressed',
         sourceMap: false
       },
-      dist: {
+      frontend: {
         files: {
           'css/main.min.css': 'scss/main.scss'
+        }
+      },
+      backend: {
+        files: {
+          'admin-css/main.min.css': 'admin-scss/main.scss'
         }
       }
     },

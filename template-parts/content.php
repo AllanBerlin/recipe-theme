@@ -13,6 +13,8 @@
 
   <header class="entry-header">
 
+    <?php echo recipe_article_reading_time(); ?>
+
     <?php get_template_part( 'template-parts/post-content/hero' ); ?>
 
   </header><!-- .entry-header -->

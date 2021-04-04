@@ -20,6 +20,41 @@ function recipe_customizer( $wp_customize ) {
   $wp_customize->remove_section('custom_css');
 
 
+  /**
+   * Theme Google Fonts Section
+   **/
+  $wp_customize->add_section( 'theme_fonts', array(
+    'title'		=> esc_html__('Theme Fonts', 'herbst'),
+    'priority'	=> 20,
+  ));
+
+  // Main Font
+  $wp_customize->add_setting( 'herbst_main_google_font_list', array(
+    'default'   => 'Roboto',
+    'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_text_field',
+  ));
+
+  $wp_customize->add_control( new Google_Font_Dropdown_Custom_Control( $wp_customize, 'herbst_main_google_font_list', array(
+    'label'      => 'Main Google Font',
+    'section'    => 'theme_fonts',
+    'settings'   => 'herbst_main_google_font_list',
+  )));
+
+  // Secondary Font
+  $wp_customize->add_setting( 'herbst_secondary_google_font_list', array(
+    'default'   => 'Lora',
+    'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_text_field',
+  ));
+
+  $wp_customize->add_control( new Google_Font_Dropdown_Custom_Control( $wp_customize, 'herbst_secondary_google_font_list', array(
+    'label'      => 'Secondary Google Font',
+    'section'    => 'theme_fonts',
+    'settings'   => 'herbst_secondary_google_font_list',
+  )));
+
+
 	/**
 	 * Main Colour Section
 	 **/

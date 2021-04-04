@@ -34,6 +34,15 @@ add_filter( 'intermediate_image_sizes_advanced', 'recipe_remove_default_images' 
 
 
 /**
+ * Collapse Admin Menu by default
+ */
+function recipe_collapse_admin_menu() {
+  set_user_setting('mfold', 't');
+}
+add_action('admin_init', 'recipe_collapse_admin_menu');
+
+
+/**
  * This function adds custom class to body on play overview page
  *
  * @param $classes

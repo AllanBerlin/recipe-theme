@@ -9,9 +9,9 @@ if( function_exists('acf_add_options_page') ) {
     'menu_title'  => 'Social Media',
     'menu_slug'   => 'social-media-links',
     'capability'  => 'edit_posts',
-    'position'      => 8,
+    'position'      => 9,
     'parent_slug'   => '',
-    'icon_url' => 'dashicons-groups',
+    'icon_url' => 'dashicons-thumbs-up',
     'redirect'  => false
   ));
 }

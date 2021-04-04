@@ -21,9 +21,9 @@
 
         <div class="social-links"><?php recipe_social_icons_output(); ?></div>
 
-        <div class="copyright">&copy; Lucas Bodywork <?php echo date('Y'); ?></div>
+        <div class="copyright">&copy; Recipe <?php echo sprintf( "%s-%s", date( 'Y', strtotime( '-1 year' ) ), date( 'Y' ) ); ?></div>
 
-        <a href="https://agency.lolamag.de/" target="_blank" class="made-by" rel="noopener" title="Lola & The Bean Agency">Lola & The Bean Agency</a>
+<!--        <a href="https://agency.lolamag.de/" target="_blank" class="made-by" rel="noopener" title="Lola & The Bean Agency">Allan Fitzpatrick</a>-->
 
       </div>
 
@@ -38,7 +38,7 @@
       <p class="privacy-text">
         This website uses cookies to provide necessary site functionality
         and improve user experience. If you close this box or continue browsing,
-        you agree to the use of cookies as outlined in <a href="/privacy-policy/" class="link" title="Lucas Bodywork’s Privacy Policy">Lucas Bodywork’s Privacy Policy.</a>
+        you agree to the use of cookies as outlined in <a href="/privacy-policy/" class="link" title="Recipe’s Privacy Policy">Recipe’s Privacy Policy.</a>
       </p>
 
     </div>

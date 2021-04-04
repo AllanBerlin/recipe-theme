@@ -5,6 +5,7 @@
 node_modules
 js
 css
+admin-css
 
 # System files
 *.DS_Store

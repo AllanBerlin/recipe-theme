@@ -95,9 +95,9 @@ if ( ! function_exists( 'recipe_get_small_excerpt' ) ) :
 
     $textarr = array();
 
-		if( have_rows('flexible_work_content') ):
+		if( have_rows('flexible_article_content') ):
 			// loop through the rows of data
-			while ( have_rows('flexible_work_content') ) : the_row();
+			while ( have_rows('flexible_article_content') ) : the_row();
 
 				$bodyText = get_row_layout() == 'body_text';
 
@@ -157,6 +157,48 @@ function recipe_entry_footer() {
 	);
 }
 endif;
+
+if ( ! function_exists( 'recipe_article_reading_time' ) ) :
+  /**
+   * Create an estimation of the reading time for a user of an Article post
+   */
+  function recipe_article_reading_time() {
+    $content = array();
+
+    if( have_rows('flexible_article_content') ):
+
+      while ( have_rows('flexible_article_content') ) : the_row();
+
+        $bodyText = get_row_layout() == 'body_text';
+
+        if ( $bodyText ) {
+          $textContent = get_sub_field('section_content');
+
+          if( $textContent['text'] ) {
+            $text = strip_tags( $textContent['text'] );
+          } else {
+            $text = '';
+          }
+
+          $content[] = $text;
+        }
+
+      endwhile;
+
+    endif;
+
+    $textContent = implode(' ', $content );
+
+    $wordCount = str_word_count( $textContent );
+
+    $readingTime = ceil( $wordCount / 200 );
+
+    $timer = $readingTime == 1 ? ' minute' : ' minutes';
+
+    return $readingTime . $timer;
+  }
+endif;
+
 
 if ( ! function_exists( 'recipe_home_entry_footer' ) ) :
 	/**

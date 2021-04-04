@@ -137,6 +137,11 @@ require get_template_directory() . '/inc/clean-head.php';
 require get_template_directory() . '/inc/custom-posts.php';
 
 /**
+ * Add Google Fonts Customizer
+ */
+require get_template_directory() . '/inc/google-fonts.php';
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';

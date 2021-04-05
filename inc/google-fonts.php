@@ -1,6 +1,6 @@
 <?php
 
-function herbst_google_fonts_customize_register($wp_customize) {
+function recipe_google_fonts_customize_register($wp_customize) {
 
   class Google_Font_Dropdown_Custom_Control extends WP_Customize_Control {
     private $fonts = false;
@@ -26,13 +26,13 @@ function herbst_google_fonts_customize_register($wp_customize) {
     }
 
     public function get_google_fonts() {
-      if (get_transient('herbst_google_font_list')) {
-        $content = get_transient('herbst_google_font_list');
+      if (get_transient('recipe_google_font_list')) {
+        $content = get_transient('recipe_google_font_list');
       } else {
         $googleApi = 'https://www.googleapis.com/webfonts/v1/webfonts?sort=alpha&key=AIzaSyDy5mPUZhHowDIKE9fDa27oRkFY3pfkcHg';
         $fontContent = wp_remote_get($googleApi, array('sslverify' => false));
         $content = json_decode($fontContent['body'], true);
-        set_transient('herbst_google_font_list', $content, 0);
+        set_transient('recipe_google_font_list', $content, 0);
       }
 
       return $content['items'];
@@ -40,14 +40,14 @@ function herbst_google_fonts_customize_register($wp_customize) {
 
   }
 }
-add_action( 'customize_register', 'herbst_google_fonts_customize_register' );
+add_action( 'customize_register', 'recipe_google_fonts_customize_register' );
 
 
 /********* Google Fonts URL function  ***********/
-if ( ! function_exists( 'herbst_fonts_url' ) ){
-  function herbst_fonts_url() {
+if ( ! function_exists( 'recipe_fonts_url' ) ){
+  function recipe_fonts_url() {
     $fonts_url = '';
-    $content_font = get_theme_mod('herbst_main_google_font_list', '');
+    $content_font = get_theme_mod('recipe_main_google_font_list', '');
     // Translators: If there are characters in your language that are not supported by Google font, translate it to 'off'. Do not translate into your own language.
     // $content_font = _x( 'on', ''.$content_font.' font: on or off', 'herbst' );
 
@@ -74,9 +74,9 @@ if ( ! function_exists( 'herbst_fonts_url' ) ){
 /**
  * Enqueue font family style.
  */
-function herbst_google_fonts_link() {
+function recipe_google_fonts_link() {
   $fonts_url = '';
-  $content_font = get_theme_mod('herbst_main_google_font_list', '');
+  $content_font = get_theme_mod('recipe_main_google_font_list', '');
 
   if ( $content_font ) {
     $query_args = array(
@@ -89,4 +89,4 @@ function herbst_google_fonts_link() {
 
   wp_enqueue_style( 'herbst-google-fonts-link', $fonts_url, false );
 }
-add_action( 'wp_enqueue_scripts', 'herbst_google_fonts_link' );
+add_action( 'wp_enqueue_scripts', 'recipe_google_fonts_link' );

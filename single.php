@@ -9,27 +9,19 @@
 
 get_header(); ?>
 
-<div id="primary" class="post-detail content">
+<div class="post-content">
 
-	<main id="main" class="site-main layout-body" role="main">
+  <?php if ( have_posts() ) : ?>
 
-		<div class="main-content">
+    <?php while ( have_posts() ) : the_post(); ?>
 
-      <?php if ( have_posts() ) : ?>
+      <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 
-        <?php while ( have_posts() ) : the_post(); ?>
+    <?php endwhile; ?>
 
-          <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+  <?php endif; ?>
 
-        <?php endwhile; ?>
-
-      <?php endif; ?>
-
-		</div>
-
-	</main><!-- #main -->
-
-</div><!-- #primary -->
+</div><!-- .post-content -->
 
 <?php
 get_footer();

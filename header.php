@@ -44,28 +44,36 @@
 
   <?php wp_head(); ?>
 
-  <?php if( get_theme_mod('primary_colour') ): ?>
+  <!--Customizer CSS-->
+  <style type="text/css">
+    body {
+      --primary-colour: <?php echo get_theme_mod('primary_colour'); ?>;
+      --second-colour: <?php echo get_theme_mod('second_colour'); ?>;
+      --third-colour: <?php echo get_theme_mod('third_colour'); ?>;
+      --fourth-colour: <?php echo get_theme_mod('fourth_colour'); ?>;
 
-    <!--Customizer CSS-->
-    <style type="text/css">
-      body {
-        --primary-colour: <?php echo get_theme_mod('primary_colour'); ?>;
-        --second-colour: <?php echo get_theme_mod('second_colour'); ?>;
-        --third-colour: <?php echo get_theme_mod('third_colour'); ?>;
-        --fourth-colour: <?php echo get_theme_mod('fourth_colour'); ?>;
-      }
-    </style>
-    <!--/Customizer CSS-->
-
-  <?php endif; ?>
+      --main-font: <?php echo get_theme_mod('recipe_main_google_font_list'); ?>, sans-serif;
+      --secondary-font: <?php echo get_theme_mod('recipe_secondary_google_font_list'); ?>, serif;
+    }
+  </style>
+  <!--/Customizer CSS-->
 
 </head>
 
 <body <?php body_class('layout'); ?>>
 
-  <header id="masthead" class="layout-header" role="banner">
+  <!-- ACCESSABILITY LEVELS -->
+  <meta itemprop="accessibilityControl" content="fullKeyboardControl">
+  <meta itemprop="accessibilityControl" content="fullMouseControl">
+  <meta itemprop="accessibilityHazard" content="noFlashingHazard">
+  <meta itemprop="accessibilityFeature" content="alternativeText">
+  <meta itemprop="accessibilityAPI" content="ARIA">
+  <meta itemprop="inLanguage" content="en">
+  <!-- ACCESSABILITY LEVELS END -->
 
-    <div class="header-container layout-module">
+  <header class="layout-header" role="banner">
+
+    <div class="header-container">
 
       <a href='<?php echo esc_url( home_url( '/' ) ); ?>' class="logo-link" title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
 
@@ -89,41 +97,33 @@
 
       </a>
 
-      <?php if( is_front_page() ): ?>
+      <nav class="main-navigation" role="navigation">
 
-        <button type="button" class="menu-toggle"><span></span><span></span><span></span></button>
+        <ul class="menu-list">
 
-        <nav class="main-navigation" role="navigation">
+          <?php
+          $menuLocations = get_nav_menu_locations();
+          $menuID = $menuLocations['primary'];
+          $primaryNav = wp_get_nav_menu_items( $menuID );
 
-          <ul class="menu-list">
+          foreach ( $primaryNav as $navItem ): ?>
 
-            <?php
-            $menuLocations = get_nav_menu_locations();
-            $menuID = $menuLocations['primary'];
-            $primaryNav = wp_get_nav_menu_items( $menuID );
+            <li class="menu-item">
 
-            foreach ( $primaryNav as $navItem ): ?>
+              <a href="<?php echo $navItem->url; ?>" class="menu-link" title="<?php echo $navItem->title; ?>"><?php echo $navItem->title; ?></a>
 
-              <li class="menu-item">
+            </li>
 
-                <a href="<?php echo $navItem->url; ?>" class="menu-link" title="<?php echo $navItem->title; ?>"><?php echo $navItem->title; ?></a>
+          <?php endforeach; ?>
 
-              </li>
+        </ul>
 
-            <?php endforeach; ?>
+      </nav>
 
-          </ul>
-
-        </nav>
-
-      <?php endif; ?>
+      <button type="button" class="menu-toggle" title="Close Menu"><span></span><span></span><span></span></button>
 
     </div>
 
   </header>
 
-  <div class="page-wrapper">
-
-    <div class="site">
-
-      <div class="site-content">
+  <main class="main-content layout-body" role="main">

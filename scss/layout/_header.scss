@@ -10,7 +10,7 @@
   z-index: 20;
   height: 6rem;
   background-color: $white;
-  border-bottom: 1px solid $primary;
+  border-bottom: 0.125rem solid $light-grey;
   overflow: hidden;
   will-change: transform;
 
@@ -41,6 +41,7 @@
     justify-content: center;
     align-content: center;
     background-color: inherit;
+    max-width: 73.125rem;
   }
 
   .logo-link {
@@ -84,8 +85,7 @@
   }
 
   .menu-link {
-    font-family: 'Metropolis Medium', sans-serif;
-    -webkit-font-smoothing: initial;
+    font-family: $sansSerifFont;
     font-size: 1.4rem;
     line-height: 1.45;
     margin-bottom: 0.75rem;

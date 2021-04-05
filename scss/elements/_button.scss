@@ -9,8 +9,7 @@ input[type="submit"] {
   width: auto;
   position: relative;
   height: 2.5rem;
-  font-family: 'Metropolis Medium', sans-serif;
-  -webkit-font-smoothing: initial;
+  font-family: $sansSerifFont;
   font-size: 1rem;
   line-height: 1.688;
   text-align: center;

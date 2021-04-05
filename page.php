@@ -25,21 +25,16 @@
   
 get_header(); ?>
 
-<div id="primary" class="primary-content">
+<div class="page-content">
 
-  <main id="main" class="site-main layout-body" role="main">
+  <h1 class="ui-accessible"><?php echo get_bloginfo('name'); ?></h1>
 
-    <div class="main-content">
+  <?php get_template_part( 'template-parts/content', 'topsection' ); ?>
 
-      <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-
-    </div>
-
-  </main>
-  <!-- #main -->
+  <?php get_template_part( 'template-parts/content', 'flexible' ); ?>
 
 </div>
-<!-- #primary -->
+<!-- .page-content -->
 
 <?php
 get_footer();

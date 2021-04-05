@@ -1,21 +1,38 @@
-$purple: #B4A4E1;
+$purple: #8C67F1;
+$light-purple: #B9A4F4;
 $red: #FB504B;
 $mint: #A0F1E2;
 $blue: #74ABEA;
-$light-pink: #F4DCDC;
+$pink: #F9D7D6;
 $yellow: #F8E15B;
-$light-red: #F88986;
+$light-red: #FDA7A5;
+
+$purple-bg: #E3DCF7;
+$light-purple-bg: #F6F5FA;
+$red-bg: #F9D7D6;
+$blue-bg: #ECF1F7;
+$light-red-bg: #FCF4F4;
+$light-mint-bg: #FAFEFF;
+$yellow-bg: #F9F4D9;
 
 $white: #ffffff;
 $black: #20232D;
 
 $colors: ( recipe-purple, $purple ),
+  ( recipe-light-purple, $light-purple ),
   ( recipe-red, $red ),
   ( recipe-mint, $mint ),
   ( recipe-blue, $blue ),
-  ( recipe-pink, $light-pink ),
+  ( recipe-pink, $pink ),
   ( recipe-yellow, $yellow ),
-  ( recipe-light-red, $light-red );
+  ( recipe-light-red, $light-red ),
+  ( recipe-purple-bg, $purple-bg ),
+  ( recipe-light-purple-bg, $light-purple-bg ),
+  ( recipe-red-bg, $red-bg ),
+  ( recipe-blue-bg, $blue-bg ),
+  ( recipe-light-red-bg, $light-red-bg ),
+  ( recipe-light-mint-bg, $light-mint-bg ),
+  ( recipe-yellow-bg, $yellow-bg );
 
 .wp-admin .acf-fields {
   .acf-field[data-name^="recipe_"] ul.acf-radio-list {

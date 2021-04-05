@@ -1,8 +1,6 @@
 <?php
 /**
- * Custom template tags for this theme.
- *
- * Eventually, some of the functionality here could be replaced by core features.
+ * Custom theme functions.
  *
  * @package recipe
  */
@@ -62,14 +60,15 @@ if ( ! function_exists( 'recipe_get_excerpt' ) ) :
 
     $textarr = array();
 
-		if( have_rows('flexible_work_content') ):
+		if( have_rows('flexible_article_content') ):
       // loop through the rows of data
-      while ( have_rows('flexible_work_content') ) : the_row();
+      while ( have_rows('flexible_article_content') ) : the_row();
 
       	$bodyText = get_row_layout() == 'body_text';
 
-      	if ($bodyText) {
-      		$text = get_sub_field('text');
+      	if ( $bodyText ) {
+          $textContent = get_sub_field('section_content');
+          $text = $textContent['text'];
           $text = preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/i",'<$1$2>', $text);
           $textarr[] = $text;
         }
@@ -102,7 +101,8 @@ if ( ! function_exists( 'recipe_get_small_excerpt' ) ) :
 				$bodyText = get_row_layout() == 'body_text';
 
 				if ( $bodyText ) {
-					$text = get_sub_field('text');
+          $textContent = get_sub_field('section_content');
+					$text = $textContent['text'];
           $text = preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/i",'<$1$2>', $text);
           $textarr[] = $text;
 				}

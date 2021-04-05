@@ -15,14 +15,11 @@
 
       <?php
       $image = get_field('main_image');
+      set_query_var('image', $image);
 
       if ( $image ): ?>
 
-        <div class="image-container lazy">
-
-          <div class="image" data-src="<?php echo $image['url']; ?>"></div>
-
-        </div>
+        <?php get_template_part( 'template-parts/modules/image' ); ?>
 
       <?php endif; ?>
 

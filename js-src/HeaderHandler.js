@@ -8,9 +8,9 @@ const HeaderHandler = (parent, container) => {
 
     const menuLinks = parent.querySelectorAll('.menu-item .menu-link');
 
-    for(const link of menuLinks) {
-      link.addEventListener('click', scrollToSection);
-    }
+    // for(const link of menuLinks) {
+    //   link.addEventListener('click', scrollToSection);
+    // }
 
     windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     if (windowWidth <= 1200) {
@@ -32,19 +32,19 @@ const HeaderHandler = (parent, container) => {
     }
   }
 
-  function scrollToSection(event) {
-    event.preventDefault();
-
-    menuToggleCaller();
-
-    const href = this.getAttribute('href');
-    const offsetTop = document.querySelector(href).offsetTop;
-
-    scroll({
-      top: offsetTop,
-      behavior: 'smooth'
-    });
-  }
+  // function scrollToSection(event) {
+  //   event.preventDefault();
+  //
+  //   menuToggleCaller();
+  //
+  //   const href = this.getAttribute('href');
+  //   const offsetTop = document.querySelector(href).offsetTop;
+  //
+  //   scroll({
+  //     top: offsetTop,
+  //     behavior: 'smooth'
+  //   });
+  // }
 
   function menuToggleCaller() {
     if(!parent.classList.contains('show-menu')) {

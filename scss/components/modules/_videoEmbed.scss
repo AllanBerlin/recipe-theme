@@ -26,10 +26,6 @@
     margin-top: -8.25em;
 
     p {
-      //@include fluid-font(18px, 40px);
-
-      font-family: 'Metropolis Medium', sans-serif;
-      -webkit-font-smoothing: initial;
       color: $white;
 
       &:last-of-type {

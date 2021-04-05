@@ -6,24 +6,29 @@
 @import "posts/postDetail";
 @import "posts/postItem";
 
-// Modules
-@import "modules/about";
-@import "modules/contact";
-@import "modules/fullImage";
-@import "modules/fullVideo";
+// Flexible Article Modules
 @import "modules/gallery";
 @import "modules/heroImage";
-@import "modules/imageContainer";
-@import "modules/information";
 @import "modules/largeImage";
 @import "modules/side-by-side";
-@import "modules/parallax";
-@import "modules/privacyPolicy";
 @import "modules/portraitImage";
 @import "modules/pullQuote";
+@import "modules/videoEmbed";
+
+// Flexible Article Modules
+@import "modules/columnList";
+@import "modules/featuredArticles";
+@import "modules/imageTextSection";
+@import "modules/parallaxList";
+@import "modules/strengthsGrid";
+@import "modules/teamList";
+@import "modules/testimonials";
+@import "modules/textImageSection";
+
+// Other Modules
+@import "modules/imageContainer";
+@import "modules/privacyPolicy";
 @import "modules/relatedPosts";
-@import "modules/room";
 @import "modules/slider";
 @import "modules/textContent";
-@import "modules/videoEmbed";
-@import "modules/servicePosts";
+@import "modules/topSection";

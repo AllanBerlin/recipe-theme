@@ -14,44 +14,46 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content">
-		<main id="main" class="site-main layout-body" role="main">
+  <div class="post-overview">
 
-			<?php
+    <?php
 
-			$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-			$loop = new WP_Query( array( 'paged' => $paged, 'posts_per_page' => 10 ) );
+    $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+    $loop = new WP_Query( array( 'paged' => $paged, 'posts_per_page' => 10 ) );
 
-			if ( $loop->have_posts() ) : ?>
-            
-				<div class="post-list">
-                    
-					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+    if ( $loop->have_posts() ) : ?>
 
-						<div class="post-item">
-							<?php get_template_part( 'template-parts/content', 'list' ); ?>
-						</div>
+      <div class="post-list">
 
-					<?php endwhile; ?>
+        <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-				</div>
+          <div class="post-item">
 
-				<?php wp_reset_postdata(); ?>
+            <?php get_template_part( 'template-parts/content', 'list' ); ?>
 
-			<?php else : ?>
+          </div>
 
-				<div class="post-list">
+        <?php endwhile; ?>
 
-					<div class="item">
-						<?php get_template_part( 'template-parts/content', 'none' ); ?>
-					</div>
+      </div>
 
-				</div>
+      <?php wp_reset_postdata(); ?>
 
-			<?php endif; ?>
+    <?php else : ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+      <div class="post-list">
+
+        <div class="item">
+
+          <?php get_template_part( 'template-parts/content', 'none' ); ?>
+
+        </div>
+
+      </div>
+
+    <?php endif; ?>
+
+  </div><!-- .post-overview -->
 
 <?php
 get_footer();

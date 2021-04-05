@@ -1,41 +1,36 @@
-<?php if( have_rows('flexible_service_content') ): ?>
+<?php if( have_rows('flexible_article_content') ): ?>
 
-  <?php while( have_rows('flexible_service_content') ) : the_row();
+  <?php while( have_rows('flexible_article_content') ) : the_row();
     $bodyText = get_row_layout() == 'body_text';
     $largeImage = get_row_layout() == 'large_image';
-    $sideBySide = get_row_layout() == 'side_by_side';
+    $slideshow = get_row_layout() == 'slideshow';
     $videoEmbed = get_row_layout() == 'video_embed';
+    $pullQuote = get_row_layout() == 'pull_quote';
+    $portrait = get_row_layout() == 'portrait_image';
+    $sideBySide = get_row_layout() == 'side_by_side';
 
     ?>
 
     <?php if( $bodyText ):
-      $text = get_sub_field('text');
+      $textContent = get_sub_field('section_content');
+      set_query_var('text_content', $textContent);
 
       ?>
 
-      <div class="text-content layout-module"><?php echo $text; ?></div>
+      <?php get_template_part( 'template-parts/modules/text-content' ); ?>
 
     <?php endif; ?>
 
 
     <?php if( $largeImage ):
       $imageLarge = get_sub_field('image');
+      set_query_var('image', $imageLarge);
 
       ?>
 
       <div class="large-image">
 
-        <div class="image-container lazy">
-
-          <div class="image" data-src="<?php echo $imageLarge['url']; ?>" title="<?php echo $imageLarge['alt']; ?>"></div>
-
-          <?php if( $imageLarge['caption'] ): ?>
-
-            <span class="caption"><?php echo $imageLarge['caption']; ?></span>
-
-          <?php endif; ?>
-
-        </div>
+        <?php get_template_part( 'template-parts/modules/image' ); ?>
 
       </div>
 
@@ -58,12 +53,6 @@
 
               <div class="image" data-src="<?php echo $imageLeft['url']; ?>" title="<?php echo $imageLeft['alt']; ?>"></div>
 
-              <?php if( $imageLeft['caption'] ): ?>
-
-                <span class="caption"><?php echo $imageLeft['caption']; ?></span>
-
-              <?php endif; ?>
-
             </div>
 
           </div>
@@ -73,12 +62,6 @@
             <div class="image-container lazy">
 
               <div class="image" data-src="<?php echo $imageRight['url']; ?>" title="<?php echo $imageRight['alt']; ?>"></div>
-
-              <?php if( $imageRight['caption'] ): ?>
-
-                <span class="caption"><?php echo $imageRight['caption']; ?></span>
-
-              <?php endif; ?>
 
             </div>
 

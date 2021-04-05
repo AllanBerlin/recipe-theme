@@ -48,7 +48,7 @@ add_action( 'init', 'recipe_change_post_object_label' );
 
 
 /**
- * Register a custom post types called "Team Member" and "User Story".
+ * Register a custom post types called "Team Member" and "Testimonials".
  */
 function recipe_custom_post_types() {
 
@@ -80,32 +80,32 @@ function recipe_custom_post_types() {
     'items_list'            => _x( 'Team Members list', 'recipe' ),
   );
 
-  // User Stories Labels
-  $userStorieslabels = array(
-    'name'                  => _x( 'User Stories', 'recipe' ),
-    'singular_name'         => _x( 'User Story', 'recipe' ),
-    'menu_name'             => _x( 'User Stories', 'recipe' ),
-    'name_admin_bar'        => _x( 'User Stories', 'recipe' ),
+  // Testimonials Labels
+  $testimonialslabels = array(
+    'name'                  => _x( 'Testimonials', 'recipe' ),
+    'singular_name'         => _x( 'Testimonial', 'recipe' ),
+    'menu_name'             => _x( 'Testimonials', 'recipe' ),
+    'name_admin_bar'        => _x( 'Testimonials', 'recipe' ),
     'add_new'               => _x( 'Add New', 'recipe' ),
-    'add_new_item'          => _x( 'Add New User Story', 'recipe' ),
-    'new_item'              => _x( 'New User Story', 'recipe' ),
-    'edit_item'             => _x( 'Edit User Story', 'recipe' ),
-    'view_item'             => _x( 'View User Story', 'recipe' ),
-    'all_items'             => _x( 'All User Stories', 'recipe' ),
-    'search_items'          => _x( 'Search User Stories', 'recipe' ),
-    'parent_item_colon'     => _x( 'Parent User Story:', 'recipe' ),
-    'not_found'             => _x( 'No User Stories found.', 'recipe' ),
-    'not_found_in_trash'    => _x( 'No User Stories found in Trash.', 'recipe' ),
-    'featured_image'        => _x( 'User Story Image', 'recipe' ),
-    'set_featured_image'    => _x( 'Set User Story image', 'recipe' ),
-    'remove_featured_image' => _x( 'Remove User Story image', 'recipe' ),
-    'use_featured_image'    => _x( 'Use as User Story image', 'recipe' ),
-    'archives'              => _x( 'User Stories archives', 'recipe' ),
-    'insert_into_item'      => _x( 'Insert into User Story', 'recipe' ),
-    'uploaded_to_this_item' => _x( 'Uploaded to this User Story', 'recipe' ),
-    'filter_items_list'     => _x( 'Filter User Stories list', 'recipe' ),
-    'items_list_navigation' => _x( 'User Stories list navigation', 'recipe' ),
-    'items_list'            => _x( 'User Stories list', 'recipe' ),
+    'add_new_item'          => _x( 'Add New Testimonial', 'recipe' ),
+    'new_item'              => _x( 'New Testimonial', 'recipe' ),
+    'edit_item'             => _x( 'Edit Testimonial', 'recipe' ),
+    'view_item'             => _x( 'View Testimonial', 'recipe' ),
+    'all_items'             => _x( 'All Testimonials', 'recipe' ),
+    'search_items'          => _x( 'Search Testimonials', 'recipe' ),
+    'parent_item_colon'     => _x( 'Parent Testimonial:', 'recipe' ),
+    'not_found'             => _x( 'No Testimonials found.', 'recipe' ),
+    'not_found_in_trash'    => _x( 'No Testimonials found in Trash.', 'recipe' ),
+    'featured_image'        => _x( 'Testimonial Image', 'recipe' ),
+    'set_featured_image'    => _x( 'Set Testimonial image', 'recipe' ),
+    'remove_featured_image' => _x( 'Remove Testimonial image', 'recipe' ),
+    'use_featured_image'    => _x( 'Use as Testimonial image', 'recipe' ),
+    'archives'              => _x( 'Testimonial archives', 'recipe' ),
+    'insert_into_item'      => _x( 'Insert into Testimonial', 'recipe' ),
+    'uploaded_to_this_item' => _x( 'Uploaded to this Testimonial', 'recipe' ),
+    'filter_items_list'     => _x( 'Filter Testimonial list', 'recipe' ),
+    'items_list_navigation' => _x( 'Testimonial list navigation', 'recipe' ),
+    'items_list'            => _x( 'Testimonial list', 'recipe' ),
   );
 
 
@@ -127,9 +127,9 @@ function recipe_custom_post_types() {
     'rewrite'            => array( 'slug' => 'team-member', 'with_front' => true )
   );
 
-  // User Story Arguments
-  $userStoriesArgs = array(
-    'labels'             => $userStorieslabels,
+  // Testimonials Arguments
+  $testimonialsArgs = array(
+    'labels'             => $testimonialslabels,
     'public'             => true,
     'publicly_queryable' => true,
     'show_ui'            => true,
@@ -142,14 +142,14 @@ function recipe_custom_post_types() {
     'supports'           => array( 'title'),
     'hierarchical'       => true,
     '_builtin'           => false,
-    'rewrite'            => array( 'slug' => 'user-story', 'with_front' => true )
+    'rewrite'            => array( 'slug' => 'testimonials', 'with_front' => true )
   );
 
 
   // Register new custom post type called "team_member"
   register_post_type( 'team_member', $teamMemberArgs );
 
-  // Register new custom post type called "user_story"
-  register_post_type( 'user_story', $userStoriesArgs );
+  // Register new custom post type called "testimonials"
+  register_post_type( 'testimonial', $testimonialsArgs );
 }
 add_action( 'init', 'recipe_custom_post_types' );

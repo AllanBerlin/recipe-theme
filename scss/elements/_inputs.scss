@@ -5,8 +5,7 @@ input {
     color: $light-grey;
   }
 
-  font-family: 'Metropolis Medium', sans-serif;
-  -webkit-font-smoothing: initial;
+  font-family: $sansSerifFont;
   appearance: none;
   height: 2.5rem;
   line-height: 2.5rem;

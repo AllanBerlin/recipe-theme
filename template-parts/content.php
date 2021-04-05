@@ -13,9 +13,9 @@
 
   <header class="entry-header">
 
-    <?php echo recipe_article_reading_time(); ?>
-
     <?php get_template_part( 'template-parts/post-content/hero' ); ?>
+
+    <?php echo recipe_article_reading_time(); ?>
 
   </header><!-- .entry-header -->
 
@@ -26,7 +26,7 @@
   </div><!-- .entry-content -->
 
   <!-- Related Posts -->
-<!--  --><?php //recipe_related_posts(); ?>
+  <?php recipe_related_posts(); ?>
 
   <footer class="entry-footer">
 

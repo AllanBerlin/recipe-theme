@@ -167,9 +167,9 @@ require get_template_directory() . '/inc/related-posts.php';
 require get_template_directory() . '/inc/social.php';
 
 /**
- * Custom template tags for this theme.
+ * Custom theme core functions.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/theme-functions.php';
 
 /**
  * Add theme helper functions

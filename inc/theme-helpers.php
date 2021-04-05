@@ -104,6 +104,35 @@ add_filter( 'tiny_mce_before_init', 'recipe_format_TinyMCE' );
 
 
 /**
+ * Helper function to allow only certain html tags from the wysiwyg editor
+ *
+ * @return array
+ */
+function recipe_allowed_html_types( ): array {
+  return [
+    'h3'     => [],
+    'h4'     => [],
+    'h5'     => [],
+    'h6'     => [],
+    'br'     => [],
+    'em'     => [],
+    'strong' => [],
+    'p'      => [],
+    'span'   => [
+      'class' => [],
+    ],
+    'a'      => [
+      'class' => [],
+      'href'  => [],
+      'rel'   => [],
+      'title' => [],
+    ]
+  ];
+}
+add_action( 'init', 'recipe_allowed_html_types' );
+
+
+/**
  * Clean up string to remove any html attributes
  *
  * @param $text
@@ -129,3 +158,34 @@ function recipe_remove_special_chars( $string ) {
 
   return preg_replace( '/-+/', '-', $string );
 }
+
+
+/**
+ * Fix svg images that the dimensions can be extracted
+ *
+ * @param $image
+ * @param $attachment_id
+ * @param $size
+ * @param $icon
+ * @return array|mixed
+ */
+function recipe_fix_wp_get_attachment_image_svg( $image, $size ) {
+  if ( is_array( $image ) && preg_match('/\.svg$/i', $image[0]) && $image[1] == 0 ) {
+    if( is_array( $size ) ) {
+      $image[1] = $size[0];
+      $image[2] = $size[1];
+    } elseif( ( $xml = simplexml_load_file( $image[0] ) ) !== false ) {
+
+      $attr = $xml->attributes();
+
+      $viewbox = explode( ' ', $attr->viewBox );
+      $image[1] = isset( $attr->width ) && preg_match('/\d+/', $attr->width, $value ) ? ( int ) $value[0] : ( count( $viewbox ) == 4 ? ( int ) $viewbox[2] : null );
+      $image[2] = isset( $attr->height ) && preg_match('/\d+/', $attr->height, $value ) ? ( int ) $value[0] : ( count( $viewbox ) == 4 ? ( int ) $viewbox[3] : null );
+    } else {
+      $image[1] = $image[2] = null;
+    }
+  }
+  return $image;
+}
+add_filter( 'wp_get_attachment_image_src', 'recipe_fix_wp_get_attachment_image_svg', 10, 4 );
+

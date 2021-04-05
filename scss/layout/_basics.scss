@@ -1,26 +1,4 @@
-.page-wrapper {
-  overflow: hidden;
-  margin-top: 6rem;
 
-  @include breakpointMax(laptop) {
-    @include transform(translate3d(0, 0, 0));
-    @include transition(transform 300ms ease-in-out);
-
-    will-change: transform;
-
-    .menu-visible & {
-      @include transform(translate3d(-80%, 0, 0));
-    }
-  }
-}
-
-.layout-module {
-  text-align: left;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  margin: 0 auto;
-  max-width: 67.5rem;
-}
 
 .ui-accessible,
 .screen-reader-text {

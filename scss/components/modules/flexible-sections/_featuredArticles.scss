@@ -1,0 +1,20 @@
+.section-articles-slider {
+  .articles-list {
+    flex-flow: row nowrap;
+    overflow: hidden;
+  }
+
+  @include breakpoint(laptop) {
+    .articles-list .article-item {
+      margin-bottom: 0;
+
+      &:nth-of-type(3n) {
+        margin-right: var(--grid-gutter);
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}

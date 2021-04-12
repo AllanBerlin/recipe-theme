@@ -7,31 +7,42 @@
  * @package recipe
  */
 
+$backgroundColour = get_field('recipe_background_colour');
+
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('article-detail'); ?> style="background-color: <?php echo $backgroundColour; ?>;">
 
-  <header class="entry-header">
+  <div class="layout-grid">
 
-    <?php get_template_part( 'template-parts/post-content/hero' ); ?>
+    <div class="entry-header">
 
-    <?php echo recipe_article_reading_time(); ?>
+      <div class="header-wrapper">
 
-  </header><!-- .entry-header -->
+        <?php
+        $image = get_field('article_image');
+        set_query_var('image', $image);
 
-  <div class="entry-content">
+        if ( $image ): ?>
 
-    <?php get_template_part( 'template-parts/post-content/flexible' ); ?>
+          <?php get_template_part( 'template-parts/modules/image' ); ?>
 
-  </div><!-- .entry-content -->
+        <?php endif; ?>
 
-  <!-- Related Posts -->
-  <?php recipe_related_posts(); ?>
+        <?php echo recipe_article_reading_time(); ?>
 
-  <footer class="entry-footer">
+      </div>
 
-    <?php recipe_entry_footer(); ?>
+    </div><!-- .entry-header -->
 
-  </footer><!-- .entry-footer -->
+    <div class="entry-content">
+
+      <h1 class="entry-title"><?php the_title(); ?></h1>
+
+      <?php get_template_part( 'template-parts/post-content/flexible' ); ?>
+
+    </div><!-- .entry-content -->
+
+  </div>
 
 </article><!-- #post-## -->

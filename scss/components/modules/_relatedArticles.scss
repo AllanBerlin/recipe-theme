@@ -1,0 +1,36 @@
+.section-related-articles {
+
+  .section-title {
+    grid-column: 1 / span var(--grid-amount);
+  }
+
+  .article-item {
+    .image-container {
+      overflow: hidden;
+      border-radius: 0.75rem;
+
+      .image {
+        padding-bottom: 54.05%;
+      }
+    }
+
+    .entry-content {
+      min-height: 13.375rem;
+      padding: 1.875rem 0;
+    }
+
+    .read-now {
+      left: 0;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    .articles-list .article-item {
+      margin-bottom: 0;
+
+      .image-container .image {
+        padding-bottom: 54.05%;
+      }
+    }
+  }
+}

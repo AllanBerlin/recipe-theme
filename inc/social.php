@@ -4,15 +4,27 @@
  * This function adds the Social Media links Page to admin.
  */
 if( function_exists('acf_add_options_page') ) {
-  $option_page = acf_add_options_page(array(
-    'page_title'  => 'Social Media',
-    'menu_title'  => 'Social Media',
-    'menu_slug'   => 'social-media-links',
-    'capability'  => 'edit_posts',
+  acf_add_options_page(array(
+    'page_title' 	=> 'Footer Content',
+    'menu_title'	=> 'Footer Content',
+    'menu_slug' 	=> 'footer-content',
+    'capability'	=> 'edit_posts',
     'position'      => 9,
     'parent_slug'   => '',
-    'icon_url' => 'dashicons-thumbs-up',
-    'redirect'  => false
+    'icon_url' => 'dashicons-pets',
+    'redirect'  => true
+  ));
+
+  acf_add_options_sub_page(array(
+    'page_title' 	=> 'Top Footer Content',
+    'menu_title'	=> 'Top Footer',
+    'parent_slug'	=> 'footer-content',
+  ));
+
+  acf_add_options_sub_page(array(
+    'page_title' 	=> 'Bottom Footer Content',
+    'menu_title'	=> 'Bottom Footer',
+    'parent_slug'	=> 'footer-content',
   ));
 }
 

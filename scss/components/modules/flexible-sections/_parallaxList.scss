@@ -1,0 +1,22 @@
+.section-parallax-list {
+
+  .section-title {
+    width: var(--grid-total-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .parallax-item {
+    margin-bottom: 15.625rem;
+  }
+
+  @include breakpoint(laptop) {
+    .parallax-text {
+      grid-column: 1 / span 5;
+    }
+
+    .parallax-images {
+      grid-column: 6 / span 7;
+    }
+  }
+}

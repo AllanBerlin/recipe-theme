@@ -1,0 +1,47 @@
+.article-item {
+  border-radius: 0.75rem;
+  overflow: hidden;
+
+  .article-link {
+    display: block;
+    height: 100%;
+  }
+
+  .image-container {
+    background-color: $light-grey;
+
+    .image {
+      padding-bottom: 67.57%;
+    }
+  }
+
+  .entry-title {
+    @include fluid-font(1.75rem, 2.063rem);
+
+    font-weight: 500;
+  }
+
+  .entry-content {
+    position: relative;
+    background-color: $white;
+    min-height: 17.188rem;
+    padding: 2.25rem 1.875rem 1.875rem 1.875rem;
+  }
+
+  .read-now {
+    @include fluid-font(1rem, 1.25rem);
+
+    font-weight: 400;
+    position: absolute;
+    bottom: 1.875rem;
+    left: 1.875rem;
+    display: block;
+  }
+
+  @include breakpoint(laptop) {
+    .entry-content {
+      min-height: 17.188rem;
+      padding: 2.25rem 1.875rem 1.875rem 1.875rem;
+    }
+  }
+}

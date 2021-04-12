@@ -29,14 +29,19 @@ $textContent = get_query_var('text_content');
     <?php endif; ?>
 
     <?php if( !empty( $cta ) ):
-      $pageID = url_to_postid( $cta );
-      $ctaTitle = get_the_title( $pageID );
+      $postID = url_to_postid( $cta );
+
+      if( get_post_type( $postID ) === 'post' ) {
+        $ctaTitle = 'Read Now';
+      } else {
+        $ctaTitle = get_the_title( $postID );
+      }
 
       ?>
 
       <a href="<?php echo esc_url( $cta ); ?>"
          class="button cta"
-         title="<?php echo esc_url( $cta ); ?>"
+         title="<?php echo esc_html( $ctaTitle ); ?>"
          rel="noopener"><?php echo esc_html( $ctaTitle ); ?></a>
 
     <?php endif; ?>

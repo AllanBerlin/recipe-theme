@@ -1,5 +1,6 @@
 :root {
   --grid-amount: 4;
+  --grid-total-width: 20.938rem;
   --grid-width: 4.313rem;
   --grid-gutter: 1.25rem;
 }
@@ -7,6 +8,7 @@
 @include breakpoint(laptop) {
   :root {
     --grid-amount: 12;
+    --grid-total-width: 73.125rem;
     --grid-width: 4.375rem;
     --grid-gutter: 1.875rem;
   }

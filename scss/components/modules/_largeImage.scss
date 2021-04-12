@@ -1,11 +1,10 @@
 .large-image {
+  position: relative;
+  z-index: 2;
 
-  @include breakpoint(tablet) {
-    max-width: 78.25vw;
-    margin-left: auto;
-
-    + .side-by-side {
-      margin-top: -2.5em;
+  @include breakpoint(laptop) {
+    .image-container .image {
+      padding-bottom: 47%;
     }
   }
 }

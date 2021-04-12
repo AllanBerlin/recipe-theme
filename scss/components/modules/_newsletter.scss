@@ -1,0 +1,7 @@
+.section-newsletter {
+  @extend .flexible-sections;
+
+  .consent {
+    grid-column: 1 / span var(--grid-amount);
+  }
+}

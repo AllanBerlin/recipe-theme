@@ -10,13 +10,15 @@ $opacity = get_query_var('opacity');
   $image = $backgroundText['image'];
   set_query_var('image', $image);
 
-  $text = $backgroundText['text'];
+  $headline = $backgroundText['headline'];
 
   ?>
 
   <div class="background-text">
 
     <?php if( !empty( $image ) ): ?>
+
+      <div class="mask" style="background-color: <?php echo esc_attr( $backgroundColour['label'] ); ?>"></div>
 
       <div class="image-wrapper" style="--bg-opacity: <?php echo esc_attr( $opacity ); ?>;">
 
@@ -26,12 +28,9 @@ $opacity = get_query_var('opacity');
 
     <?php endif; ?>
 
-    <?php if( !empty( $text ) ):
-      $allowedHtml = recipe_allowed_html_types();
+    <?php if( !empty( $headline ) ): ?>
 
-      ?>
-
-      <div class="text-content"><?php echo wp_kses( $text, $allowedHtml );?></div>
+      <h3 class="headline"><?php echo $headline; ?></h3>
 
     <?php endif; ?>
 

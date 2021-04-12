@@ -17,6 +17,9 @@ get_header(); ?>
 
       <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 
+      <!-- Related Posts -->
+      <?php recipe_related_posts(); ?>
+
     <?php endwhile; ?>
 
   <?php endif; ?>

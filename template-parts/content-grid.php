@@ -1,20 +1,20 @@
 <?php
 /**
- * Template part for displaying posts within a list.
+ * Template part for displaying articles within a grid.
  *
  * @package recipe
  */
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('post-item'); ?>>
+<article id="article-<?php the_ID(); ?>" <?php post_class('article-item'); ?>>
 
-  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="post-link">
+  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="article-link">
 
-    <header class="entry-header">
+    <div class="entry-header">
 
       <?php
-      $image = get_field('main_image');
+      $image = get_field('article_image');
       set_query_var('image', $image);
 
       if ( $image ): ?>
@@ -23,25 +23,16 @@
 
       <?php endif; ?>
 
-      <h4 class="entry-title"><strong><?php the_title(); ?></strong></h4>
-
-    </header><!-- .entry-header -->
+    </div><!-- .entry-header -->
 
     <div class="entry-content">
 
-      <?php
-      $serviceExcerpt = get_field('service_excerpt');
+      <h4 class="entry-title"><?php the_title(); ?></h4>
 
-      if ( $serviceExcerpt ): ?>
-
-        <p class="entry-description"><?php echo $serviceExcerpt; ?></p>
-
-        <button type="button" class="button fourth" title="More">More</button>
-
-      <?php endif; ?>
+      <h5 class="read-now">Read Now</h5>
 
     </div><!-- .entry-content -->
 
   </a>
 
-</article><!-- #post-## -->
+</article><!-- #article-## -->

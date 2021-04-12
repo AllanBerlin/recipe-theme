@@ -10,7 +10,8 @@ html {
 body {
 	@include box-sizing(border-box);
 
-  font-family: $serifFont;
+  font-family: $sansSerifFont;
+	font-weight: 400;
 	height: 100%;
   width: 100%;
   margin: 0;
@@ -43,10 +44,6 @@ body {
     &.admin-bar {
       .layout-header {
         top: 2rem;
-      }
-
-      .page-wrapper {
-        margin-top: 8rem;
       }
     }
 

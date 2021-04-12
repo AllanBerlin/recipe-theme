@@ -12,7 +12,7 @@
     & {
       font-size: $min-font-size;
       @media screen and (min-width: $small) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((80vw - #{$small}) / #{strip-unit($xlarge)}));
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$small}) / #{strip-unit($xlarge)}));
       }
       @media screen and (min-width: $xlarge) {
         font-size: $max-font-size;

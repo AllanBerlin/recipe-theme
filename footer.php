@@ -11,6 +11,8 @@
 
 ?>
 
+    <?php get_template_part( 'template-parts/content', 'newsletter' ); ?>
+
   </main><!-- .main-content -->
 
   <footer class="layout-footer" role="contentinfo">

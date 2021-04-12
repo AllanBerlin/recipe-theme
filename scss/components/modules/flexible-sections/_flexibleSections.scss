@@ -1,0 +1,15 @@
+.flexible-sections {
+  .section-title {
+    grid-column: 1 / span var(--grid-amount);
+  }
+
+  .text-content {
+    grid-column: 1 / span 8;
+  }
+
+  @include breakpoint(laptop) {
+    .text-content {
+      margin-bottom: 3.75rem;
+    }
+  }
+}

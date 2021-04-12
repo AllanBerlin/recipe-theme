@@ -100,19 +100,24 @@ $colors: ( recipe-purple, $purple ),
   }
 }
 
-.wp-admin .acf-flexible-content .layout[data-layout="content_grid"] {
-  .acf-fields {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-  }
+.wp-admin .acf-flexible-content {
+  .layout[data-layout="body_text"] {
+    > .acf-fields {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+    }
 
-  .acf-field[data-name="grid_type"],
-  .acf-field[data-name="grid_alignment"] {
-    flex: 0 0 100%;
-  }
+    .acf-field[data-name="has_headline_image"] {
+      flex: 0 0 100%;
+    }
 
-  .acf-field.column {
-    flex: 0 0 50%;
+    .acf-field[data-name="related_image"] {
+      flex: 0 0 35%;
+    }
+
+    .acf-field[data-name="section_content"] {
+      flex: 1 0 65%;
+    }
   }
 }

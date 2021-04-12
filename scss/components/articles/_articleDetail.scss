@@ -1,0 +1,50 @@
+.article-detail {
+  //.entry-meta,
+  //.entry-footer {
+  //  @include accessible();
+  //}
+
+  .entry-header .image-container .image {
+    padding-bottom: 100%;
+  }
+
+  .entry-content {
+    @extend .layout-grid;
+
+    grid-column: 1 / span var(--grid-amount);
+
+    * {
+      grid-column: 1 / span var(--grid-amount);
+    }
+  }
+
+  .large-image {
+    grid-column: 1 / span var(--grid-amount);
+  }
+
+  @include breakpoint(tablet) {
+    .large-image .image-container .image {
+      padding-bottom: 68.375%;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    padding: 6.563rem 0;
+
+    .entry-header {
+      position: relative;
+      grid-column: 1 / span 5;
+    }
+
+    .header-wrapper {
+      //position: fixed;
+      position: absolute;
+      width: calc((var(--grid-width) * 5) + (var(--grid-gutter) * 4) - 1.25rem);
+    }
+
+    .text-content,
+    .entry-title {
+      grid-column: 6 / span 7;
+    }
+  }
+}

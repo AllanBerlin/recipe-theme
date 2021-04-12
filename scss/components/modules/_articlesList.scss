@@ -1,0 +1,22 @@
+.articles-list {
+  grid-column: 1 / span var(--grid-amount);
+  display: flex;
+  justify-content: start;
+  flex-flow: row wrap;
+
+  @include breakpoint(laptop) {
+    .article-item {
+      flex: 0 0 calc((var(--grid-width) * 4) + (var(--grid-gutter) * 3));
+      margin-right: var(--grid-gutter);
+      margin-bottom: var(--grid-gutter);
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+
+      &:nth-last-of-type(-n + 3) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

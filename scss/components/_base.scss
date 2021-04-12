@@ -2,9 +2,9 @@
 @import "grid";
 @import "mainContent";
 
-// Post Styles
-@import "posts/postDetail";
-@import "posts/postItem";
+// Article Styles
+@import "articles/articleDetail";
+@import "articles/articleItem";
 
 // Flexible Article Modules
 @import "modules/gallery";
@@ -16,19 +16,22 @@
 @import "modules/videoEmbed";
 
 // Flexible Article Modules
-@import "modules/columnList";
-@import "modules/featuredArticles";
-@import "modules/imageTextSection";
-@import "modules/parallaxList";
-@import "modules/strengthsGrid";
-@import "modules/teamList";
-@import "modules/testimonials";
-@import "modules/textImageSection";
+@import "modules/flexible-sections/flexibleSections";
+@import "modules/flexible-sections/columnList";
+@import "modules/flexible-sections/featuredArticles";
+@import "modules/flexible-sections/imageTextSection";
+@import "modules/flexible-sections/parallaxList";
+@import "modules/flexible-sections/strengthsGrid";
+@import "modules/flexible-sections/teamList";
+@import "modules/flexible-sections/testimonials";
+@import "modules/flexible-sections/textImageSection";
 
 // Other Modules
+@import "modules/articlesList";
 @import "modules/imageContainer";
+@import "modules/newsletter";
 @import "modules/privacyPolicy";
-@import "modules/relatedPosts";
+@import "modules/relatedArticles";
 @import "modules/slider";
 @import "modules/textContent";
 @import "modules/topSection";

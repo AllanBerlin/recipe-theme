@@ -59,7 +59,7 @@ if ( ! function_exists( 'recipe_fonts_url' ) ){
       }
 
       $query_args = array(
-        'family' => urlencode( implode( '|', array_unique($font_families) ) . ':wght@400;700' ),
+        'family' => urlencode( implode( '|', array_unique($font_families) ) . ':wght@400;500;700' ),
         'display' => 'swap'
       );
 
@@ -80,7 +80,7 @@ function recipe_google_fonts_link() {
 
   if ( $content_font ) {
     $query_args = array(
-      'family' => urlencode( $content_font . ':wght@400;700' ),
+      'family' => urlencode( $content_font . ':wght@400;500;700' ),
       'display' => 'swap'
     );
 

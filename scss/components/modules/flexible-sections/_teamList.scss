@@ -1,0 +1,35 @@
+.section-team-list {
+
+  .team-grid {
+    grid-column: 1 / span var(--grid-amount);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: var(--grid-gutter);
+  }
+
+  .team-image {
+    border-style: solid;
+    border-radius: 0.75rem;
+    border-width: 0.938rem;
+    overflow: hidden;
+  }
+
+  .team-image,
+  .team-title {
+    margin-bottom: 1.25rem;
+  }
+
+  .team-title {
+    @include fluid-font(1.125rem, 1.25rem);
+  }
+
+  .team-description p {
+    @include fluid-font(1rem, 1.25rem);
+  }
+
+  @include breakpoint(laptop) {
+    .team-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

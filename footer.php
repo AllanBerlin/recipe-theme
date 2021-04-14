@@ -11,21 +11,19 @@
 
 ?>
 
-    <?php get_template_part( 'template-parts/content', 'newsletter' ); ?>
+    <?php if( get_field('is_newsletter_active', 'option') ): ?>
+
+      <?php get_template_part( 'template-parts/content', 'newsletter' ); ?>
+
+    <?php endif; ?>
 
   </main><!-- .main-content -->
 
   <footer class="layout-footer" role="contentinfo">
 
-    <div class="footer-container">
+    <?php get_template_part( 'template-parts/footer-content/footer-top' ); ?>
 
-      <div class="social-links"><?php recipe_social_icons_output(); ?></div>
-
-      <div class="copyright">&copy; Recipe <?php echo sprintf( "%s-%s", date( 'Y', strtotime( '-1 year' ) ), date( 'Y' ) ); ?></div>
-
-<!--        <a href="https://agency.lolamag.de/" target="_blank" class="made-by" rel="noopener" title="Lola & The Bean Agency">Allan Fitzpatrick</a>-->
-
-    </div>
+    <?php get_template_part( 'template-parts/footer-content/footer-bottom' ); ?>
 
   </footer><!-- .layout-footer -->
 

@@ -2,3 +2,8 @@
 .screen-reader-text {
   @include accessible();
 }
+
+.batch-reveal {
+  opacity: 0;
+  will-change: transform;
+}

@@ -2,17 +2,20 @@ $black: #000000;
 $white: #ffffff;
 $red: #DE0709;
 
+$blue: #4305EB;
 $light-blue: #8ac6d1;
 $orange: #f0744e;
 $yellow: #ecc52d;
 $green: #0e5b3b;
 $pink: #fc9f96;
-$grey: #757575;
+$purple: #5922ED;
+
+$grey: #939393;
 $light-grey: #F2F2F2;
-$dark-grey: #343434;
+$dark-grey: #979797;
 
 $primary: var(--primary-colour, $light-blue);
 $second: var(--second-colour, $white);
 $third: var(--third-colour, $white);
 $fourth: var(--fourth-colour, $white);
-$font-color: $black;
+$font-color: #20232D;

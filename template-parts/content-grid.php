@@ -9,6 +9,8 @@
 
 <article id="article-<?php the_ID(); ?>" <?php post_class('article-item'); ?>>
 
+  <?php recipe_entry_tags(); ?>
+
   <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="article-link">
 
     <div class="entry-header">

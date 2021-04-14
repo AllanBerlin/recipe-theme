@@ -46,14 +46,16 @@ function recipe_social_icons_output() {
 
         ?>
 
-        <li class="social-item">
+        <li class="social-item <?php echo esc_attr( strtolower( $name ) ); ?>">
 
           <?php if( $link ): ?>
+
             <a href="<?php echo esc_url( $link ); ?>" target="_blank" class="social-link" rel="noopener">
 
               <span class="icon" title="<?php echo esc_attr( $name ); ?>" style="background-image: url('<?php echo esc_attr( esc_url( $icon ) ) ?>')"></span>
 
             </a>
+
           <?php endif; ?>
 
         </li>
@@ -63,4 +65,39 @@ function recipe_social_icons_output() {
     </ul>
 
   <?php endif;
+}
+
+
+/**
+ * Social Share Buttons
+ *
+ * @param string $content
+ * @return string
+ */
+function recipe_social_sharing_buttons( $content = '' ) {
+  if ( is_single() ) {
+    // Get current page URL
+    $recipeURL = urlencode( get_permalink() );
+
+    // Get current page title
+    $recipeTitle = str_replace( ' ', '%20', get_the_title() );
+
+    // Construct sharing URL without using any script
+    $twitterURL = 'https://twitter.com/intent/tweet?text='.$recipeTitle.'&amp;url='.$recipeURL.'&amp;via=recipe';
+    $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$recipeURL;
+    $linkedInURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$recipeURL;
+    $copyURL = esc_url( get_permalink() );
+
+    // Add sharing button at the end of page/page content
+    $content .= '<div class="share-buttons">';
+      $content .= '<a class="share-button facebook" href="'.$facebookURL.'" target="_blank" title="Share on Facebook">Share</a>';
+      $content .= '<a class="share-button twitter" href="'. $twitterURL .'" target="_blank" title="Tweet on Twitter">Tweet</a>';
+      $content .= '<a class="share-button linkedin" href="'.$linkedInURL.'" target="_blank" title="Share on LinkedIn">Share</a>';
+      $content .= '<button class="share-button copy-article" data-href="'.$copyURL.'" title="Copy Article">Copy</button>';
+    $content .= '</div>';
+
+    return $content;
+  } else {
+    return '';
+  }
 }

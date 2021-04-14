@@ -1,0 +1,16 @@
+.section-articles-list {
+  .article-item:nth-of-type(n + 10) {
+    display: none;
+  }
+
+  .button-wrapper {
+    grid-column: span var(--grid-amount);
+    text-align: center;
+  }
+
+  @include breakpoint(laptop) {
+    .button-wrapper {
+      margin-top: 3.75rem;
+    }
+  }
+}

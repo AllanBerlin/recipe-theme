@@ -12,4 +12,12 @@ $image = get_query_var('image');
 
   </div>
 
+<?php else: ?>
+
+  <div class="placeholder">
+
+    <div class="placeholder-image"></div>
+
+  </div>
+
 <?php endif; ?>

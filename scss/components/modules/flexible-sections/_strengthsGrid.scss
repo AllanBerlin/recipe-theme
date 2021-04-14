@@ -1,0 +1,32 @@
+.section-strengths-grid {
+  .section-title {
+    margin-bottom: 3.125rem;
+  }
+
+  .column-wrapper {
+    grid-column: 1 / span var(--grid-amount);
+  }
+
+  .text-column .text-content p {
+    color: $black;
+    margin-bottom: 3.125rem;
+  }
+
+  .column-headline {
+    @include fluid-font(1.5rem, 1.75rem);
+
+    font-weight: 500;
+    color: $purple;
+    padding-top: 1rem;
+    border-top: 2px solid $purple;
+    margin-bottom: 1.875rem;
+  }
+
+  @include breakpoint(laptop) {
+    .column-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: var(--grid-gutter);
+    }
+  }
+}

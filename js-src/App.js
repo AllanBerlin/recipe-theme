@@ -11,6 +11,12 @@ const App = (() => {
     const policyPopup = document.querySelector('.policy-popup');
     const imageContainer = document.querySelectorAll('.image-container');
     const sliders = document.querySelectorAll('.slider');
+    const scrollRevealElements = document.querySelectorAll('.reveal');
+    const batchRevealElements = document.querySelectorAll('.batch-reveal');
+
+    document.addEventListener('DOMContentLoaded', function() {
+      gsap.registerPlugin(ScrollTrigger);
+    });
 
     if(header) {
       HeaderHandler(header, body);
@@ -18,11 +24,6 @@ const App = (() => {
 
     if(policyPopup) {
       PrivacyPolicyHandler(policyPopup);
-    }
-
-    if(body.classList.contains('home')) {
-      // call the helper to get exact viewport height, especially for mobile browsers
-      viewportHeightHelper();
     }
 
     if(imageContainer.length > 0) {
@@ -36,6 +37,17 @@ const App = (() => {
         SliderHandler(sliders[i]);
       }
     }
+
+    if(scrollRevealElements.length > 0) {
+      ScrollRevealHandler(scrollRevealElements);
+    }
+
+    if(batchRevealElements.length > 0) {
+      BatchRevealHandler(batchRevealElements);
+    }
+
+    // call the helper to get exact viewport height, especially for mobile browsers
+    viewportHeightHelper();
   }
 
   const viewportHeightHelper = () => {

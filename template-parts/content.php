@@ -29,7 +29,9 @@ $backgroundColour = get_field('recipe_background_colour');
 
         <?php endif; ?>
 
-        <?php echo recipe_article_reading_time(); ?>
+        <?php recipe_the_breadcrumb(); ?>
+
+        <?php echo recipe_social_sharing_buttons(); ?>
 
       </div>
 
@@ -38,6 +40,23 @@ $backgroundColour = get_field('recipe_background_colour');
     <div class="entry-content">
 
       <h1 class="entry-title"><?php the_title(); ?></h1>
+
+      <?php
+      $subtitle = get_field('article_subtitle');
+
+      if( $subtitle ): ?>
+
+        <h2 class="subtitle"><?php echo $subtitle; ?></h2>
+
+      <?php endif; ?>
+
+      <?php recipe_entry_tags(); ?>
+
+      <div class="article-info">
+
+        <?php recipe_posted_on() ?><span class="separator"> | </span><?php recipe_article_reading_time(); ?>
+
+      </div>
 
       <?php get_template_part( 'template-parts/post-content/flexible' ); ?>
 

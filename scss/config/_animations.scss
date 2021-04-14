@@ -21,3 +21,18 @@
     opacity: 1;
   }
 }
+
+@keyframes shakeArrow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  40% {
+    transform: translate3d(4%, 0, 0);
+  }
+  80% {
+    transform: translate3d(-1%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}

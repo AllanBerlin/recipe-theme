@@ -87,8 +87,8 @@
 
   .menu-link {
     font-family: $sansSerifFont;
-    font-size: 1.4rem;
-    line-height: 1.45;
+    font-size: 1.25rem;
+    line-height: 1.2;
     margin-bottom: 0.75rem;
     color: $black;
   }
@@ -177,7 +177,19 @@
     }
 
     .menu-link {
+      transition: background-size 300ms ease-in-out;
+      background: linear-gradient(to bottom, transparent 62%, #E3DCF7 0) left center/0% 100% no-repeat;
       margin-bottom: 0;
+      will-change: background-size;
+
+      &:hover {
+        background-size: 100% 100%;
+      }
+
+      &:after {
+        display: none;
+        transition: none;
+      }
     }
   }
 }

@@ -118,6 +118,8 @@ function recipe_allowed_html_types( ): array {
     'em'     => [],
     'strong' => [],
     'p'      => [],
+    'ul'      => [],
+    'li'      => [],
     'span'   => [
       'class' => [],
     ],

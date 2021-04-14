@@ -1,6 +1,10 @@
 .top-section {
   padding: 0;
 
+  .cta {
+    margin-top: 3.75rem;
+  }
+
   .image-text {
     padding: 5.625rem 0;
     position: relative;
@@ -80,6 +84,8 @@
   }
 
   @include breakpoint(laptop) {
-
+    .cta {
+      width: calc((var(--grid-width) * 2) + var(--grid-gutter));
+    }
   }
 }

@@ -51,6 +51,12 @@ get_header(); ?>
 
         </div>
 
+        <div class="button-wrapper">
+
+          <button type="button" class="button load-more" title="Load More">Load More</button>
+
+        </div>
+
       </section>
 
       <?php wp_reset_postdata(); ?>

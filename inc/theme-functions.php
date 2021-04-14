@@ -12,7 +12,7 @@ if ( ! function_exists( 'recipe_posted_on' ) ) :
 function recipe_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 	}
 
 	$time_string = sprintf( $time_string,
@@ -22,17 +22,14 @@ function recipe_posted_on() {
 		esc_html( get_the_modified_date() )
 	);
 
-	$posted_on = sprintf(
-		esc_html_x( '%s', 'post date', 'recipe' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+	$posted_on = sprintf( esc_html_x( '%s', 'post date', 'recipe' ), $time_string );
 
 	$byline = sprintf(
-		esc_html_x( 'BY %s', 'post author', 'recipe' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		esc_html_x( '%s', 'post author', 'recipe' ),
+		'<span class="author"><a class="author-link" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<div class="byline"> ' . $byline . '</div><div class="posted-on">' . $posted_on . '</div>'; // WPCS: XSS OK.
+	echo '<div class="author-date"><span class="byline"> ' . $byline . '</span> | <span class="posted-on">' . $posted_on . '</span></div>';
 
 }
 endif;
@@ -47,7 +44,7 @@ if ( ! function_exists( 'recipe_posted_by' ) ) :
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<div class="byline"> ' . $byline . '</div>'; // WPCS: XSS OK.
+		echo '<div class="byline"> ' . $byline . '</div>';
 
 	}
 endif;
@@ -193,9 +190,8 @@ if ( ! function_exists( 'recipe_article_reading_time' ) ) :
 
     $readingTime = ceil( $wordCount / 200 );
 
-    $timer = $readingTime == 1 ? ' minute' : ' minutes';
+    printf( '<div class="reading-time">' . esc_html__( '%1$s Min Read', 'recipe' ) . '</div>', $readingTime );
 
-    return $readingTime . $timer;
   }
 endif;
 
@@ -221,14 +217,40 @@ if ( ! function_exists( 'recipe_entry_tags' ) ) :
 	 * Prints HTML with meta information for tags.
 	 */
 	function recipe_entry_tags() {
-		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html__( ',&nbsp;&nbsp;&nbsp;', 'recipe' ));
-			if ( $tags_list ) {
-				printf( '<p class="tags">' . esc_html__( 'Tags:' ) . '</p><span class="tags-links">' . esc_html__( '%1$s', 'recipe' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-			}
-		}
+		// Hide tags for pages.
+		if ( get_post_type() === 'post' ):
+			$tags = get_the_tags();
+
+			?>
+
+      <ul class="tags-list">
+
+        <?php foreach( $tags as $tag ) :
+          $tagName = $tag->name;
+          $tagShortName = get_field( 'shortname', $tag->taxonomy . '_' . $tag->term_id );
+
+          if( empty( $tagShortName ) ) {
+            $tagShortName = $tagName;
+          }
+
+          $tagFontColour = get_field( 'recipe_font_colour', $tag->taxonomy . '_' . $tag->term_id );
+          $tagColour = get_field( 'recipe_tag_colour', $tag->taxonomy . '_' . $tag->term_id );
+
+          ?>
+
+          <li class="tag" style="--tag-colour: <?php echo $tagColour; ?>; color: <?php echo $tagFontColour; ?>;">
+
+            <span class="tag-shortname"><?php echo $tagShortName; ?></span>
+
+            <span class="tag-name"><?php echo $tagName; ?></span>
+
+          </li>
+
+        <?php endforeach; ?>
+
+      </ul>
+
+    <?php endif;
 	}
 endif;
 
@@ -261,6 +283,48 @@ function recipe_categorized_blog() {
 		return false;
 	}
 }
+
+
+/**
+ * Prints HTML with article breadcrumbs.
+ */
+function recipe_the_breadcrumb() {
+  $delimiter = '>'; // delimiter between crumbs
+  $home = 'Home'; // text for the 'Home' link
+  $before = '<span class="current">'; // tag before the current crumb
+  $after = '</span>'; // tag after the current crumb
+
+  $homeLink = get_bloginfo('url');
+
+  if ( is_single() ) {
+    echo '<nav class="breadcrumbs" role="navigation"><a class="breadcrumb" href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
+    if( is_category() ) {
+      $thisCat = get_category( get_query_var( 'cat' ), false );
+
+      if( $thisCat->parent != 0 ) {
+        echo get_category_parents( $thisCat->parent, true, ' ' . $delimiter . ' ' );
+      }
+    } elseif( is_single() && !is_attachment() ) {
+      $catBase = get_option( 'category_base' );
+
+      if( $catBase ) {
+        $catBasePage = get_page_by_title( $catBase );
+
+        echo '<a class="breadcrumb" href="' . get_permalink( $catBasePage->ID ) . '">' . $catBasePage->post_title . '</a> ' . $delimiter . ' ';
+      }
+
+      $cat  = get_the_category();
+      $cat  = $cat[0];
+
+      echo '<a class="breadcrumb" href="' . get_category_link( $cat ) . '">' . $cat->name . '</a> ' . $delimiter . ' ';
+
+      echo $before . get_the_title() . $after;
+    }
+    echo '</nav>';
+  }
+}
+
+
 
 /**
  * Flush out the transients used in recipe_categorized_blog.

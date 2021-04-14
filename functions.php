@@ -112,10 +112,13 @@ function recipe_scripts() {
     wp_deregister_script( 'jquery' );
   }
 
-  wp_register_script( 'smoothscroll-polyfill', 'https://cdnjs.cloudflare.com/ajax/libs/iamdustan-smoothscroll/0.4.0/smoothscroll.min.js', array(), '', true );
-  wp_enqueue_script( 'smoothscroll-polyfill' );
+  wp_enqueue_script( 'GSAP', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js', array(), '', true );
 
-	wp_enqueue_script( 'recipe-scripts', get_template_directory_uri() . '/js/scripts.min.js', array(), '', true );
+//  wp_enqueue_script( 'Draggable', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/Draggable.min.js', array(), '', true );
+
+  wp_enqueue_script( 'ScrollTrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js', array(), '', true );
+
+	wp_enqueue_script( 'recipe-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
 
 }
 add_action( 'wp_enqueue_scripts', 'recipe_scripts' );

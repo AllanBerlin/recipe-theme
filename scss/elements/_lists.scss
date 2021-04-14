@@ -5,11 +5,14 @@ ul, ol {
 }
 
 li {
-	@include fluid-font(0.875rem, 1.5rem);
-
+	font-size: 1.25rem;
 	line-height: 1.45;
 	margin-bottom: 1.25rem;
   margin-top: 0;
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
 }
 
 li > ul,

@@ -1,30 +1,75 @@
 .layout-footer {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
 
-  .footer-container {
-    display: grid;
+  .footer-top {
+    background-color: #F6F5FA;
+    padding: 3.125rem 0 3.75rem 0;
+  }
+
+  .footer-bottom {
+    border-top: 2px solid #CDCED0;
+    background-color: $white;
+    height: 4.375rem;
     align-items: center;
-    grid-gap: 1rem;
+
+    .page-link {
+      color: $blue;
+    }
   }
 
-  .social-links,
-  .copyright,
-  .made-by {
-    text-align: center;
+  .logo-wrapper {
+    width: 4.263rem;
+    margin-bottom: 1.125rem;
+
+    .image-container {
+      background-color: transparent;
+
+      .image {
+        padding-bottom: 3.875rem;
+      }
+    }
   }
 
-  .copyright,
-  .made-by {
-    @include fluid-font(1rem, 1.875rem);
+  .address {
+    font-size: 0.875rem;
+    font-style: normal;
+    line-height: 1.3;
+  }
+
+  .column-headline {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    padding-bottom: 0.406rem;
+    margin-bottom: 1.656rem;
+    border-bottom: 2px solid $blue;
+  }
+
+  .page-links .page-item {
+    font-size: 1.125rem;
+    line-height: 1.2;
+    margin-bottom: 0.625rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .social-links .links {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
   }
 
   .social-item {
     display: inline-block;
-    width: 2.75rem;
-    height: 2.75rem;
-    margin-left: 1rem;
+    vertical-align: middle;
+    width: 1.875rem;
+    height: 1.875rem;
+    margin-left: 1.25rem;
     margin-bottom: 0;
+
+    &.youtube {
+      width: 2.5rem;
+    }
 
     &:first-of-type {
       margin-left: 0;
@@ -46,21 +91,16 @@
   }
 
   @include breakpoint(laptop) {
-    .footer-container {
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 0;
-    }
-
-    .social-links {
-      text-align: left;
+    .column {
+      grid-column: span 3;
     }
 
     .copyright {
-      text-align: center;
+      grid-column: 3 / span 4;
     }
 
-    .made-by {
-      text-align: right;
+    .social-links {
+      grid-column: 8 / span 5;
     }
   }
 }

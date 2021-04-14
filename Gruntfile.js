@@ -65,8 +65,7 @@ module.exports = function(grunt) {
       },
       all: {
         src: [
-          'js-src/polyfill/*.js',
-          'js-src/lib/*.js', 
+          'js-src/**/*.js',
           'js-src/_utils.js',
           'js-src/*.js',
           '!js-src/App.js',

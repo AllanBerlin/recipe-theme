@@ -1,0 +1,38 @@
+.section-column-list {
+  .list-wrapper {
+    grid-column: 1 / span var(--grid-amount);
+  }
+
+  .list-row {
+    margin-bottom: 1.875rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .heading {
+    font-size: 2.438rem;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+
+  @include breakpoint(laptop) {
+    .text-content {
+      margin-bottom: 5.625rem;
+    }
+
+    .heading {
+      grid-column: 1 / span 5;
+    }
+
+    .list-row {
+      margin-bottom: 5.625rem;
+
+      .text-content {
+        grid-column: 7 / span 6;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

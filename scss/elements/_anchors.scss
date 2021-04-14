@@ -1,13 +1,30 @@
 a,
 a:visited {
-    color: inherit;
-    text-decoration: none;
-    outline: 0;
-}
+  color: inherit;
+  text-decoration: none;
+  outline: 0;
+  position: relative;
 
-a:hover,
-a:focus,
-a:active {
+  &:hover,
+  &:focus,
+  &:active {
     cursor: pointer;
     text-decoration: none;
+
+    &:after {
+      min-width: 100%;
+    }
+  }
+
+  &:after {
+    content: '';
+    transition: min-width 200ms ease-in-out;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 0;
+    height: 2px;
+    background-color: $font-color;
+    will-change: min-width;
+  }
 }

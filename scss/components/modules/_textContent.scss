@@ -1,29 +1,3 @@
 .text-content {
-  ul {
-    padding-left: 1.5em;
-  }
 
-  li {
-    position: relative;
-    padding-left: 1em;
-
-    &:before {
-      content: '\25CF';
-      display: inline-block;
-      margin-left: -1em;
-      color: inherit;
-      width: 1em;
-    }
-  }
-
-  p {
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-
-    a {
-      color: $primary;
-      text-decoration: underline;
-    }
-  }
 }

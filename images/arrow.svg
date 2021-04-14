@@ -1,12 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 20.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:none;stroke:#000;stroke-miterlimit:10;}
-</style>
-<g>
-	<circle class="st0" cx="25" cy="25" r="21"/>
-	<polyline class="st0" points="28.2,34.3 19.7,25.8 28.2,17.3 	"/>
-</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="82px" height="34px" viewBox="0 0 82 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Shape</title>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Learn-page" transform="translate(-687.000000, -2618.000000)" stroke="#20232D" stroke-width="2">
+            <g id="Articles" transform="translate(0.000000, 848.000000)">
+                <g id="9-Articles" transform="translate(134.000000, 199.000000)">
+                    <g id="Card-8" transform="translate(401.000000, 1109.000000)">
+                        <path d="M216,495 L232,479 L216,463 M232,479 L152,479" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>

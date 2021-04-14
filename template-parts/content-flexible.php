@@ -157,7 +157,7 @@
 
         ?>
 
-        <section class="section-image-text layout-grid" title="<?php echo esc_attr( $sectionTitle ); ?>" style="background-color: <?php echo $sectionBgColour; ?>;">
+        <section class="section-image-text" title="<?php echo esc_attr( $sectionTitle ); ?>" style="background-color: <?php echo $sectionBgColour; ?>;">
 
           <?php if( $sectionTitle ): ?>
 
@@ -171,8 +171,6 @@
 
           <?php endif; ?>
 
-          <?php get_template_part( 'template-parts/modules/text-content' ); ?>
-
           <?php if( have_rows('image_text_row') ): ?>
 
             <div class="list-wrapper">
@@ -182,26 +180,39 @@
                 $image = get_sub_field('image');
                 $text = get_sub_field('text');
 
+                if($imageAlignment === 'left') {
+                  $revealDirection = 'reveal-left';
+                } else {
+                  $revealDirection = 'reveal-right';
+                }
+
                 ?>
 
-                <?php if( !empty( $image ) ): ?>
+                <div class="list-row layout-grid <?php echo $imageAlignment; ?>">
 
-                  <div class="image-wrapper <?php echo $imageAlignment; ?>">
+                  <?php if( !empty( $image ) ):
+                    set_query_var('image', $image);
 
-                    <?php get_template_part( 'template-parts/modules/image' ); ?>
+                    ?>
 
-                  </div>
+                    <div class="image-wrapper reveal <?php echo $revealDirection; ?>">
 
-                <?php endif; ?>
+                      <?php get_template_part( 'template-parts/modules/image' ); ?>
 
-                <?php if( !empty( $text ) ):
-                  $allowedHtml = recipe_allowed_html_types();
+                    </div>
 
-                  ?>
+                  <?php endif; ?>
 
-                  <div class="text-content"><?php echo wp_kses( $text, $allowedHtml );?></div>
+                  <?php if( !empty( $text ) ):
+                    $allowedHtml = recipe_allowed_html_types();
 
-                <?php endif; ?>
+                    ?>
+
+                    <div class="text-content reveal"><?php echo wp_kses( $text, $allowedHtml );?></div>
+
+                  <?php endif; ?>
+
+                </div>
 
               <?php endwhile; ?>
 
@@ -242,20 +253,24 @@
 
                 ?>
 
-                <?php if( !empty( $heading ) ): ?>
+                <div class="list-row layout-grid">
 
-                  <h4 class="heading"><?php echo $heading; ?></h4>
+                  <?php if( !empty( $heading ) ): ?>
 
-                <?php endif; ?>
+                    <h4 class="heading reveal reveal-left"><?php echo $heading; ?></h4>
 
-                <?php if( !empty( $text ) ):
-                  $allowedHtml = recipe_allowed_html_types();
+                  <?php endif; ?>
 
-                  ?>
+                  <?php if( !empty( $text ) ):
+                    $allowedHtml = recipe_allowed_html_types();
 
-                  <div class="text-content"><?php echo wp_kses( $text, $allowedHtml );?></div>
+                    ?>
 
-                <?php endif; ?>
+                    <div class="text-content reveal reveal-right"><?php echo wp_kses( $text, $allowedHtml );?></div>
+
+                  <?php endif; ?>
+
+                </div>
 
               <?php endwhile; ?>
 
@@ -301,7 +316,11 @@
 
                   ?>
 
-                  <?php get_template_part( 'template-parts/content', 'team' ); ?>
+                  <div class="batch-reveal">
+
+                    <?php get_template_part( 'template-parts/content', 'team' ); ?>
+
+                  </div>
 
                   <?php wp_reset_postdata(); ?>
 
@@ -408,7 +427,7 @@
 
                 ?>
 
-                <div class="text-column">
+                <div class="text-column batch-reveal">
 
                   <?php if( !empty( $headline ) ): ?>
 

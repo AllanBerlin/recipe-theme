@@ -1,18 +1,39 @@
 .article-item {
-  border-radius: 0.75rem;
-  overflow: hidden;
+  position: relative;
+  transition: transform 350ms ease-in-out;
+  transform: translate(0, 0);
+  will-change: transform;
+
+  &:hover {
+    transform: translate(0, -0.625rem);
+
+    .read-now:after {
+      animation-play-state: running;
+    }
+  }
 
   .article-link {
     display: block;
     height: 100%;
+    border-radius: 0.75rem;
+    overflow: hidden;
+
+    &:after {
+      display: none;
+      transition: none;
+    }
   }
 
-  .image-container {
-    background-color: $light-grey;
+  .tags-list {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-86.5%);
+    left: 1.875rem;
+    z-index: 10;
+  }
 
-    .image {
-      padding-bottom: 67.57%;
-    }
+  .image-container .image {
+    padding-bottom: 67.57%;
   }
 
   .entry-title {
@@ -36,6 +57,24 @@
     bottom: 1.875rem;
     left: 1.875rem;
     display: block;
+
+    &:after {
+      content: '';
+      animation: shakeArrow 800ms paused infinite;
+      transform: translate3d(0, 0, 0);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(100% + 1.875rem);
+      margin: auto;
+      background-image: url('../images/arrow.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: transparent;
+      height: 2rem;
+      width: 5rem;
+      will-change: transform;
+    }
   }
 
   @include breakpoint(laptop) {

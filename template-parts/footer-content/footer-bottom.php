@@ -12,10 +12,14 @@ $termsLink = get_field('terms_link', 'option');
 
     ?>
 
-    <a href="<?php echo esc_url( $termsLink ); ?>"
-       class="page-link"
-       title="<?php echo esc_html( $linkTitle ); ?>"
-       rel="noopener"><?php echo esc_html( $linkTitle ); ?></a>
+    <div class="link-wrapper">
+
+      <a href="<?php echo esc_url( $termsLink ); ?>"
+         class="page-link"
+         title="<?php echo esc_html( $linkTitle ); ?>"
+         rel="noopener"><?php echo esc_html( $linkTitle ); ?></a>
+
+    </div>
 
   <?php endif; ?>
 

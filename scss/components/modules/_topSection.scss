@@ -1,5 +1,10 @@
 .top-section {
   padding: 0;
+  overflow: hidden;
+
+  .layout-grid {
+    align-items: center;
+  }
 
   .cta {
     margin-top: 3.75rem;
@@ -21,25 +26,28 @@
       }
 
       &:after {
-        right: 0;
-        left: auto;
+        transform: translateX(calc(50% + var(--grid-width) + (var(--grid-gutter) / 2)));
       }
     }
 
     &:after {
       content: '';
       position: absolute;
-      left: 0;
+      right: 0;
       top: 0;
       bottom: 0;
-      width: 44%;
-      //width: calc((var(--grid-width) * 7) + (var(--grid-gutter) * 6) - (100% - var(--grid-total-width)));
+      width: 100%;
+      transform: translateX(calc(50% - var(--grid-width) - (var(--grid-gutter) / 2)));
       background-color: var(--block-color);
       z-index: -1;
     }
 
     .text-content {
       grid-column: 8 / span 5;
+    }
+
+    .headline {
+      @extend h1;
     }
 
     .image-wrapper {
@@ -78,14 +86,24 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: var(--grid-total-width);
+      width: calc(var(--grid-total-width) - var(--grid-width) - var(--grid-gutter));
       margin-bottom: 0;
+
+      br {
+        display: none;
+      }
     }
   }
 
   @include breakpoint(laptop) {
     .cta {
       width: calc((var(--grid-width) * 2) + var(--grid-gutter));
+    }
+  }
+
+  @include breakpoint(xl-laptop) {
+    .background-text .headline br {
+      display: block;
     }
   }
 }

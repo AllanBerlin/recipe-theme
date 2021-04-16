@@ -11,6 +11,7 @@
       $teamList = get_row_layout() == 'team_list';
       $parallaxList = get_row_layout() == 'parallax_list';
       $strengthsGrid = get_row_layout() == 'strengths_grid';
+      $contactForm = get_row_layout() == 'contact_form';
 
       ?>
 
@@ -122,10 +123,18 @@
 
             <div class="testimonial-grid">
 
+              <?php $count = 0; ?>
+
               <?php while( have_rows('testimonials_grid') ) : the_row();
                 $testimonial = get_sub_field('testimonial');
 
                 ?>
+
+                <?php if ( ( $count % 2 ) == 0 ): ?>
+
+                  <div class="testimonial-wrapper">
+
+                <?php endif; ?>
 
                 <?php if( $testimonial ):
                   $post = $testimonial;
@@ -139,7 +148,19 @@
 
                 <?php endif; ?>
 
-              <?php endwhile; ?>
+              <?php if ( ( $count % 2 ) == 1 ): ?>
+
+                </div>
+
+              <?php endif; ?>
+
+            <?php $count++; endwhile; ?>
+
+            <?php if ( ( $count % 2 ) != 0 ): ?>
+
+              </div>
+
+            <?php endif; ?>
 
             </div>
 
@@ -345,31 +366,47 @@
 
         <section class="section-parallax-list" title="<?php echo esc_attr( $sectionTitle ); ?>" style="background-color: <?php echo $sectionBgColour; ?>;">
 
-          <?php if( $sectionTitle ): ?>
-
-            <h2 class="section-title"><?php echo $sectionTitle; ?></h2>
-
-          <?php endif; ?>
-
-
           <?php if( have_rows('parallax_item') ): ?>
 
-            <div class="parallax-wrapper">
+            <div class="parallax-wrapper layout-grid">
 
-              <?php while( have_rows('parallax_item') ): the_row();
-                $textContent = get_sub_field('text_content');
-                $image = get_sub_field('image');
+              <div class="parallax-texts">
 
-                ?>
+                <?php if( $sectionTitle ): ?>
 
-                <div class="parallax-item layout-grid">
+                  <h2 class="section-title"><?php echo $sectionTitle; ?></h2>
+
+                <?php endif; ?>
+
+                <?php $count = 1; ?>
+
+                <?php while( have_rows('parallax_item') ): the_row();
+                  $textContent = get_sub_field('text_content');
+
+                  ?>
 
                   <?php if( !empty( $textContent ) ):
                     set_query_var('text_content', $textContent);
 
+                    if( $count > 1 ) {
+                      $textHidden = ' hidden';
+                    } else {
+                      $textHidden = '';
+                    }
+
+                    if( $count === 1 ) {
+                      $textMarker = 'marker-one';
+                    } elseif($count === 2) {
+                      $textMarker = 'marker-two';
+                    } elseif($count === 3) {
+                      $textMarker = 'marker-three';
+                    } else {
+                      $textMarker = 'marker-four';
+                    }
+
                     ?>
 
-                    <div class="parallax-text">
+                    <div class="parallax-text<?php echo $textHidden; ?>" data-marker="<?php echo $textMarker; ?>">
 
                       <?php get_template_part( 'template-parts/modules/text-content' ); ?>
 
@@ -377,22 +414,55 @@
 
                   <?php endif; ?>
 
-                  <?php if( !empty( $image ) ):
-                    set_query_var('image', $image);
+                <?php $count++; endwhile; ?>
 
-                    ?>
+              </div>
 
-                    <div class="parallax-images">
 
-                      <?php get_template_part( 'template-parts/modules/image' ); ?>
+              <div class="parallax-images">
 
-                    </div>
+                <?php while( have_rows('parallax_item') ): the_row();
+                  $images = get_sub_field('images');
+
+                  ?>
+
+                  <?php if( !empty( $images ) ): ?>
+
+                    <?php foreach( $images as $image ):
+                      $parallaxImage = $image['image'];
+                      $parallaxImageClass = get_field('classname', $parallaxImage['ID']);
+
+                      ?>
+
+                      <div class="parallax-image<?php echo $parallaxImageClass ? ' ' . $parallaxImageClass : ''; ?>" data-speed="<?php echo $image['image_speed']; ?>">
+
+                        <?php if( !empty( $parallaxImage ) ):
+                          $parallaxImageDetails = wp_get_attachment_image_src( $parallaxImage['ID'] , 'full' );
+
+                          ?>
+
+                          <div class="image-container img">
+
+                            <img data-src="<?php echo $parallaxImageDetails[0]; ?>" width="<?php echo $parallaxImageDetails[1]; ?>" height="<?php echo $parallaxImageDetails[2]; ?>" class="image" alt="<?php echo $parallaxImage['alt']; ?>" />
+
+                          </div>
+
+                        <?php endif; ?>
+
+                      </div>
+
+                    <?php endforeach; ?>
 
                   <?php endif; ?>
 
-                </div>
+                <?php endwhile; ?>
 
-              <?php endwhile; ?>
+              </div>
+
+              <div class="marker marker-one" data-marker="marker-one"></div>
+              <div class="marker marker-two" data-marker="marker-two"></div>
+              <div class="marker marker-three" data-marker="marker-three"></div>
+              <div class="marker marker-four" data-marker="marker-four"></div>
 
             </div>
 
@@ -449,6 +519,57 @@
               <?php endwhile; ?>
 
             </div>
+
+          <?php endif; ?>
+
+        </section>
+
+      <?php endif; ?>
+
+
+      <?php if( $contactForm ):
+        $sectionBgColour = get_sub_field('recipe_background_colour');
+        $sectionTitle = get_sub_field('section_title');
+        $sectionContent = get_sub_field('section_content');
+        $form = get_sub_field('form');
+        $imageDetails = get_sub_field('image_details');
+
+        set_query_var('text_content', $sectionContent);
+
+        ?>
+
+        <section class="section-contact layout-grid" title="<?php echo esc_attr( $sectionTitle ); ?>" style="background-color: <?php echo $sectionBgColour; ?>;">
+
+          <?php if( $sectionTitle ): ?>
+
+            <h2 class="section-title"><?php echo $sectionTitle; ?></h2>
+
+          <?php endif; ?>
+
+          <?php get_template_part( 'template-parts/modules/text-content' ); ?>
+
+          <?php if( !empty( $form ) ): ?>
+
+            <div class="form-wrapper"><?php echo $form; ?></div>
+
+          <?php endif; ?>
+
+          <?php if( !empty( $imageDetails ) ):
+            $image = $imageDetails['image'];
+            set_query_var('image', $image);
+
+            $borderColour = $imageDetails['recipe_frame_colour'];
+            ?>
+
+            <?php if( !empty( $image ) ): ?>
+
+              <div class="image-wrapper" style="border-color: <?php echo esc_attr( $borderColour ); ?>;">
+
+                <?php get_template_part( 'template-parts/modules/image' ); ?>
+
+              </div>
+
+            <?php endif; ?>
 
           <?php endif; ?>
 

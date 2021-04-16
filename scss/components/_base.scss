@@ -18,6 +18,7 @@
 // Flexible Article Modules
 @import "modules/flexible-sections/flexibleSections";
 @import "modules/flexible-sections/columnList";
+@import "modules/flexible-sections/contact";
 @import "modules/flexible-sections/featuredArticles";
 @import "modules/flexible-sections/imageTextSection";
 @import "modules/flexible-sections/parallaxList";
@@ -25,6 +26,9 @@
 @import "modules/flexible-sections/teamList";
 @import "modules/flexible-sections/testimonials";
 @import "modules/flexible-sections/textImageSection";
+
+// Parallax Images
+@import "modules/flexible-sections/parallax-images/parallaxImage";
 
 // Other Modules
 @import "modules/articlesList";
@@ -34,6 +38,7 @@
 @import "modules/privacyPolicy";
 @import "modules/relatedArticles";
 @import "modules/sectionArticlesList";
+@import "modules/shareButtons";
 @import "modules/slider";
 @import "modules/tagsList";
 @import "modules/textContent";

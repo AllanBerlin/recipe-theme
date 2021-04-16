@@ -1,10 +1,10 @@
 .section-testimonials {
 
   .testimonial-grid {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     grid-column: 1 / span var(--grid-amount);
+    grid-column-gap: var(--grid-gutter);
   }
 
   .testimonial-image {
@@ -42,19 +42,13 @@
 
   @include breakpoint(laptop) {
     .testimonial-grid {
-      flex-flow: row wrap;
+
     }
 
     .testimonial-item {
-      flex: 0 0 calc((var(--grid-width) * 4) + (var(--grid-gutter) * 3));
-      margin-right: var(--grid-gutter);
-      margin-bottom: 3.75rem;
+      margin-bottom: var(--grid-gutter);
 
-      &:nth-of-type(3n) {
-        margin-right: 0;
-      }
-
-      &:nth-last-of-type(-n + 3) {
+      &:last-of-type {
         margin-bottom: 0;
       }
     }

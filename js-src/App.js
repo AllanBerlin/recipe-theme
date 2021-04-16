@@ -8,11 +8,13 @@ const App = (() => {
 
     const body = document.body;
     const header = document.querySelector('.layout-header');
+    const sectionArticlesList = document.querySelector('.section-articles-list');
     const policyPopup = document.querySelector('.policy-popup');
     const imageContainer = document.querySelectorAll('.image-container');
     const sliders = document.querySelectorAll('.slider');
     const scrollRevealElements = document.querySelectorAll('.reveal');
     const batchRevealElements = document.querySelectorAll('.batch-reveal');
+    const parallaxSectionList = document.querySelector('.section-parallax-list');
 
     document.addEventListener('DOMContentLoaded', function() {
       gsap.registerPlugin(ScrollTrigger);
@@ -20,6 +22,10 @@ const App = (() => {
 
     if(header) {
       HeaderHandler(header, body);
+    }
+
+    if(sectionArticlesList) {
+      ArticlesListHandler(sectionArticlesList);
     }
 
     if(policyPopup) {
@@ -44,6 +50,10 @@ const App = (() => {
 
     if(batchRevealElements.length > 0) {
       BatchRevealHandler(batchRevealElements);
+    }
+
+    if(parallaxSectionList) {
+      ParallaxSectionHandler(parallaxSectionList);
     }
 
     // call the helper to get exact viewport height, especially for mobile browsers

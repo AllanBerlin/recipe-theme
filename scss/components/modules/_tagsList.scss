@@ -18,7 +18,9 @@
     }
 
     &:hover .tag-name {
+      transform: translate(-50%, 0);
       visibility: visible;
+      opacity: 1;
     }
   }
 
@@ -39,11 +41,13 @@
   }
 
   .tag-name {
+    transform: translate(-50%, -0.625rem);
+    transition: all 300ms ease-in-out;
     position: absolute;
     top: -3.125rem;
     left: 50%;
-    transform: translateX(-50%);
     visibility: hidden;
+    opacity: 0;
     min-width: 6.25rem;
     padding: 0 1.188rem;
 

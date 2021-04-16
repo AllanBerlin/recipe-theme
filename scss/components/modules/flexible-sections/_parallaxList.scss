@@ -1,17 +1,129 @@
 .section-parallax-list {
+  padding-bottom: 12rem;
+
+  .parallax-wrapper {
+    height: 500vh;
+    height: calc(var(--vh, 1vh) * 500);
+    position: relative;
+  }
+
+  .marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 0;
+    height: 1px;
+    visibility: hidden;
+
+    &.marker-one {
+      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
+      width: 100%;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: deeppink;
+      }
+    }
+
+    &.marker-two {
+      top: 200vh;
+      top: calc(var(--vh, 1vh) * 200);
+
+      width: 100%;
+      background-color: red;
+    }
+
+    &.marker-three {
+      top: 300vh;
+      top: calc(var(--vh, 1vh) * 300);
+
+      width: 100%;
+      background-color: green;
+    }
+
+    &.marker-four {
+      top: 400vh;
+      top: calc(var(--vh, 1vh) * 400);
+      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
+      width: 100%;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: blue;
+      }
+    }
+  }
 
   .section-title {
-    width: var(--grid-total-width);
-    margin-left: auto;
-    margin-right: auto;
+    width: 200px;
+    //margin-left: auto;
+    //margin-right: auto;
   }
 
   .parallax-item {
     margin-bottom: 15.625rem;
   }
 
+  .parallax-text {
+    overflow: hidden;
+
+    &.hidden {
+      .text-content {
+        margin-bottom: 0;
+      }
+
+      .headline {
+        opacity: 0.2;
+      }
+
+      .text {
+        transition: max-height 300ms ease-in-out;
+        max-height: 0;
+      }
+    }
+
+    &.active {
+      .headline {
+        opacity: 1;
+      }
+
+      .text {
+        transition: max-height 300ms ease-in-out;
+        max-height: 62.5rem;
+      }
+    }
+
+    .headline {
+      transition: opacity 250ms ease-in-out;
+      will-change: opacity;
+    }
+
+    .text {
+      overflow: hidden;
+      transition: max-height 300ms ease-in-out;
+      will-change: max-height;
+    }
+  }
+
+  .parallax-images {
+    position: relative;
+  }
+
   @include breakpoint(laptop) {
-    .parallax-text {
+    .parallax-texts {
       grid-column: 1 / span 5;
     }
 

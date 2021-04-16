@@ -1,7 +1,7 @@
 .article-detail {
 
   .entry-header .image-container {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.875rem;
 
     .image {
       padding-bottom: 100%;
@@ -9,7 +9,7 @@
   }
 
   .breadcrumbs {
-    margin-bottom: 3.125rem;
+    margin-bottom: 1.875rem;
   }
 
   .reading-time,
@@ -19,16 +19,11 @@
     vertical-align: middle;
     font-family: $serifFont;
     font-size: 1.125rem;
-    line-height: 2.056;
+    line-height: 1.278;
   }
 
   .separator {
     padding: 0 0.313rem;
-  }
-
-  .share-buttons {
-    padding-top: 1.906rem;
-    border-top: 0.144rem solid #979797;
   }
 
   .entry-content {
@@ -44,15 +39,16 @@
       display: grid;
       grid-template-columns: repeat(8, 1fr);
       grid-gap: 1.25rem;
-      margin-bottom: 1.25rem;
 
       .tag {
         margin-left: 0;
       }
     }
 
-    .article-info {
-      margin-bottom: 1.25rem;
+    .entry-title,
+    .subtitle,
+    .tags-list {
+      margin-bottom: 1.875rem;
     }
 
     > * {
@@ -65,6 +61,12 @@
     @include fluid-font(1.5rem, 2.063rem);
 
     line-height: 3.25rem;
+  }
+
+  .subtitle {
+    @include fluid-font(1.25rem, 1.5rem);
+
+    line-height: 1.458;
   }
 
   @include breakpoint(tablet) {
@@ -87,9 +89,8 @@
       width: calc((var(--grid-width) * 5) + (var(--grid-gutter) * 4) - 1.25rem);
     }
 
-    //.text-content,
-    //.entry-title {
-    //  grid-column: 6 / span 7;
-    //}
+    .subtitle {
+      font-family: $serifFont;
+    }
   }
 }

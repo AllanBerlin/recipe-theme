@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="35px" height="35px" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>mobile-copy link icon</title>
+    <g id="mobile-copy-link-icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17,31 L12.5461811,31 C8.37854034,31 5,27.6421356 5,23.5 C5,19.3578644 8.37854034,16 12.5461811,16 L16.9017424,16" id="Path" stroke="#6E6D7A" stroke-width="2" transform="translate(11.000000, 23.500000) rotate(-45.000000) translate(-11.000000, -23.500000) "></path>
+        <path d="M19.0982576,3 L23.4538189,3 C27.6214597,3 31,6.35786438 31,10.5 C31,14.6421356 27.6214597,18 23.4538189,18 L19,18" id="Path" stroke="#6E6D7A" stroke-width="2" transform="translate(25.000000, 10.500000) rotate(-45.000000) translate(-25.000000, -10.500000) "></path>
+        <line x1="13" y1="22" x2="23" y2="12" id="Path" stroke="#6E6D7A" stroke-width="2"></line>
+    </g>
+</svg>

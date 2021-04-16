@@ -3,3 +3,9 @@
         #{$property}: $value;
     }
 }
+
+@mixin hoverActive($property, $value) {
+    &:hover, &:active {
+        #{$property}: $value;
+    }
+}

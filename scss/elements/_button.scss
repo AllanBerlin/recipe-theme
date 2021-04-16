@@ -1,9 +1,9 @@
 a.button,
 .button,
-button,
+button:not(.share-button),
 input[type="submit"] {
-  @include hoverActiveFocus(background-color, transparent);
-  @include hoverActiveFocus(color, $blue);
+  @include hoverActive(background-color, transparent);
+  @include hoverActive(color, $blue);
 
   transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
   display: inline-block;
@@ -30,9 +30,9 @@ input[type="submit"] {
   }
 
   &.load-more {
-    @include hoverActiveFocus(background-color, #F6F5FA);
-    @include hoverActiveFocus(color, #A4A4A4);
-    @include hoverActiveFocus(border-color, $dark-grey);
+    @include hoverActive(background-color, #F6F5FA);
+    @include hoverActive(color, #A4A4A4);
+    @include hoverActive(border-color, $dark-grey);
 
     transition: background-color 300ms ease-in-out, color 300ms ease-in-out, border-color 300ms ease-in-out;
     background-color: #EAE9F4;

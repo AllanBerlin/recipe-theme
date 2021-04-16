@@ -1,0 +1,86 @@
+.share-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 1.063rem;
+
+  .share-button {
+    min-width: auto;
+    height: auto;
+    position: relative;
+
+    &:after {
+      display: none;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      height: 0.938rem;
+      width: 0.938rem;
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-color: transparent;
+    }
+
+    &.facebook:before {
+      background-image: url('../images/facebook-share.svg');
+      background-size: 100% auto;
+    }
+
+    &.twitter:before {
+      background-image: url('../images/twitter-share.svg');
+      background-size: 100% auto;
+      width: 1.188rem;
+    }
+
+    &.linkedin:before {
+      background-image: url('../images/linkedin-share.svg');
+      background-size: 100% auto;
+    }
+
+    &.copy-article:before {
+      background-image: url('../images/copy-link.svg');
+      background-size: 100% auto;
+      width: 1.188rem;
+      height: 1.188rem;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    .share-button {
+      @include hoverActiveFocus(background-color, #F6F5FA);
+
+      box-sizing: border-box;
+      border: 1px solid $dark-grey;
+      border-radius: 0.5rem;
+      background-color: $white;
+      font-family: $sansSerifFont;
+      font-size: 1.125rem;
+      font-weight: 500;
+      text-align: left;
+      min-height: 2.5rem;
+      max-height: 2.5rem;
+      line-height: 2.5rem;
+      padding: 0 0 0 2.288rem;
+
+      &:before {
+        left: 0.938rem;
+      }
+
+      &.facebook:before {
+        background-image: url('../images/facebook-share-desktop.svg');
+        background-size: 100% auto;
+
+      }
+
+      &.linkedin:before {
+        background-image: url('../images/linkedin-share-desktop.svg');
+        background-size: 100% auto;
+      }
+    }
+  }
+}

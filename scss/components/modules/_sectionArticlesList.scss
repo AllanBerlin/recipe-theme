@@ -1,11 +1,22 @@
 .section-articles-list {
-  .article-item:nth-of-type(n + 10) {
-    display: none;
+  .article-item {
+
+    &.hide {
+      display: none;
+    }
+
+    &.show {
+      display: block;
+    }
   }
 
   .button-wrapper {
     grid-column: span var(--grid-amount);
     text-align: center;
+
+    .load-more.inactive {
+      pointer-events: none;
+    }
   }
 
   @include breakpoint(laptop) {

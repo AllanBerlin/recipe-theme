@@ -60,7 +60,7 @@
 
     &:after {
       content: '';
-      animation: shakeArrow 800ms paused infinite;
+      animation: shakeArrow 500ms paused infinite;
       transform: translate3d(0, 0, 0);
       position: absolute;
       top: 0;

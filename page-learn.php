@@ -37,6 +37,8 @@ get_header(); ?>
           <?php $loop->the_post();
 
           for ($x = 0; $x <= 30; $x++):
+            set_query_var('article_number', $x);
+
             ?>
 
             <?php get_template_part( 'template-parts/content', 'grid' ); ?>

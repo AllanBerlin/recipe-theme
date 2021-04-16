@@ -14,7 +14,7 @@ $quote = get_field('quote');
 
 ?>
 
-<article id="testimonial-<?php the_ID(); ?>" <?php post_class('testimonial-item'); ?>>
+<article id="testimonial-<?php the_ID(); ?>" <?php post_class('testimonial-item batch-reveal'); ?>>
 
   <header class="entry-header">
 

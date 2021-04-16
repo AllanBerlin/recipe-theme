@@ -32,7 +32,7 @@ const ParallaxSectionHandler = parent => {
   function animateTextSections() {
     ScrollTrigger.create({
       trigger: ".parallax-wrapper",
-      start: "-150",
+      start: "-226",
       end: "bottom bottom",
       onUpdate: getCurrentTextSection,
       pin: ".parallax-texts"
@@ -71,7 +71,7 @@ const ParallaxSectionHandler = parent => {
 
   function animateFirstParallaxImages() {
     gsap.to('.discovery-zoom-call', {
-      y: toPX('-40vh'),
+      y: '-40vh',
       ease: 'none',
       scrollTrigger: {
         trigger: markerOne,

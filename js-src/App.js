@@ -9,6 +9,7 @@ const App = (() => {
     const body = document.body;
     const header = document.querySelector('.layout-header');
     const sectionArticlesList = document.querySelector('.section-articles-list');
+    const sectionContact = document.querySelector('.section-contact');
     const policyPopup = document.querySelector('.policy-popup');
     const imageContainer = document.querySelectorAll('.image-container');
     const sliders = document.querySelectorAll('.slider');
@@ -26,6 +27,10 @@ const App = (() => {
 
     if(sectionArticlesList) {
       ArticlesListHandler(sectionArticlesList);
+    }
+
+    if(sectionContact) {
+      ContactFormHandler(sectionContact);
     }
 
     if(policyPopup) {

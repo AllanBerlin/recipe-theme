@@ -1,0 +1,17 @@
+.form-wrapper {    
+    .wpcf7-form {
+        .wpcf7-form-control-wrap {
+            display: inline-block;
+            margin: 0;
+
+            .sentence-input {
+                display: inline-block;
+                margin: 0 .5rem;
+            }
+        }
+
+        p, p > * {
+            display: inline;
+        }
+    }
+}

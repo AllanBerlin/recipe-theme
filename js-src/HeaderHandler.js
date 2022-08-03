@@ -6,18 +6,19 @@ const HeaderHandler = (parent, container) => {
   const init = () => {
     container.classList.remove('menu-visible');
 
-    const menuLinks = parent.querySelectorAll('.menu-item .menu-link');
-
-    // for(const link of menuLinks) {
-    //   link.addEventListener('click', scrollToSection);
-    // }
-
     windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     if (windowWidth <= 1200) {
       if(menuToggle) {
         menuToggle.addEventListener('click', onMenuClick);
-        window.addEventListener('click', onMenuClick);
       }
+    } else {
+      ScrollTrigger.create({
+        start: 'top',
+        end: 99999,
+        toggleClass: {className: 'shrink', targets: parent}
+      });
+
+      activeNavLink();
     }
   };
 
@@ -32,20 +33,6 @@ const HeaderHandler = (parent, container) => {
     }
   }
 
-  // function scrollToSection(event) {
-  //   event.preventDefault();
-  //
-  //   menuToggleCaller();
-  //
-  //   const href = this.getAttribute('href');
-  //   const offsetTop = document.querySelector(href).offsetTop;
-  //
-  //   scroll({
-  //     top: offsetTop,
-  //     behavior: 'smooth'
-  //   });
-  // }
-
   function menuToggleCaller() {
     if(!parent.classList.contains('show-menu')) {
       parent.classList.add('show-menu');
@@ -53,6 +40,18 @@ const HeaderHandler = (parent, container) => {
     } else {
       parent.classList.remove('show-menu');
       container.classList.remove('menu-visible');
+    }
+  }
+
+  function activeNavLink() {
+    const current = window.location.href;
+
+    let navLink = parent.querySelectorAll('.main-navigation a');
+
+    for (let i = navLink.length; i--;) {
+      if(navLink[i].href === current) {
+        navLink[i].classList.add('active');
+      }
     }
   }
 

@@ -12,7 +12,7 @@
   }
 
   .image {
-    transition :opacity 400ms ease-in-out 200ms;
+    transition: opacity 300ms ease-in-out;
     opacity: 0;
 
     &.loaded {
@@ -22,7 +22,7 @@
 
   .image {
     height: 0;
-    padding-bottom: 100%;
+    padding-bottom: 59.70%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

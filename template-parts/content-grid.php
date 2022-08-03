@@ -9,7 +9,8 @@ $articleNumber = get_query_var('article_number');
 
 ?>
 
-<article id="article-<?php the_ID(); ?>" class="article-item<?php echo ( $articleNumber > 8)  ? ' hide' : ''; ?>">
+<article id="article-<?php the_ID(); ?>" class="article-item">
+<!--<article id="article---><?php //the_ID(); ?><!--" class="article-item--><?php //echo ( $articleNumber > 8)  ? ' hide' : ''; ?><!--">-->
 
   <?php recipe_entry_tags(); ?>
 

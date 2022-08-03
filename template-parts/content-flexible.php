@@ -35,12 +35,20 @@
 
           <?php if( have_rows('articles_list') ): ?>
 
-            <div class="articles-list">
+            <div class="articles-slider">
+
+              <?php $count = 0; ?>
 
               <?php while( have_rows('articles_list') ) : the_row();
                 $articlePost = get_sub_field('article');
 
                 ?>
+
+                <?php if ( ( $count % 3 ) == 0 ): ?>
+
+                  <div class="articles-wrapper">
+
+                <?php endif; ?>
 
                 <?php if( $articlePost ):
                   $post = $articlePost;
@@ -54,7 +62,38 @@
 
                 <?php endif; ?>
 
-              <?php endwhile; ?>
+              <?php if ( ( $count % 3 ) == 2 ): ?>
+
+                </div>
+
+              <?php endif; ?>
+
+            <?php $count++; endwhile; ?>
+
+            <?php if ( ( $count % 3 ) != 0 ): ?>
+
+              </div>
+
+            <?php endif; ?>
+
+            </div>
+
+          <?php endif; ?>
+
+          <?php
+          $slides = get_sub_field('articles_list');
+          $badges = array_chunk( $slides, 3 );
+          $count = 0;
+
+          if( $slides ): ?>
+
+            <div class="indicators">
+
+              <?php foreach( $badges as $badge ): ?>
+
+                  <button type="button" class="image-badge" data-item="<?php echo $count; ?>"></button>
+
+              <?php $count++; endforeach; ?>
 
             </div>
 
@@ -70,6 +109,7 @@
         $sectionTitle = get_sub_field('section_title');
         $sectionContent = get_sub_field('section_content');
         $image = get_sub_field('image');
+        $lookingForward = get_sub_field('looking_forward');
 
         set_query_var('text_content', $sectionContent);
         set_query_var('image', $image);
@@ -91,6 +131,16 @@
             <div class="large-image">
 
               <?php get_template_part( 'template-parts/modules/image' ); ?>
+
+            </div>
+
+          <?php endif; ?>
+
+          <?php if( $lookingForward ): ?>
+
+            <div class="looking-forward">
+
+              <p><?php echo $lookingForward; ?></p>
 
             </div>
 
@@ -400,8 +450,10 @@
                       $textMarker = 'marker-two';
                     } elseif($count === 3) {
                       $textMarker = 'marker-three';
-                    } else {
+                    } elseif($count === 4) {
                       $textMarker = 'marker-four';
+                    } else {
+                      $textMarker = 'marker-five';
                     }
 
                     ?>
@@ -463,6 +515,7 @@
               <div class="marker marker-two" data-marker="marker-two"></div>
               <div class="marker marker-three" data-marker="marker-three"></div>
               <div class="marker marker-four" data-marker="marker-four"></div>
+              <div class="marker marker-five" data-marker="marker-five"></div>
 
             </div>
 
@@ -497,7 +550,7 @@
 
                 ?>
 
-                <div class="text-column batch-reveal">
+                <div class="text-column br-desktop">
 
                   <?php if( !empty( $headline ) ): ?>
 

@@ -36,6 +36,10 @@ body {
 	-webkit-tap-highlight-color: transparent;
 	-webkit-text-size-adjust: 100%;
 
+	&.menu-visible {
+		overflow: hidden;
+	}
+
   #wpadminbar {
     display: none;
   }
@@ -45,6 +49,10 @@ body {
       .layout-header {
         top: 2rem;
       }
+
+			.main-content {
+				margin-top: 8rem;
+			}
     }
 
     #wpadminbar {

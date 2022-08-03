@@ -1,17 +1,21 @@
-.form-wrapper {    
-    .wpcf7-form {
-        .wpcf7-form-control-wrap {
-            display: inline-block;
-            margin: 0;
+.section-contact {
+  display: none;
+}
 
-            .sentence-input {
-                display: inline-block;
-                margin: 0 .5rem;
-            }
-        }
+.form-wrapper {
+  .wpcf7-form {
+    .wpcf7-form-control-wrap {
+      display: inline-block;
+      margin: 0;
 
-        p, p > * {
-            display: inline;
-        }
+      .sentence-input {
+        display: inline-block;
+        margin: 0 .5rem;
+      }
     }
+
+    p, p > * {
+      display: inline;
+    }
+  }
 }

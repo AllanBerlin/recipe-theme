@@ -15,7 +15,7 @@ $textContent = array(
 
 ?>
 
-<div class="image-text" style="--block-color: <?php echo esc_attr( $backgroundColour ); ?>;">
+<div class="image-text left" style="--block-color: <?php echo esc_attr( $backgroundColour ); ?>;">
 
   <div class="layout-grid">
 

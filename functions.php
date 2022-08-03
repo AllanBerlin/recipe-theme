@@ -124,6 +124,12 @@ function recipe_scripts() {
 add_action( 'wp_enqueue_scripts', 'recipe_scripts' );
 
 
+
+/**
+ * Google Analytics and Tagging
+ */
+require get_template_directory() . '/inc/analytics.php';
+
 /**
  * ACF helpers.
  */

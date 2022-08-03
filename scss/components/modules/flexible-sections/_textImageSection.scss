@@ -5,4 +5,16 @@
     border-radius: 1rem;
     overflow: hidden;
   }
+
+  .looking-forward {
+    margin-top: 3.75rem;
+    grid-column: 1 / span var(--grid-amount);
+
+    p {
+      @include fluid-font(1.25rem, 1.5rem);
+
+      font-family: $serifFont;
+      line-height: 1.458;
+    }
+  }
 }

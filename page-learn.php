@@ -34,30 +34,30 @@ get_header(); ?>
 
         <div class="articles-list">
 
-          <?php $loop->the_post();
-
-          for ($x = 0; $x <= 30; $x++):
-            set_query_var('article_number', $x);
-
-            ?>
-
-            <?php get_template_part( 'template-parts/content', 'grid' ); ?>
-
-          <?php endfor; ?>
-
-<!--          --><?php //while ( $loop->have_posts() ) : $loop->the_post(); ?>
+<!--          --><?php //$loop->the_post();
+//
+//          for ($x = 0; $x <= 30; $x++):
+//            set_query_var('article_number', $x);
+//
+//            ?>
 <!---->
 <!--            --><?php //get_template_part( 'template-parts/content', 'grid' ); ?>
 <!---->
-<!--          --><?php //endwhile; ?>
+<!--          --><?php //endfor; ?>
+
+          <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+
+            <?php get_template_part( 'template-parts/content', 'grid' ); ?>
+
+          <?php endwhile; ?>
 
         </div>
 
-        <div class="button-wrapper">
-
-          <button type="button" class="button load-more" title="Load More">Load More</button>
-
-        </div>
+<!--        <div class="button-wrapper">-->
+<!---->
+<!--          <button type="button" class="button load-more" title="Load More">Load More</button>-->
+<!---->
+<!--        </div>-->
 
       </section>
 

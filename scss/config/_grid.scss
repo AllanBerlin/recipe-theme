@@ -5,9 +5,16 @@
   --grid-gutter: 1.25rem;
 }
 
-@include breakpoint(laptop) {
+@include breakpoint(tablet) {
   :root {
     --grid-amount: 12;
+    --grid-total-width: 43.75rem;
+    --grid-width: 2.5rem;
+  }
+}
+
+@include breakpoint(laptop) {
+  :root {
     --grid-total-width: 73.125rem;
     --grid-width: 4.375rem;
     --grid-gutter: 1.875rem;

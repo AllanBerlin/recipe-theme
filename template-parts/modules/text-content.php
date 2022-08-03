@@ -1,6 +1,9 @@
 <?php
 
 $textContent = get_query_var('text_content');
+$relatedImage = get_query_var('related_image');
+$relatedImageId = ( !empty( $relatedImage ) ) ? ' data-related-id="'. $relatedImage['id'] . '"' : '';
+$relatedImageClass = ( !empty( $relatedImage ) ) ? ' image-related' : '';
 
 ?>
 
@@ -11,7 +14,7 @@ $textContent = get_query_var('text_content');
 
   ?>
 
-  <div class="text-content">
+  <div class="text-content<?php echo $relatedImageClass; ?>"<?php echo $relatedImageId; ?>>
 
     <?php if( $headline ): ?>
 

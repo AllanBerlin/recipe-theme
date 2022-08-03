@@ -8,11 +8,12 @@
   }
 
   .image-wrapper {
+    margin-bottom: 1.25rem;
     border-radius: 0.75rem;
     overflow: hidden;
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     .list-row {
       align-items: center;
       margin-bottom: 1.875rem;
@@ -42,6 +43,7 @@
     .image-wrapper {
       grid-column: 8 / span 5;
       order: 1;
+      margin-bottom: 0;
 
       .image-container .image {
         padding-bottom: 100%;

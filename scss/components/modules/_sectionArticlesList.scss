@@ -19,7 +19,7 @@
     }
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     .button-wrapper {
       margin-top: 3.75rem;
     }

@@ -26,14 +26,18 @@
 
   .tags-list {
     position: absolute;
-    top: 50%;
-    transform: translateY(-86.5%);
+    top: 8.313rem;
     left: 1.875rem;
     z-index: 10;
   }
 
-  .image-container .image {
-    padding-bottom: 67.57%;
+  .image-container {
+    height: 9.438rem;
+
+    .image {
+      padding-bottom: 0;
+      height: 100%;
+    }
   }
 
   .entry-title {
@@ -45,8 +49,8 @@
   .entry-content {
     position: relative;
     background-color: $white;
-    min-height: 17.188rem;
-    padding: 2.25rem 1.875rem 1.875rem 1.875rem;
+    min-height: 12.563rem;
+    padding: 2.25rem 1.75rem 1.25rem 1.75rem;
   }
 
   .read-now {
@@ -54,7 +58,7 @@
 
     font-weight: 400;
     position: absolute;
-    bottom: 1.875rem;
+    bottom: 1.25rem;
     left: 1.875rem;
     display: block;
 
@@ -71,16 +75,40 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-color: transparent;
-      height: 2rem;
-      width: 5rem;
+      width: 2.688rem;
+      height: 1.125rem;
       will-change: transform;
     }
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
+    .image-container {
+      height: 15.625rem;
+    }
+
+    .tags-list {
+      top: 14.5rem;
+      left: 2.083vw;
+    }
+
     .entry-content {
       min-height: 17.188rem;
       padding: 2.25rem 1.875rem 1.875rem 1.875rem;
+    }
+
+    .read-now {
+      bottom: 1.875rem;
+
+      &:after {
+        height: 2rem;
+        width: 5rem;
+      }
+    }
+  }
+
+  @include breakpoint(laptop) {
+    .tags-list {
+      left: 1.875rem;
     }
   }
 }

@@ -1,36 +1,37 @@
 .section-related-articles {
+  background-color: #FCF4F4;
 
   .section-title {
     grid-column: 1 / span var(--grid-amount);
   }
 
   .article-item {
-    .image-container {
-      overflow: hidden;
-      border-radius: 0.75rem;
-
-      .image {
-        padding-bottom: 54.05%;
-      }
-    }
-
-    .entry-content {
-      min-height: 13.375rem;
-      padding: 1.875rem 0;
-    }
-
-    .read-now {
-      left: 0;
-    }
+    //.image-container {
+    //  overflow: hidden;
+    //  border-radius: 0.75rem;
+    //
+    //  .image {
+    //    padding-bottom: 54.05%;
+    //  }
+    //}
+    //
+    //.entry-content {
+    //  min-height: 13.375rem;
+    //  padding: 1.875rem 0;
+    //}
+    //
+    //.read-now {
+    //  left: 0;
+    //}
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     .articles-list .article-item {
       margin-bottom: 0;
 
-      .image-container .image {
-        padding-bottom: 54.05%;
-      }
+      //.image-container .image {
+      //  padding-bottom: 54.05%;
+      //}
     }
   }
 }

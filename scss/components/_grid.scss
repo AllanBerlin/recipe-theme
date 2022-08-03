@@ -1,6 +1,18 @@
 .layout-grid {
-  display: grid;
-  grid-template-columns: repeat(var(--grid-amount), var(--grid-width));
-  grid-column-gap: var(--grid-gutter);
-  justify-content: center;
+  padding-left: var(--grid-gutter);
+  padding-right: var(--grid-gutter);
+
+  .layout-grid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @include breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-amount), var(--grid-width));
+    grid-column-gap: var(--grid-gutter);
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

@@ -1,10 +1,8 @@
 .section-testimonials {
+  display: none;
 
-  .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column: 1 / span var(--grid-amount);
-    grid-column-gap: var(--grid-gutter);
+  .testimonial-item {
+    margin-bottom: 1.875rem;
   }
 
   .testimonial-image {
@@ -40,9 +38,12 @@
     font-family: $sansSerifFont;
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     .testimonial-grid {
-
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column: 1 / span var(--grid-amount);
+      grid-column-gap: var(--grid-gutter);
     }
 
     .testimonial-item {
@@ -54,8 +55,18 @@
     }
 
     .testimonial-image {
-      width: 4.375rem;
-      height: 4.375rem;
+      width: 6.25rem;
+      height: 6.25rem;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    .testimonial-item {
+      margin-bottom: 3.75rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
   }
 }

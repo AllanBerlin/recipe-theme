@@ -1,0 +1,43 @@
+.legal-content {
+  padding: 2.813rem 0;
+
+  .page-title {
+    padding: 0 var(--grid-gutter);
+    margin: 0 auto 3.125rem auto;
+  }
+
+  .legal-wrapper {
+    margin-bottom: 1.875rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .legal-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+
+  @include breakpoint(tablet) {
+    padding: 9.375rem 0;
+
+    .page-title {
+      width: var(--grid-total-width);
+      padding: 0;
+    }
+
+    .legal-wrapper {
+      margin-bottom: 3.125rem;
+    }
+
+    .legal-title {
+      grid-column: span 3;
+    }
+
+    .legal-text {
+      grid-column: span 9;
+    }
+  }
+}

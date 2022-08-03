@@ -13,7 +13,9 @@
 
     <?php if( $bodyText ):
       $textContent = get_sub_field('section_content');
+      $relatedImage = get_sub_field('related_image');
       set_query_var('text_content', $textContent);
+      set_query_var('related_image', $relatedImage);
 
       ?>
 

@@ -4,12 +4,19 @@
   }
 
   .text-content {
-    grid-column: 1 / span 8;
+    grid-column: 1 / span var(--grid-amount);
+    margin-bottom: 1.875rem;
+  }
+
+  @include breakpoint(tablet) {
+    .text-content {
+      margin-bottom: 3.75rem;
+    }
   }
 
   @include breakpoint(laptop) {
     .text-content {
-      margin-bottom: 3.75rem;
+      grid-column: 1 / span 8;
     }
   }
 }

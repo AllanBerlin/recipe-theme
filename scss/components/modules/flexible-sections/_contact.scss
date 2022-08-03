@@ -1,22 +1,35 @@
 .section-contact {
-
-  .form-wrapper {
-    grid-column: span 7;
-  }
-
   .image-wrapper {
-    grid-column: span 5;
-    border-width: 0.938rem;
-    border-style: solid;
-    border-radius: 0.75rem;
-    align-self: center;
-
-    .image-container .image {
-      padding-bottom: 100%;
-    }
+    display: none;
   }
 
   .wpcf7-submit {
     width: calc((var(--grid-width) * 4) + (var(--grid-gutter) * 3));
+  }
+
+  @include breakpoint(tablet) {
+    .form-wrapper {
+      grid-column: span 12;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    .form-wrapper {
+      grid-column: span 7;
+      padding-right: var(--grid-width);
+    }
+
+    .image-wrapper {
+      display: block;
+      grid-column: span 5;
+      border-width: 0.938rem;
+      border-style: solid;
+      border-radius: 0.75rem;
+      align-self: center;
+
+      .image-container .image {
+        padding-bottom: 100%;
+      }
+    }
   }
 }

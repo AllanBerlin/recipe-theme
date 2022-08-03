@@ -2,7 +2,7 @@
   position: relative;
   z-index: 2;
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     .image-container .image {
       padding-bottom: 47%;
     }

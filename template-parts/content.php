@@ -9,6 +9,21 @@
 
 $backgroundColour = get_field('recipe_background_colour');
 
+$relatedImages = array();
+
+if( have_rows('flexible_article_content') ) {
+  while( have_rows('flexible_article_content') ) { the_row();
+    $bodyText = get_row_layout() == 'body_text';
+
+    if( $bodyText ) {
+      $relatedImage = get_sub_field('related_image');
+      $relatedImages[] = $relatedImage;
+    }
+  }
+
+  set_query_var('related_images', $relatedImages);
+}
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('article-detail'); ?> style="background-color: <?php echo $backgroundColour; ?>;">
@@ -25,7 +40,7 @@ $backgroundColour = get_field('recipe_background_colour');
 
         if ( $image ): ?>
 
-          <?php get_template_part( 'template-parts/modules/image' ); ?>
+          <?php get_template_part( 'template-parts/post-content/article-image' ); ?>
 
         <?php endif; ?>
 
@@ -57,6 +72,8 @@ $backgroundColour = get_field('recipe_background_colour');
         <?php recipe_posted_on() ?><span class="separator"> | </span><?php recipe_article_reading_time(); ?>
 
       </div>
+
+      <?php echo recipe_social_sharing_buttons_mobile(); ?>
 
       <?php get_template_part( 'template-parts/post-content/flexible' ); ?>
 

@@ -11,12 +11,13 @@ const LazyLoad = parent => {
     window.addEventListener('load', lazyLoad);
     window.addEventListener('touchmove', lazyLoad);
     window.addEventListener('scroll', lazyLoad);
+    window.addEventListener('loadSlideImage', lazyLoad);
   }
 
   exports.currentImage = () => _image;
 
   function lazyLoad() {
-    if (isInViewport(parent)) {
+    if (isInViewport(parent) || parent.classList.contains('in-view')) {
       _image.addEventListener('load', onImageLoad);
 
       if (_image.tagName === 'IMG') {

@@ -27,21 +27,21 @@
 
   </footer><!-- .layout-footer -->
 
-  <div class="policy-popup">
-
-    <div class="layout-module">
-
-      <p class="privacy-text">
-        This website uses cookies to provide necessary site functionality
-        and improve user experience. If you close this box or continue browsing,
-        you agree to the use of cookies as outlined in <a href="/privacy-policy/" class="link" title="Recipe’s Privacy Policy">Recipe’s Privacy Policy.</a>
-      </p>
-
-    </div>
-
-    <button type="button" class="close" title="Close">&times;</button>
-
-  </div>
+<!--  <div class="policy-popup">-->
+<!---->
+<!--    <div class="layout-module">-->
+<!---->
+<!--      <p class="privacy-text">-->
+<!--        This website uses cookies to provide necessary site functionality-->
+<!--        and improve user experience. If you close this box or continue browsing,-->
+<!--        you agree to the use of cookies as outlined in <a href="/privacy-policy/" class="link" title="Recipe’s Privacy Policy">Recipe’s Privacy Policy.</a>-->
+<!--      </p>-->
+<!---->
+<!--    </div>-->
+<!---->
+<!--    <button type="button" class="close" title="Close">&times;</button>-->
+<!---->
+<!--  </div>-->
 
 
 <?php wp_footer(); ?>

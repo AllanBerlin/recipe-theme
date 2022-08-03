@@ -7,3 +7,10 @@
   opacity: 0;
   will-change: transform;
 }
+
+.br-desktop {
+  @include breakpoint(laptop) {
+    opacity: 0;
+    will-change: transform;
+  }
+}

@@ -34,7 +34,7 @@
     }
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     padding: 13.5em;
 
     .video-description {

@@ -94,7 +94,7 @@
     }
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     .slides {
       padding-bottom: 46.25%;
     }

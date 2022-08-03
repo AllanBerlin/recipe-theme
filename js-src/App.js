@@ -8,14 +8,27 @@ const App = (() => {
 
     const body = document.body;
     const header = document.querySelector('.layout-header');
+
+    const articleDetailPage = document.querySelector('.single .article-detail');
+
     const sectionArticlesList = document.querySelector('.section-articles-list');
     const sectionContact = document.querySelector('.section-contact');
     const policyPopup = document.querySelector('.policy-popup');
     const imageContainer = document.querySelectorAll('.image-container');
     const sliders = document.querySelectorAll('.slider');
+    const articlesSliders = document.querySelectorAll('.section-articles-slider');
     const scrollRevealElements = document.querySelectorAll('.reveal');
     const batchRevealElements = document.querySelectorAll('.batch-reveal');
+    const brDesktopElements = document.querySelectorAll('.br-desktop');
     const parallaxSectionList = document.querySelector('.section-parallax-list');
+
+    const windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    const windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+    const screenDimensions = {
+      width: windowWidth,
+      height: windowHeight
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
       gsap.registerPlugin(ScrollTrigger);
@@ -23,6 +36,15 @@ const App = (() => {
 
     if(header) {
       HeaderHandler(header, body);
+    }
+
+    if(body.classList.contains('single-post')) {
+      // Animate Scroll Progress Bar
+      window.addEventListener('scroll', scrollProgressBar);
+    }
+
+    if(articleDetailPage) {
+      ArticleDetailHandler(articleDetailPage);
     }
 
     if(sectionArticlesList) {
@@ -33,9 +55,9 @@ const App = (() => {
       ContactFormHandler(sectionContact);
     }
 
-    if(policyPopup) {
-      PrivacyPolicyHandler(policyPopup);
-    }
+    // if(policyPopup) {
+    //   PrivacyPolicyHandler(policyPopup);
+    // }
 
     if(imageContainer.length > 0) {
       for(i = 0; i < imageContainer.length; i++) {
@@ -57,8 +79,22 @@ const App = (() => {
       BatchRevealHandler(batchRevealElements);
     }
 
-    if(parallaxSectionList) {
-      ParallaxSectionHandler(parallaxSectionList);
+    if(windowWidth >= 1200) {
+      if(brDesktopElements.length > 0) {
+        BatchRevealHandler(brDesktopElements);
+      }
+    }
+
+    if(windowWidth > 768) {
+      if(parallaxSectionList) {
+        ParallaxSectionHandler(parallaxSectionList);
+      }
+
+      if(articlesSliders.length > 0) {
+        for(i = articlesSliders.length; i--;) {
+          CarouselSlider(articlesSliders[i]);
+        }
+      }
     }
 
     // call the helper to get exact viewport height, especially for mobile browsers
@@ -71,6 +107,14 @@ const App = (() => {
 
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+
+  const scrollProgressBar = () => {
+    let windowScroll = document.body.scrollTop || document.documentElement.scrollTop,
+        height = document.querySelector('.article-detail').clientHeight,
+        scrolled = (windowScroll / height) * 100;
+
+    document.querySelector('.scroll-progress').style.width = scrolled + '%';
   };
 
   init();

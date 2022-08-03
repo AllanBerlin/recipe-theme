@@ -1,7 +1,12 @@
 .share-buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 1.063rem;
+  display: none;
+  height: 2.188rem;
+
+  &.mobile {
+    display: grid;
+    grid-template-columns: 2.188rem 2.5rem 2.188rem 2.188rem;
+    grid-column-gap: 1.063rem;
+  }
 
   .share-button {
     min-width: auto;
@@ -19,8 +24,8 @@
       bottom: 0;
       left: 0;
       margin: auto;
-      height: 0.938rem;
-      width: 0.938rem;
+      height: 2.188rem;
+      width: 2.188rem;
       background-repeat: no-repeat;
       background-size: 100% auto;
       background-color: transparent;
@@ -34,7 +39,7 @@
     &.twitter:before {
       background-image: url('../images/twitter-share.svg');
       background-size: 100% auto;
-      width: 1.188rem;
+      width: 2.5rem;
     }
 
     &.linkedin:before {
@@ -42,15 +47,42 @@
       background-size: 100% auto;
     }
 
-    &.copy-article:before {
-      background-image: url('../images/copy-link.svg');
-      background-size: 100% auto;
-      width: 1.188rem;
-      height: 1.188rem;
+    &.copy-article {
+      padding: 0;
+      border: 0;
+      background-color: transparent;
+
+      &:before {
+        background-image: url('../images/copy-link.svg');
+        background-size: 100% auto;
+      }
+    }
+  }
+
+  @include breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: 2.188rem 2.5rem 2.188rem 2.188rem;
+    grid-column-gap: 1.063rem;
+
+    &.mobile {
+      display: none;
+    }
+
+    .share-button {
+      text-indent: -62.5rem;
+      overflow: hidden;
+      visibility: hidden;
+
+      &:before {
+        visibility: visible;
+      }
     }
   }
 
   @include breakpoint(laptop) {
+    grid-template-columns: repeat(4, 1fr);
+    height: auto;
+
     .share-button {
       @include hoverActiveFocus(background-color, #F6F5FA);
 
@@ -62,24 +94,39 @@
       font-size: 1.125rem;
       font-weight: 500;
       text-align: left;
+      text-indent: 0;
       min-height: 2.5rem;
       max-height: 2.5rem;
       line-height: 2.5rem;
       padding: 0 0 0 2.288rem;
+      visibility: visible;
 
       &:before {
         left: 0.938rem;
+        height: 0.938rem;
+        width: 0.938rem;
       }
 
       &.facebook:before {
         background-image: url('../images/facebook-share-desktop.svg');
         background-size: 100% auto;
+      }
 
+      &.twitter:before {
+        width: 1.188rem;
       }
 
       &.linkedin:before {
         background-image: url('../images/linkedin-share-desktop.svg');
         background-size: 100% auto;
+      }
+
+      &.copy-article {
+        @include hoverActiveFocus(background-color, #F6F5FA);
+
+        padding: 0 0 0 2.288rem;
+        border: 1px solid $dark-grey;
+        background-color: $white;
       }
     }
   }

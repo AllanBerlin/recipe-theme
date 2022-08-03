@@ -1,33 +1,115 @@
 .section-articles-slider {
   overflow: hidden;
 
-  .articles-list {
+  .indicators {
+    grid-column: span var(--grid-amount);
     flex-flow: row nowrap;
-    background-color: inherit;
-    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 2.75rem;
+    margin-top: 3.125rem;
+    display: none;
 
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: calc(-100% - (var(--grid-gutter) / 2));
-      width: 100%;
-      height: 100%;
-      background-color: inherit;
-      z-index: 5;
+    &.show {
+      display: flex;
     }
   }
 
-  @include breakpoint(laptop) {
-    .articles-list .article-item {
-      margin-bottom: 0;
+  .image-badge {
+    @include hoverActive(background-color, $grey);
 
-      &:nth-of-type(3n) {
-        margin-right: var(--grid-gutter);
+    min-width: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 0;
+    margin: 0 0.625rem 0 0;
+    padding: 0;
+    outline: 0;
+    border-radius: 50%;
+    background-color: #B2B2B2;
+    cursor: pointer;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &.active {
+      background-color: #000;
+    }
+  }
+
+  .articles-wrapper {
+    display: none;
+
+    &:first-of-type {
+      display: block;
+    }
+  }
+
+  .article-item {
+    margin-bottom: 3.125rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  @include breakpoint(tablet) {
+    .articles-slider {
+      display: flex;
+      justify-content: start;
+      flex-flow: row nowrap;
+      grid-column: span var(--grid-amount);
+      background-color: inherit;
+      position: relative;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: inherit;
+        z-index: 5;
       }
 
-      &:last-of-type {
-        margin-right: 0;
+      &:before {
+        left: calc(-100% - var(--grid-gutter));
+      }
+
+      &:after {
+        right: calc(-100% - var(--grid-gutter));
+      }
+    }
+
+    .articles-wrapper {
+      box-sizing: content-box;
+      display: flex;
+      justify-content: start;
+      flex-flow: row nowrap;
+      flex: 0 0 100%;
+      background-color: inherit;
+      position: relative;
+      padding-right: var(--grid-gutter);
+
+      &:first-of-type {
+        display: flex;
+      }
+
+      //&:last-of-type {
+      //  margin-right: 0;
+      //}
+
+      .article-item {
+        flex: 0 0 calc((var(--grid-width) * 4) + (var(--grid-gutter) * 3));
+        margin-right: var(--grid-gutter);
+        margin-bottom: 0;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
       }
     }
   }

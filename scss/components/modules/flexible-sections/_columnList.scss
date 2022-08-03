@@ -12,18 +12,40 @@
   }
 
   .heading {
-    font-size: 2.438rem;
+    @include fluid-font(1.5rem, 2.438rem);
+
     line-height: 1.2;
     font-weight: 500;
+    position: relative;
+    margin-bottom: 1.25rem;
+    padding-left: 1.25rem;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 0.625rem;
+      height: 1.063rem;
+      background-color: $blue;
+    }
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     .text-content {
       margin-bottom: 5.625rem;
     }
 
     .heading {
       grid-column: 1 / span 5;
+      margin-bottom: 0;
+      padding-left: 0;
+
+      &:before {
+        display: none;
+      }
     }
 
     .list-row {

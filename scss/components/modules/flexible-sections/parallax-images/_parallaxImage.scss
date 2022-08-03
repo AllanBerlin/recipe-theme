@@ -1,183 +1,244 @@
 .parallax-image {
-  position: absolute;
 
-  &.discovery-zoom-call {
-    top: 60vh;
-    top: calc(var(--vh, 1vh) * 60);
-    left: 0;
-  }
+  @include breakpoint(tablet) {
+    position: absolute;
 
-  &.discovery-doodle-message {
-    top: 60vh;
-    top: calc(var(--vh, 1vh) * 60);
-    left: 0;
-  }
+    &.discovery-zoom-call {
+      top: 60vh;
+      top: calc(var(--vh, 1vh) * 60);
+      left: 12.5%;
+      max-width: 33.875rem;
+      z-index: 5;
+    }
 
-  &.discovery-doodle-play {
-    top: 60vh;
-    top: calc(var(--vh, 1vh) * 60);
-    left: 0;
-  }
+    &.discovery-doodle-plane {
+      top: 87vh;
+      top: calc(var(--vh, 1vh) * 87);
+      left: 70%;
+    }
 
-  &.discovery-square-red {
-    top: 60vh;
-    top: calc(var(--vh, 1vh) * 60);
-    left: 0;
-  }
+    &.discovery-square-red {
+      top: 45vh;
+      top: calc(var(--vh, 1vh) * 45);
+      left: 8.5%;
+      height: 0.938rem;
+    }
 
-  &.discovery-doodle-lightbulb {
-    top: 60vh;
-    top: calc(var(--vh, 1vh) * 60);
-    left: 0;
-  }
+    &.discovery-doodle-lightbulb {
+      top: 39vh;
+      top: calc(var(--vh, 1vh) * 39);
+      left: 85%;
+      max-width: 6.25rem;
+      max-height: 6.75rem;
+    }
 
-  &.discovery-doodle-meeting {
-    top: 60vh;
-    top: calc(var(--vh, 1vh) * 60);
-    left: 0;
-  }
+    &.discovery-doodle-search {
+      top: 82vh;
+      top: calc(var(--vh, 1vh) * 82);
+      left: 6.6%;
+    }
 
-  &.discovery-doodle-search {
-    top: 60vh;
-    top: calc(var(--vh, 1vh) * 60);
-    left: 0;
-  }
+    &.discovery-circle-indigo {
+      top: 84vh;
+      top: calc(var(--vh, 1vh) * 84);
+      left: 91%;
+      max-width: .75rem;
+      max-height: .75rem;
+    }
 
-  &.planning-img-planning {
-    top: 155vh;
-    top: calc(var(--vh, 1vh) * 155);
-    left: 0;
-  }
+    &.planning-img-planning {
+      top: 147vh;
+      top: calc(var(--vh, 1vh) * 147);
+      left: 6.85%;
+      max-width: 27.063rem;
+      z-index: 4;
+    }
 
-  &.planning-img-asana {
-    top: 155vh;
-    top: calc(var(--vh, 1vh) * 155);
-    left: 0;
-  }
+    &.planning-img-asana {
+      top: 162vh;
+      top: calc(var(--vh, 1vh) * 162);
+      max-width: 27.563rem;
+      left: 34%;
+      z-index: 5;
+    }
 
-  &.planning-circle-indigo {
-    top: 155vh;
-    top: calc(var(--vh, 1vh) * 155);
-    left: 0;
-  }
+    &.planning-line-blue {
+      top: 132vh;
+      top: calc(var(--vh, 1vh) * 132);
+      left: 8.35%;
+    }
 
-  &.planning-line-blue {
-    top: 155vh;
-    top: calc(var(--vh, 1vh) * 155);
-    left: 0;
-  }
+    &.planning-doodle-notebook {
+      top: 201vh;
+      top: calc(var(--vh, 1vh) * 201);
+      left: 78%;
+      width: 5.088rem;
+    }
 
-  &.planning-doodle-notebook {
-    top: 155vh;
-    top: calc(var(--vh, 1vh) * 155);
-    left: 0;
-  }
+    &.planning-doodle-planning {
+      top: 197vh;
+      top: calc(var(--vh, 1vh) * 197);
+      left: 6.85%;
+    }
 
-  &.planning-doodle-planning {
-    top: 155vh;
-    top: calc(var(--vh, 1vh) * 155);
-    left: 0;
-  }
+    &.planning-doodle-strategy {
+      top: 145vh;
+      top: calc(var(--vh, 1vh) * 145);
+      left: 74.8%;
+    }
 
-  &.planning-doodle-strategy {
-    top: 155vh;
-    top: calc(var(--vh, 1vh) * 155);
-    left: 0;
-  }
+    &.creation-img-website {
+      top: 234vh;
+      top: calc(var(--vh, 1vh) * 234);
+      left: 26%;
+      max-width: 31.188rem;
+      z-index: 5;
+    }
 
-  &.creation-img-website {
-    top: 290vh;
-    top: calc(var(--vh, 1vh) * 290);
-    left: 0;
-  }
+    &.creation-doodle-wireframe {
+      top: 264vh;
+      top: calc(var(--vh, 1vh) * 264);
+      left: 9%;
+      max-width: 26.375rem;
+      z-index: 4;
+    }
 
-  &.creation-doodle-wireframe {
-    top: 290vh;
-    top: calc(var(--vh, 1vh) * 290);
-    left: 0;
-  }
+    &.creation-doodle-pencil {
+      top: 285vh;
+      top: calc(var(--vh, 1vh) * 285);
+      left: 78%;
+      max-height: 4.875rem;
+    }
 
-  &.creation-doodle-paint {
-    top: 290vh;
-    top: calc(var(--vh, 1vh) * 290);
-    left: 0;
-  }
+    &.creation-doodle-stars {
+      top: 238vh;
+      top: calc(var(--vh, 1vh) * 238);
+      left: 11.5%;
+      max-height: 7.375rem;
+    }
 
-  &.creation-doodle-pencil {
-    top: 290vh;
-    top: calc(var(--vh, 1vh) * 290);
-    left: 0;
-  }
+    &.creation-rectangle-green {
+      top: 224vh;
+      top: calc(var(--vh, 1vh) * 224);
+      left: 17%;
+      max-width: 1.25rem;
+      max-height: 1.25rem;
+    }
 
-  &.creation-doodle-stars {
-    top: 290vh;
-    top: calc(var(--vh, 1vh) * 290);
-    left: 0;
-  }
+    &.creation-rectangle-yellow {
+      top: 306vh;
+      top: calc(var(--vh, 1vh) * 306);
+      left: 72%;
+      max-width: 1.375rem;
+      max-height: 1.375rem;
+    }
 
-  &.creation-rectangle-green {
-    top: 290vh;
-    top: calc(var(--vh, 1vh) * 290);
-    left: 0;
-  }
+    &.assure-pexels-image {
+      top: 348vh;
+      top: calc(var(--vh, 1vh) * 348);
+      left: 23%;
+      max-height: 19.938rem;
+      z-index: 5;
+    }
 
-  &.creation-rectangle-yellow {
-    top: 290vh;
-    top: calc(var(--vh, 1vh) * 290);
-    left: 0;
-  }
+    &.assure-doodle-team {
+      top: 336vh;
+      top: calc(var(--vh, 1vh) * 336);
+      left: 12%;
+      max-width: 5.625rem;
+    }
 
-  &.controlling-circle-red {
-    top: 390vh;
-    top: calc(var(--vh, 1vh) * 390);
-    left: 0;
-  }
+    &.assure-circle-indigo {
+      top: 376vh;
+      top: calc(var(--vh, 1vh) * 376);
+      left: 12%;
+      max-height: 0.75rem;
+    }
 
-  &.controlling-doodle-spring {
-    top: 390vh;
-    top: calc(var(--vh, 1vh) * 390);
-    left: 0;
-  }
+    &.assure-rectangle-red {
+      top: 368vh;
+      top: calc(var(--vh, 1vh) * 368);
+      left: 96.7%;
+      max-height: 1.375rem;
+      max-width: 1.375rem;
+    }
 
-  &.controlling-doodle-internet {
-    top: 390vh;
-    top: calc(var(--vh, 1vh) * 390);
-    left: 0;
-  }
+    &.assure-doodle-planning {
+      top: 387vh;
+      top: calc(var(--vh, 1vh) * 387);
+      left: 84%;
+      max-height: 5.375rem;
+    }
 
-  &.controlling-doodle-wifi {
-    top: 390vh;
-    top: calc(var(--vh, 1vh) * 390);
-    left: 0;
-  }
+    &.controlling-circle-red {
+      top: 477vh;
+      top: calc(var(--vh, 1vh) * 477);
+      left: 82%;
+      max-height: 0.75rem;
+    }
 
-  &.controlling-linkedin-icon {
-    top: 390vh;
-    top: calc(var(--vh, 1vh) * 390);
-    left: 0;
-  }
+    &.controlling-arrow-screw {
+      top: 465vh;
+      top: calc(var(--vh, 1vh) * 465);
+      left: 93%;
+      max-height: 2.125rem;
+    }
 
-  &.controlling-instagram-icon {
-    top: 390vh;
-    top: calc(var(--vh, 1vh) * 390);
-    left: 0;
-  }
+    &.controlling-doodle-at {
+      top: 438vh;
+      top: calc(var(--vh, 1vh) * 438);
+      left: 82%;
+      max-height: 4.313rem;
+    }
 
-  &.controlling-mail-icon {
-    top: 390vh;
-    top: calc(var(--vh, 1vh) * 390);
-    left: 0;
-  }
+    &.controlling-doodle-internet {
+      top: 466vh;
+      top: calc(var(--vh, 1vh) * 466);
+      left: 19%;
+      max-height: 4.313rem;
+    }
 
-  &.controlling-youtube-icon {
-    top: 390vh;
-    top: calc(var(--vh, 1vh) * 390);
-    left: 0;
-  }
+    &.controlling-linkedin-icon {
+      top: 431vh;
+      top: calc(var(--vh, 1vh) * 431);
+      left: 56%;
+      max-height: 6.25rem;
+    }
 
-  &.controlling-wave-blue {
-    top: 390vh;
-    top: calc(var(--vh, 1vh) * 390);
-    left: 0;
+    &.controlling-instagram-icon {
+      top: 435vh;
+      top: calc(var(--vh, 1vh) * 435);
+      left: 33%;
+      max-height: 6.25rem;
+    }
+
+    &.controlling-google-icon {
+      top: 455vh;
+      top: calc(var(--vh, 1vh) * 455);
+      left: 64%;
+      max-height: 6.25rem;
+    }
+
+    &.controlling-mail-icon {
+      top: 459vh;
+      top: calc(var(--vh, 1vh) * 459);
+      left: 40%;
+      max-height: 6.25rem;
+    }
+
+    &.controlling-youtube-icon {
+      top: 483vh;
+      top: calc(var(--vh, 1vh) * 483);
+      left: 52%;
+      max-height: 6.25rem;
+    }
+
+    &.controlling-wave-blue {
+      top: 453vh;
+      top: calc(var(--vh, 1vh) * 453);
+      left: 21%;
+      max-width: 2.625rem;
+      max-height: 1.125rem;
+    }
   }
 }

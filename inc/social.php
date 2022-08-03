@@ -101,3 +101,37 @@ function recipe_social_sharing_buttons( $content = '' ) {
     return '';
   }
 }
+
+/**
+ * Social Share Buttons Mobile
+ *
+ * @param string $content
+ * @return string
+ */
+function recipe_social_sharing_buttons_mobile( $content = '' ) {
+  if ( is_single() ) {
+    // Get current page URL
+    $recipeURL = urlencode( get_permalink() );
+
+    // Get current page title
+    $recipeTitle = str_replace( ' ', '%20', get_the_title() );
+
+    // Construct sharing URL without using any script
+    $twitterURL = 'https://twitter.com/intent/tweet?text='.$recipeTitle.'&amp;url='.$recipeURL.'&amp;via=recipe';
+    $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$recipeURL;
+    $linkedInURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$recipeURL;
+    $copyURL = esc_url( get_permalink() );
+
+    // Add sharing button at the end of page/page content
+    $content .= '<div class="share-buttons mobile">';
+    $content .= '<a class="share-button facebook" href="'.$facebookURL.'" target="_blank" title="Share on Facebook"></a>';
+    $content .= '<a class="share-button twitter" href="'. $twitterURL .'" target="_blank" title="Tweet on Twitter"></a>';
+    $content .= '<a class="share-button linkedin" href="'.$linkedInURL.'" target="_blank" title="Share on LinkedIn"></a>';
+    $content .= '<button class="share-button copy-article" data-href="'.$copyURL.'" title="Copy Article"></button>';
+    $content .= '</div>';
+
+    return $content;
+  } else {
+    return '';
+  }
+}

@@ -25,7 +25,7 @@
     }
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     .image-container .image {
       padding-bottom: 46.25%;
     }

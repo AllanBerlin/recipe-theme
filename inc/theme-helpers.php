@@ -43,35 +43,21 @@ add_action('admin_init', 'recipe_collapse_admin_menu');
 
 
 /**
- * This function adds custom class to body on play overview page
+ * This function adds page name as class to body
  *
  * @param $classes
  * @return mixed
  */
-function recipe_play_body_class( $classes ) {
-  if ( is_page_template( 'page-play.php' ) ) {
-    $classes[] = 'page-play';
+function recipe_page_body_class( $classes ) {
+  global $post;
+
+  if ( isset( $post ) && is_page() ) {
+    $classes[] = 'page-' . $post->post_name;
   }
 
   return $classes;
 }
-add_filter( 'body_class','recipe_play_body_class' );
-
-
-/**
- * This function adds custom class to body on work overview page
- *
- * @param $classes
- * @return mixed
- */
-function recipe_work_body_class( $classes ) {
-  if ( is_front_page() ) {
-    $classes[] = 'page-work';
-  }
-
-  return $classes;
-}
-add_filter( 'body_class','recipe_work_body_class' );
+add_filter( 'body_class', 'recipe_page_body_class' );
 
 
 /**

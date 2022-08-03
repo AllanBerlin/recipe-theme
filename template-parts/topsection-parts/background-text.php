@@ -14,11 +14,11 @@ $opacity = get_query_var('opacity');
 
   ?>
 
-  <div class="background-text">
+  <div class="background-text" style="--mask-color: <?php echo esc_attr( $backgroundColour['label'] ); ?>">
 
     <?php if( !empty( $image ) ): ?>
 
-      <div class="mask" style="background-color: <?php echo esc_attr( $backgroundColour['label'] ); ?>"></div>
+      <div class="mask"></div>
 
       <div class="image-wrapper" style="--bg-opacity: <?php echo esc_attr( $opacity ); ?>;">
 

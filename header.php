@@ -75,27 +75,32 @@
 
     <div class="header-container">
 
-      <a href='<?php echo esc_url( home_url( '/' ) ); ?>' class="logo-link" title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
+      <div class="logo-wrapper">
 
-        <div class="logo-container">
+        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' class="logo-link" title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
 
-          <?php if ( get_theme_mod('custom_logo') ) :
-            $customLogoID = get_theme_mod( 'custom_logo' );
-            $image = wp_get_attachment_image_src( $customLogoID , 'full' );
+          <div class="logo-container">
 
-            ?>
+            <?php if ( get_theme_mod('custom_logo') ) :
+              $customLogoID = get_theme_mod( 'custom_logo' );
+              $image = wp_get_attachment_image_src( $customLogoID , 'full' );
 
-            <img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" class="logo" alt="<?php echo esc_attr( get_bloginfo('name', 'display') ); ?>" />
+              ?>
 
-          <?php else: ?>
+              <img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" class="logo" alt="<?php echo esc_attr( get_bloginfo('name', 'display') ); ?>" />
 
-            <span class="logo"><?php echo get_bloginfo('name'); ?></span>
+            <?php else: ?>
 
-          <?php endif; ?>
+              <span class="logo"><?php echo get_bloginfo('name'); ?></span>
 
-        </div>
+            <?php endif; ?>
 
-      </a>
+          </div>
+
+        </a>
+
+      </div>
+
 
       <nav class="main-navigation" role="navigation">
 
@@ -124,6 +129,21 @@
 
     </div>
 
+    <?php if( is_single() ): ?>
+
+      <div class="scroll-progress"></div>
+
+    <?php endif; ?>
+
   </header>
 
   <main class="main-content layout-body" role="main">
+
+    <?php if( !empty( get_field('clustered_icons') ) && count( get_field('clustered_icons') ) > 0 && is_page() ):
+      set_query_var( 'page_id', get_queried_object_id() );
+
+      ?>
+
+      <?php get_template_part( 'template-parts/modules/clustered-icons' ); ?>
+
+    <?php endif; ?>

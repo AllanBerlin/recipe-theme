@@ -1,8 +1,8 @@
 .breadcrumbs {
-  font-family: $serifFont;
-  font-size: 1.125rem;
+  @include fluid-font(0.875rem, 1.125rem);
 
-  .breadcrumb {
-    line-height: 2.056;
+  .breadcrumb,
+  .current {
+    line-height: 1.5;
   }
 }

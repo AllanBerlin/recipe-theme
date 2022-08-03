@@ -12,22 +12,26 @@
     border-radius: 0.75rem;
     border-width: 0.938rem;
     overflow: hidden;
-  }
-
-  .team-image,
-  .team-title {
     margin-bottom: 1.25rem;
+
+    .image-container .image {
+      padding-bottom: 100%;
+    }
   }
 
   .team-title {
-    @include fluid-font(1.125rem, 1.25rem);
+    margin-bottom: 0;
+  }
+
+  .team-title {
+    @include fluid-font(1.5rem, 1.75rem);
   }
 
   .team-description p {
     @include fluid-font(1rem, 1.25rem);
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     .team-grid {
       grid-template-columns: repeat(4, 1fr);
     }

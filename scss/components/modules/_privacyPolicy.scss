@@ -34,7 +34,7 @@
     }
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     .close {
       right: 1.25rem;
     }

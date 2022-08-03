@@ -3,10 +3,10 @@ const BatchRevealHandler = parent => {
   function init() {
     document.addEventListener('DOMContentLoaded', animateBatchElements);
 
-    gsap.defaults({ease: "power3"});
+    gsap.defaults({ease: 'power3'});
     gsap.set(parent, {y: 100});
 
-    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(parent, {y: 0}));
+    ScrollTrigger.addEventListener('refreshInit', () => gsap.set(parent, {y: 0}));
   }
 
   function animateBatchElements() {

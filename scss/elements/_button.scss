@@ -1,6 +1,6 @@
 a.button,
 .button,
-button:not(.share-button),
+button:not(.share-button,.menu-toggle),
 input[type="submit"] {
   @include hoverActive(background-color, transparent);
   @include hoverActive(color, $blue);
@@ -40,7 +40,7 @@ input[type="submit"] {
     border-color: transparent;
   }
 
-  @include breakpoint(laptop) {
+  @include breakpoint(tablet) {
     min-width: 10.625rem;
     border-radius: 0.75rem;
   }

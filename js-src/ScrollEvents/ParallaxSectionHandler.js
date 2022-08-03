@@ -3,11 +3,10 @@ const ParallaxSectionHandler = parent => {
       markerOne,
       markerTwo,
       markerThree,
-      markerFour;
+      markerFour,
+      markerFive;
 
   let textSections;
-
-  let lastContent;
 
   function init() {
     const markers = parent.querySelectorAll('.marker');
@@ -19,6 +18,7 @@ const ParallaxSectionHandler = parent => {
     markerTwo = parent.querySelector('.marker-two');
     markerThree = parent.querySelector('.marker-three');
     markerFour = parent.querySelector('.marker-four');
+    markerFive = parent.querySelector('.marker-five');
 
     document.addEventListener('DOMContentLoaded', () => {
       animateTextSections();
@@ -26,13 +26,14 @@ const ParallaxSectionHandler = parent => {
       animateSecondParallaxImages();
       animateThirdParallaxImages();
       animateFourthParallaxImages();
+      animateFifthParallaxImages();
     });
   }
 
   function animateTextSections() {
     ScrollTrigger.create({
       trigger: ".parallax-wrapper",
-      start: "-226",
+      start: "-166",
       end: "bottom bottom",
       onUpdate: getCurrentTextSection,
       pin: ".parallax-texts"
@@ -79,16 +80,7 @@ const ParallaxSectionHandler = parent => {
       },
     });
 
-    gsap.to('.discovery-doodle-message', {
-      yPercent: -100,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: markerOne,
-        scrub: true
-      },
-    });
-
-    gsap.to('.discovery-doodle-play', {
+    gsap.to('.discovery-doodle-plane', {
       yPercent: -100,
       ease: 'none',
       scrollTrigger: {
@@ -115,7 +107,7 @@ const ParallaxSectionHandler = parent => {
       },
     });
 
-    gsap.to('.discovery-doodle-meeting', {
+    gsap.to('.discovery-doodle-search', {
       yPercent: -100,
       ease: 'none',
       scrollTrigger: {
@@ -124,7 +116,7 @@ const ParallaxSectionHandler = parent => {
       },
     });
 
-    gsap.to('.discovery-doodle-search', {
+    gsap.to('.discovery-circle-indigo', {
       yPercent: -100,
       ease: 'none',
       scrollTrigger: {
@@ -153,15 +145,6 @@ const ParallaxSectionHandler = parent => {
       },
     });
 
-    gsap.to('.planning-circle-indigo', {
-      yPercent: -100,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: markerTwo,
-        scrub: true
-      },
-    });
-
     gsap.to('.planning-line-blue', {
       yPercent: -100,
       ease: 'none',
@@ -181,7 +164,7 @@ const ParallaxSectionHandler = parent => {
     });
 
     gsap.to('.planning-doodle-planning', {
-      yPercent: -100,
+      yPercent: -200,
       ease: 'none',
       scrollTrigger: {
         trigger: markerTwo,
@@ -190,7 +173,7 @@ const ParallaxSectionHandler = parent => {
     });
 
     gsap.to('.planning-doodle-strategy', {
-      yPercent: -100,
+      yPercent: -200,
       ease: 'none',
       scrollTrigger: {
         trigger: markerTwo,
@@ -201,7 +184,7 @@ const ParallaxSectionHandler = parent => {
 
   function animateThirdParallaxImages() {
     gsap.to('.creation-img-website', {
-      yPercent: -100,
+      yPercent: -20,
       ease: 'none',
       scrollTrigger: {
         trigger: markerThree,
@@ -210,16 +193,7 @@ const ParallaxSectionHandler = parent => {
     });
 
     gsap.to('.creation-doodle-wireframe', {
-      yPercent: -100,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: markerThree,
-        scrub: true
-      },
-    });
-
-    gsap.to('.creation-doodle-paint', {
-      yPercent: -100,
+      yPercent: -20,
       ease: 'none',
       scrollTrigger: {
         trigger: markerThree,
@@ -246,7 +220,7 @@ const ParallaxSectionHandler = parent => {
     });
 
     gsap.to('.creation-rectangle-green', {
-      yPercent: -100,
+      yPercent: -300,
       ease: 'none',
       scrollTrigger: {
         trigger: markerThree,
@@ -255,7 +229,7 @@ const ParallaxSectionHandler = parent => {
     });
 
     gsap.to('.creation-rectangle-yellow', {
-      yPercent: -100,
+      yPercent: -300,
       ease: 'none',
       scrollTrigger: {
         trigger: markerThree,
@@ -265,7 +239,7 @@ const ParallaxSectionHandler = parent => {
   }
 
   function animateFourthParallaxImages() {
-    gsap.to('.controlling-circle-red', {
+    gsap.to('.assure-pexels-image', {
       yPercent: -100,
       ease: 'none',
       scrollTrigger: {
@@ -274,56 +248,112 @@ const ParallaxSectionHandler = parent => {
       },
     });
 
-    gsap.to('.controlling-doodle-spring', {
+    gsap.to('.assure-doodle-team', {
       yPercent: -100,
       ease: 'none',
       scrollTrigger: {
         trigger: markerFour,
+        scrub: true
+      },
+    });
+
+    gsap.to('.assure-circle-indigo', {
+      yPercent: -100,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: markerFour,
+        scrub: true
+      },
+    });
+
+    gsap.to('.assure-rectangle-red', {
+      yPercent: -100,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: markerFour,
+        scrub: true
+      },
+    });
+
+    gsap.to('.assure-doodle-planning', {
+      yPercent: -100,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: markerFour,
+        scrub: true
+      },
+    });
+  }
+
+  function animateFifthParallaxImages() {
+    gsap.to('.controlling-circle-red', {
+      yPercent: -750,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: markerFive,
+        scrub: true
+      },
+    });
+
+    gsap.to('.controlling-arrow-screw', {
+      yPercent: -100,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: markerFive,
+        scrub: true
+      },
+    });
+
+    gsap.to('.controlling-doodle-at', {
+      yPercent: -30,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: markerFive,
         scrub: true
       },
     });
 
     gsap.to('.controlling-doodle-internet', {
-      yPercent: -100,
+      yPercent: -50,
       ease: 'none',
       scrollTrigger: {
-        trigger: markerFour,
-        scrub: true
-      },
-    });
-
-    gsap.to('.controlling-doodle-wifi', {
-      yPercent: -100,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: markerFour,
+        trigger: markerFive,
         scrub: true
       },
     });
 
     gsap.to('.controlling-linkedin-icon', {
-      yPercent: -100,
+      yPercent: -220,
       ease: 'none',
       scrollTrigger: {
-        trigger: markerFour,
+        trigger: markerFive,
         scrub: true
       },
     });
 
     gsap.to('.controlling-instagram-icon', {
-      yPercent: -100,
+      yPercent: -350,
       ease: 'none',
       scrollTrigger: {
-        trigger: markerFour,
+        trigger: markerFive,
+        scrub: true
+      },
+    });
+
+    gsap.to('.controlling-google-icon', {
+      yPercent: -200,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: markerFive,
         scrub: true
       },
     });
 
     gsap.to('.controlling-mail-icon', {
-      yPercent: -100,
+      yPercent: -400,
       ease: 'none',
       scrollTrigger: {
-        trigger: markerFour,
+        trigger: markerFive,
         scrub: true
       },
     });
@@ -332,7 +362,7 @@ const ParallaxSectionHandler = parent => {
       yPercent: -100,
       ease: 'none',
       scrollTrigger: {
-        trigger: markerFour,
+        trigger: markerFive,
         scrub: true
       },
     });
@@ -341,7 +371,7 @@ const ParallaxSectionHandler = parent => {
       yPercent: -100,
       ease: 'none',
       scrollTrigger: {
-        trigger: markerFour,
+        trigger: markerFive,
         scrub: true
       },
     });

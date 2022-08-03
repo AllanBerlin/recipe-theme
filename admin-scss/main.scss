@@ -34,7 +34,8 @@ $colors: ( recipe-purple, $purple ),
   ( recipe-light-mint-bg, $light-mint-bg ),
   ( recipe-yellow-bg, $yellow-bg );
 
-.wp-admin .acf-fields {
+.wp-admin .acf-fields,
+.wp-admin .form-table {
   .acf-field[data-name^="recipe_"] ul.acf-radio-list {
     display: flex;
     flex-wrap: wrap;

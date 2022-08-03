@@ -28,10 +28,7 @@ module.exports = function(grunt) {
 
     postcss: {
       options: {
-        map: false,
-        processors: [
-          require('autoprefixer')({browsers: 'last 10 versions'})
-        ]
+        map: false
       },
       frontend: {
         src: 'css/*.css'

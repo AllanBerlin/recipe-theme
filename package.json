@@ -1,5 +1,5 @@
 {
-  "name": "berlin",
+  "name": "recipe-theme",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
@@ -16,11 +16,11 @@
   "scripts": {
     "test": "grunt && sass compile"
   },
+  "browserslist": "> 5%, last 10 versions, not dead",
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "autoprefixer": "^7.2.1",
     "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
-    "node-sass": "^4.14.1"
+    "ts-node-dev": "^1.1.8"
   }
 }
